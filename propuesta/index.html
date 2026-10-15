@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Propuesta MANDO · Alianza tecnológica</title>
+<meta name="description" content="Propuesta de alianza: tu propia plataforma multi-negocio con tu marca y suscripciones mensuales. Dos opciones, beneficios y requisitos.">
+<meta property="og:title" content="Propuesta MANDO · Tu plataforma, tu marca, tus suscripciones">
+<meta property="og:description" content="Dos caminos para tener tu propia plataforma SaaS en Venezuela. Compara y elige.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Crect width='34' height='34' rx='9' fill='%2307120c'/%3E%3Cpath d='M9 24V11l8 8 8-8v13' fill='none' stroke='%23d9be86' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+:root{--bg:#07120c;--bg2:#0a1710;--panel:#0d1b13;--panel2:#12241a;--line:#22382a;--line2:#2c4634;--gold:#d9be86;--gold2:#f3e2b8;--olive:#8c9a55;--cream:#f2ebdd;--muted:#b5bfb0;--dim:#93a08f}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--cream);font-family:'Manrope',system-ui,sans-serif;font-size:17px;line-height:1.6;overflow-x:hidden}
+a{color:var(--gold)}a:hover{color:var(--gold2)}
+h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;line-height:1.05;margin:0}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+.eyebrow{margin:0 0 12px;color:var(--gold);font-weight:800;letter-spacing:.16em;font-size:13px;text-transform:uppercase}
+.h2{font-weight:800;font-size:clamp(30px,4.4vw,52px)}
+.lead{color:#c9d0c3;font-size:19px;max-width:680px}
+section{padding:88px 0}
+.band{background:var(--bg2);border-top:1px solid #1c3024;border-bottom:1px solid #1c3024}
+.gold{background:linear-gradient(100deg,#9c7b45 0%,#e9d3a1 38%,#c7a46a 55%,#f3e2b8 72%,#a8864f 100%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 6s linear infinite}
+@keyframes shimmer{to{background-position:220% 50%}}
+/* reveal */
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+.js .rv.d1{transition-delay:.12s}.js .rv.d2{transition-delay:.24s}.js .rv.d3{transition-delay:.36s}.js .rv.d4{transition-delay:.48s}
+/* nav */
+header{position:sticky;top:0;z-index:30;background:rgba(7,18,12,.86);backdrop-filter:blur(10px);border-bottom:1px solid #1c3024}
+nav{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;justify-content:space-between;padding:12px 22px;max-width:1160px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand b{font-family:'Bricolage Grotesque';font-weight:800;font-size:22px;letter-spacing:.06em}
+.navlinks{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:15px;font-weight:600}
+.navlinks a{color:#d6dccf;text-decoration:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:14px 26px;border-radius:999px;font-weight:800;text-decoration:none;transition:transform .2s,filter .2s,box-shadow .3s;font-size:16px;border:0;cursor:pointer;font-family:inherit}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.btn-gold{background:var(--gold);color:#07120c}.btn-gold:hover{color:#07120c}
+.btn-line{border:1px solid #3a5643;color:var(--cream);background:transparent}.btn-line:hover{color:var(--cream)}
+.pulse{animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(217,190,134,.0)}50%{box-shadow:0 0 50px 4px rgba(217,190,134,.32)}}
+/* hero */
+.hero{position:relative;padding:96px 0 80px;overflow:hidden}
+.orb{position:absolute;border-radius:50%;border:1px solid var(--line2);left:50%;top:50%;pointer-events:none}
+.orb.o1{width:560px;height:560px;margin:-280px 0 0 120px;animation:spin 40s linear infinite;border-style:dashed}
+.orb.o2{width:860px;height:860px;margin:-430px 0 0 -30px;animation:spin 70s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero h1{font-weight:800;font-size:clamp(42px,6.6vw,86px);letter-spacing:-.02em;max-width:980px}
+.word{display:inline-block;opacity:0;transform:translateY(40px) scale(.96);filter:blur(8px);animation:wordIn .9s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes wordIn{to{opacity:1;transform:none;filter:blur(0)}}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.chip{border:1px solid var(--line2);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:700;color:#d6dccf;background:rgba(13,27,19,.7)}
+/* statement */
+.statement{font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(30px,4.8vw,62px);line-height:1.08;text-align:center;max-width:1000px;margin:0 auto}
+.strike{position:relative;color:var(--dim)}
+.strike::after{content:"";position:absolute;left:0;top:55%;height:4px;width:0;background:var(--gold);transition:width 1s .5s cubic-bezier(.6,0,.2,1)}
+.in .strike::after{width:100%}
+/* flow */
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:40px;counter-reset:st}
+.step{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px;transition:border-color .4s,background .4s,transform .4s}
+.step.on{border-color:var(--gold);background:var(--panel2);transform:translateY(-4px)}
+.step .n{font-family:'Bricolage Grotesque';font-weight:800;font-size:13px;letter-spacing:.14em;color:var(--olive)}
+.step.on .n{color:var(--gold)}
+.step h3{font-size:19px;margin:6px 0 4px}
+.step p{margin:0;color:var(--muted);font-size:14.5px}
+/* why */
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:40px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:28px;transition:transform .3s,border-color .3s}
+.card:hover{transform:translateY(-4px);border-color:var(--gold)}
+.card h3{font-size:22px;margin:14px 0 8px}
+.card p{margin:0;color:var(--muted);font-size:15.5px}
+.ico{width:40px;height:40px}
+/* simulator */
+.sim{display:flex;flex-wrap:wrap;gap:28px;margin-top:40px}
+.sim-in{flex:1 1 340px;background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:28px}
+.sim-out{flex:2 1 520px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+label{display:block;font-weight:700;margin:0 0 6px}
+.val{font-family:'Bricolage Grotesque';font-weight:800;font-size:30px;color:var(--gold)}
+input[type=range]{width:100%;accent-color:#d9be86;height:32px;margin:4px 0 18px}
+input[type=number]{width:120px;background:#07120c;border:1px solid var(--line2);color:var(--cream);border-radius:10px;padding:10px;font:inherit}
+.out{background:var(--panel2);border:1px solid var(--line2);border-radius:22px;padding:26px}
+.out .big{font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(34px,4vw,48px);line-height:1.1}
+.out small{color:var(--dim);font-size:13.5px;display:block;margin-top:8px}
+/* pricing */
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;margin-top:44px;align-items:stretch}
+@property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
+.frame{position:relative;border-radius:28px;padding:2px;background:conic-gradient(from var(--ang),#2c4634 0deg,#d9be86 60deg,#2c4634 120deg,#2c4634 240deg,#8c9a55 300deg,#2c4634 360deg);animation:rot 6s linear infinite}
+.frame.b{animation-duration:8s;animation-direction:reverse}
+@keyframes rot{to{--ang:360deg}}
+.plan{height:100%;background:var(--panel);border-radius:26px;padding:32px;display:flex;flex-direction:column;gap:16px}
+.tag{align-self:flex-start;font-size:12px;font-weight:800;letter-spacing:.12em;padding:6px 12px;border-radius:999px;background:var(--gold);color:#07120c}
+.tag.alt{background:transparent;border:1px solid var(--gold);color:var(--gold)}
+.plan h3{font-size:28px}
+.ideal{color:#c9d0c3;margin:0;font-size:15.5px}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price .amt{font-family:'Bricolage Grotesque';font-weight:800;font-size:64px;line-height:1}
+.price .per{color:var(--dim);font-weight:600}
+.sub{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.sub div{border:1px solid var(--line2);border-radius:14px;padding:12px 14px}
+.sub b{display:block;font-family:'Bricolage Grotesque';font-size:22px}
+.sub span{font-size:13px;color:var(--dim)}
+.ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.ul li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px}
+.ul svg{flex:none;margin-top:3px}
+.ul li.minus{color:var(--dim)}
+.plan .btn{margin-top:auto}
+/* table */
+.tbl{overflow-x:auto;margin-top:36px;border:1px solid var(--line);border-radius:20px}
+table{width:100%;border-collapse:collapse;min-width:640px}
+th,td{padding:16px 18px;text-align:left;border-bottom:1px solid var(--line);font-size:15.5px;vertical-align:top}
+th{font-family:'Bricolage Grotesque';font-size:18px;background:var(--panel)}
+tr:last-child td{border-bottom:0}
+td:first-child{color:var(--muted);font-weight:700;width:30%}
+/* income */
+.inc{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:40px}
+.inc .card{padding:24px}
+.inc .card .k{font-family:'Bricolage Grotesque';font-weight:800;font-size:15px;color:var(--olive);letter-spacing:.1em}
+.badge{display:inline-block;margin-left:6px;font-size:11px;font-weight:800;letter-spacing:.08em;border:1px solid var(--gold);color:var(--gold);border-radius:999px;padding:2px 8px;vertical-align:middle}
+/* timeline */
+.tl{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:40px}
+.tl .card .num{font-family:'Bricolage Grotesque';font-weight:800;font-size:52px;line-height:1}
+/* checklist */
+.req{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;margin-top:40px}
+.req .card h3{font-size:20px;margin:0 0 12px;display:flex;gap:10px;align-items:center}
+.req .card h3 span{font-size:13px;color:#07120c;background:var(--gold);border-radius:999px;width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.ck{display:flex;gap:12px;align-items:flex-start;padding:7px 0;cursor:pointer;font-size:15px;color:#d6dccf}
+.ck input{appearance:none;-webkit-appearance:none;flex:none;width:22px;height:22px;margin:1px 0 0;border:1.6px solid var(--line2);border-radius:7px;background:#07120c;cursor:pointer;display:grid;place-content:center;transition:.2s}
+.ck input::after{content:"";width:10px;height:6px;border-left:2.4px solid #07120c;border-bottom:2.4px solid #07120c;transform:rotate(-45deg) translate(1px,-1px) scale(0);transition:.2s}
+.ck input:checked{background:var(--gold);border-color:var(--gold)}
+.ck input:checked::after{transform:rotate(-45deg) translate(1px,-1px) scale(1)}
+.ck input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.ck input:checked+span{color:var(--dim);text-decoration:line-through}
+.prog{position:sticky;top:76px;z-index:5;margin-top:26px;background:rgba(13,27,19,.92);border:1px solid var(--line2);border-radius:999px;padding:10px 16px;display:flex;gap:14px;align-items:center;backdrop-filter:blur(6px)}
+.bar{flex:1;height:8px;background:#1a2e21;border-radius:8px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--gold);border-radius:8px;transition:width .5s}
+/* terms */
+.terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:36px}
+.term{border-left:0;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px}
+.term b{display:block;font-size:17px;margin-bottom:4px}
+.term p{margin:0;color:var(--muted);font-size:15px}
+/* cta */
+.cta{position:relative;overflow:hidden;text-align:center;padding:120px 0}
+.ring{position:absolute;left:50%;top:50%;border-radius:50%;border:1px solid var(--line2);animation:ring 3.6s ease-out infinite}
+@keyframes ring{0%{width:120px;height:120px;margin:-60px 0 0 -60px;opacity:.9}100%{width:1100px;height:1100px;margin:-550px 0 0 -550px;opacity:0}}
+.ring.r2{animation-delay:1.2s}.ring.r3{animation-delay:2.4s}
+.ctabtns{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:36px}
+footer{border-top:1px solid #1c3024;background:#050d08}
+footer .wrap{padding-top:44px;padding-bottom:44px;display:flex;flex-wrap:wrap;gap:28px;align-items:center;justify-content:space-between}
+@media (max-width:560px){section{padding:68px 0}.price .amt{font-size:52px}.plan{padding:24px}}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}.word{opacity:1;transform:none;filter:none}.js .rv{opacity:1;transform:none}}
+</style>
+<script>document.documentElement.className='js'</script>
+</head>
+<body>
+
+<header>
+<nav>
+<a class="brand" href="#top">
+<svg width="32" height="32" viewBox="0 0 34 34" aria-hidden="true"><rect x="1" y="1" width="32" height="32" rx="9" fill="none" stroke="#d9be86" stroke-width="2"/><path d="M9 24V11l8 8 8-8v13" fill="none" stroke="#d9be86" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<b class="gold">MANDO</b></a>
+<div class="navlinks">
+<a href="#oportunidad">Oportunidad</a>
+<a href="#simulador">Simulador</a>
+<a href="#opciones">Opciones</a>
+<a href="#requisitos">Requisitos</a>
+<a href="../">Ver demo</a>
+</div>
+<a class="btn btn-gold" href="#empezamos">¿Empezamos?</a>
+</nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+<div class="orb o1"></div><div class="orb o2"></div>
+<div class="wrap" style="position:relative">
+<p class="eyebrow rv">Propuesta de alianza tecnológica · Octubre 2026</p>
+<h1 aria-label="Tus clientes ya confían en ti. Dales la plataforma que les falta.">
+<span class="word" style="animation-delay:.05s">Tus</span> <span class="word" style="animation-delay:.12s">clientes</span> <span class="word" style="animation-delay:.19s">ya</span> <span class="word" style="animation-delay:.26s">confían</span> <span class="word" style="animation-delay:.33s">en</span> <span class="word" style="animation-delay:.40s">ti.</span><br>
+<span class="word" style="animation-delay:.6s">Dales</span> <span class="word" style="animation-delay:.68s">la</span> <span class="word gold" style="animation-delay:.76s">plataforma</span> <span class="word" style="animation-delay:.84s">que</span> <span class="word" style="animation-delay:.92s">les</span> <span class="word" style="animation-delay:1s">falta.</span>
+</h1>
+<p class="lead rv d2" style="margin-top:28px">Una plataforma propia, con tu marca, que los comerciantes pagan cada mes. Tú pones la red de contactos y la visión. Yo pongo la tecnología, lista para vender en días.</p>
+<div class="rv d3" style="display:flex;flex-wrap:wrap;gap:14px;margin-top:34px">
+<a class="btn btn-gold pulse" href="#opciones">Ver las dos opciones</a>
+<a class="btn btn-line" href="../">
+<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="none" stroke="#d9be86" stroke-width="1.6"/><path d="M8 6.5v7l5.5-3.5z" fill="#d9be86"/></svg>Ver la demo y el video</a>
+</div>
+<div class="chips rv d4">
+<span class="chip">Multi-negocio y multi-nicho</span><span class="chip">Roles y usuarios por negocio</span><span class="chip">WhatsApp oficial</span><span class="chip">Pago móvil verificado</span><span class="chip">Bs / USD con tasa BCV</span><span class="chip">Diagnóstico rápido con IA</span><span class="chip">Funciona sin internet</span>
+</div>
+</div>
+</section>
+
+<!-- STATEMENT -->
+<section class="band" id="oportunidad">
+<div class="wrap">
+<p class="statement rv">Deja de vender proyectos que se cobran <span class="strike">una vez</span>.<br>Vende una plataforma que se cobra <span class="gold">todos los meses</span>.</p>
+<div class="grid3">
+<div class="card rv d1">
+<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#d9be86" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+<h3>Ingreso que se suma, no que se reinicia</h3>
+<p>Cada comercio que se suscribe se queda pagando mes a mes. El cliente número 50 se suma a los 49 anteriores; no empiezas de cero cada mes.</p></div>
+<div class="card rv d2">
+<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#d9be86" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+<h3>Ya tienes lo más difícil</h3>
+<p>La tecnología se construye en días. La confianza de los comerciantes y una tribuna en conferencias toman años, y tú ya las tienes.</p></div>
+<div class="card rv d3">
+<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#d9be86" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l3 6 6 .9-4.5 4.4 1 6.2L12 16.6 6.5 19.5l1-6.2L3 8.9 9 8z"/></svg>
+<h3>Quien llega primero, se queda</h3>
+<p>Los comerciantes están dejando el cuaderno ahora. El que les entregue su sistema primero, con su marca, se queda con esa relación por años.</p></div>
+</div>
+</div>
+</section>
+
+<!-- FLOW -->
+<section>
+<div class="wrap">
+<p class="eyebrow rv">Lo que tendrás en tus manos</p>
+<h2 class="h2 rv d1">Del primer mensaje del cliente al pago verificado. Sin papel, sin esperas.</h2>
+<p class="lead rv d2" style="margin-top:18px">Funciona igual para un taller, una estética, un contador o una bodega. Cada nicho con sus propios campos, preguntas y estados.</p>
+<div class="flow" id="flow">
+<div class="step rv"><div class="n">01</div><h3>Solicitud con fotos</h3><p>El cliente describe su problema y sube fotos desde su teléfono.</p></div>
+<div class="step rv d1"><div class="n">02</div><h3>Diagnóstico rápido</h3><p>La IA propone un diagnóstico preliminar; el negocio lo revisa y lo envía.</p></div>
+<div class="step rv d2"><div class="n">03</div><h3>Presupuesto al instante</h3><p>En dólares y bolívares a tasa BCV, sin consulta pagada ni días de espera.</p></div>
+<div class="step rv d3"><div class="n">04</div><h3>Agenda</h3><p>El cliente elige fecha y hora según la disponibilidad real del negocio.</p></div>
+<div class="step rv"><div class="n">05</div><h3>Seguimiento</h3><p>Cada cambio de estado le llega por WhatsApp. Cero llamadas de «¿y cómo va?».</p></div>
+<div class="step rv d1"><div class="n">06</div><h3>Pago verificado</h3><p>Paga con pago móvil y el sistema lo confirma con el banco al momento.</p></div>
+<div class="step rv d2"><div class="n">07</div><h3>Encuesta</h3><p>Satisfacción medida automáticamente después de cada servicio.</p></div>
+<div class="step rv d3"><div class="n">08</div><h3>Recordatorios</h3><p>Mantenimientos, pagos y promociones por WhatsApp para que el cliente vuelva.</p></div>
+</div>
+<div class="grid3" style="margin-top:20px">
+<div class="card rv"><h3 style="margin-top:0">Para cada negocio</h3><p>Su marca, sus usuarios con roles (5, 10 o los que defina su plan), búsqueda rápida y acceso desde cualquier dispositivo.</p></div>
+<div class="card rv d1"><h3 style="margin-top:0">Sin señal, sin problema</h3><p>Se registra, se consulta y se suben fotos sin internet; todo se sincroniza solo al volver la conexión.</p></div>
+<div class="card rv d2"><h3 style="margin-top:0">Para ti, el panel maestro</h3><p>Todos los negocios suscritos, sus planes, pagos y pruebas gratuitas en un solo lugar.</p></div>
+</div>
+</div>
+</section>
+
+<!-- SIMULATOR -->
+<section class="band" id="simulador">
+<div class="wrap">
+<p class="eyebrow rv">Haz tus números</p>
+<h2 class="h2 rv d1">¿Cuánto puede generar tu plataforma?</h2>
+<p class="lead rv d2" style="margin-top:18px">Mueve los controles con tus propios supuestos. Son cálculos de ejemplo, no promesas: el resultado depende de tu precio y de cuántos comercios sumes.</p>
+<div class="sim">
+<div class="sim-in rv">
+<label for="subs">Comercios suscritos</label>
+<div class="val" id="subsV">200</div>
+<input type="range" id="subs" min="10" max="1000" step="10" value="200">
+<label for="price">Precio de tu plan mensual (USD)</label>
+<div class="val" id="priceV">$20</div>
+<input type="range" id="price" min="5" max="100" step="1" value="20">
+<label for="infra">Opción B: costo estimado de plataformas al mes (USD)</label>
+<input type="number" id="infra" min="0" step="10" value="100">
+</div>
+<div class="sim-out">
+<div class="out rv d1">
+<p class="eyebrow" style="margin-bottom:6px">Opción A · Licencia</p>
+<div class="big gold" id="outA">$3.540</div>
+<div style="color:#c9d0c3">tu ingreso neto al mes</div>
+<small id="outAy">≈ $42.480 al año · ya descontado el 10% y el mantenimiento de $60</small>
+</div>
+<div class="out rv d2">
+<p class="eyebrow" style="margin-bottom:6px">Opción B · Código propio</p>
+<div class="big gold" id="outB">$3.900</div>
+<div style="color:#c9d0c3">tu ingreso neto al mes</div>
+<small id="outBy">≈ $46.800 al año · sin comisión; tú pagas plataformas y mantenimiento</small>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- OPTIONS -->
+<section id="opciones">
+<div class="wrap">
+<p class="eyebrow rv">Dos caminos, un mismo destino</p>
+<h2 class="h2 rv d1">Elige cómo quieres ser dueño de tu plataforma.</h2>
+<p class="lead rv d2" style="margin-top:18px">Las dos opciones incluyen la misma tecnología. La diferencia es quién la opera: yo por ti, o tú con el código completo en tus manos.</p>
+<div class="plans">
+
+<div class="frame rv">
+<div class="plan">
+<span class="tag">LANZA RÁPIDO · CERO EQUIPO TÉCNICO</span>
+<h3>Opción A · Licencia de marca blanca</h3>
+<p class="ideal">Ideal si quieres concentrarte en vender mientras yo me encargo de que todo funcione.</p>
+<div class="price"><span class="amt gold">$1.500</span><span class="per">pago único de desarrollo</span></div>
+<div class="sub">
+<div><b>$60</b><span>mantenimiento mensual*</span></div>
+<div><b>10%</b><span>por suscripción cobrada</span></div>
+</div>
+<ul class="ul">
+<li><svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="10" fill="none" stroke="#d9be86" stroke-width="1.6"/><path d="M6.5 11.5l3 3 6-6.5" fill="none" stroke="#d9be86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Plataforma a la medida con tu marca, tu dominio y la tecnología más actual</li>
+<li><svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="10" fill="none" stroke="#d9be86" stroke-width="1.6"/><path d="M6.5 11.5l3 3 6-6.5" fill="none" stroke="#d9be86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Comercios ilimitados, cada uno con sus usuarios y roles</li>
+<li><svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="10" fill="none" stroke="#d9be86" stroke-width="1.6"/><path d="M6.5 11.5l3 3 6-6.5" fill="none" stroke="#d9be86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Servidores, seguridad, respaldos y actualizaciones a mi cargo</li>
+<li><svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="10" fill="none" stroke="#d9be86" stroke-width="1.6"/><path d="M6.5 11.5l3 3 6-6.5" fill="none" stroke="#d9be86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Capacitación y videos de uso para ti y tus clientes</li>
+<li><svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="10" fill="none" stroke="#d9be86" stroke-width="1.6"/><path d="M6.5 11.5l3 3 6-6.5" fill="none" stroke="#d9be86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>El 90% de cada suscripción es tuyo. Yo gano solo cuando tú cobras</li>
+<li><svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="10" fill="none" stroke="#d9be86" stroke-width="1.6"/><path d="M6.5 11.5l3 3 6-6.5" fill="none" stroke="#d9be86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Funciones nuevas y escalabilidad: a convenir</li>
+</ul>
+<a class="btn btn-gold" href="https://wa.me/584221754245?text=Hola%20Daniela%2C%20%C2%BFempezamos%3F%20Quiero%20la%20Opci%C3%B3n%20A%3A%20Licencia%20de%20marca%20blanca%20MANDO." target="_blank" rel="noopener">¿Empezamos con la Opción A?</a>
+</div>
+</div>
+
+<div class="frame b rv d2">
+<div class="plan">
+<span class="tag alt">CONTROL TOTAL · 0% COMISIÓN</span>
+<h3>Opción B · Plataforma propia con código completo</h3>
+<p class="ideal">Ideal si tienes o tendrás equipo técnico y quieres el 100% de cada suscripción.</p>
+<div class="price"><span class="amt gold">$5.500</span><span class="per">en dos fases</span></div>
+<div class="sub">
+<div><b>$4.000</b><span>Fase 1 · plataforma funcional</span></div>
+<div><b>$1.500</b><span>Fase 2 · IA, sin internet, marketing</span></div>
+</div>
+<ul class="ul">
+<li><svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="10" fill="none" stroke="#d9be86" stroke-width="1.6"/><path d="M6.5 11.5l3 3 6-6.5" fill="none" stroke="#d9be86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Código fuente completo, entregado y desplegado en todas las plataformas necesarias</li>
+<li><svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="10" fill="none" stroke="#d9be86" stroke-width="1.6"/><path d="M6.5 11.5l3 3 6-6.5" fill="none" stroke="#d9be86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Sin comisiones: el 100% de cada suscripción es tuyo</li>
+<li><svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="10" fill="none" stroke="#d9be86" stroke-width="1.6"/><path d="M6.5 11.5l3 3 6-6.5" fill="none" stroke="#d9be86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Personalízala, amplíala y llévala a nuevos nichos a tu ritmo</li>
+<li><svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="10" fill="none" stroke="#d9be86" stroke-width="1.6"/><path d="M6.5 11.5l3 3 6-6.5" fill="none" stroke="#d9be86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Revéndela como SaaS o licénciala a otros revendedores</li>
+<li><svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="10" fill="none" stroke="#d9be86" stroke-width="1.6"/><path d="M6.5 11.5l3 3 6-6.5" fill="none" stroke="#d9be86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Un activo tecnológico que suma valor a tu empresa</li>
+<li class="minus"><svg width="20" height="20" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="10" fill="none" stroke="#93a08f" stroke-width="1.6"/><path d="M7 11h8" stroke="#93a08f" stroke-width="2" stroke-linecap="round"/></svg>Tú gestionas mantenimiento, ediciones, correcciones y el pago de las plataformas integradas</li>
+</ul>
+<a class="btn btn-gold" href="https://wa.me/584221754245?text=Hola%20Daniela%2C%20%C2%BFempezamos%3F%20Quiero%20la%20Opci%C3%B3n%20B%3A%20Plataforma%20propia%20con%20c%C3%B3digo%20completo." target="_blank" rel="noopener">¿Empezamos con la Opción B?</a>
+</div>
+</div>
+</div>
+<p class="rv" style="color:var(--dim);font-size:14px;margin-top:18px">*El mantenimiento de la Opción A tiene condiciones que se detallan en el contrato. En ambas opciones, los costos de terceros (mensajes de WhatsApp de Meta, comisiones bancarias, uso de IA y dominio) no están incluidos.</p>
+
+<!-- COMPARISON -->
+<div class="tbl rv">
+<table>
+<thead><tr><th scope="col">Compara</th><th scope="col">A · Licencia</th><th scope="col">B · Código propio</th></tr></thead>
+<tbody>
+<tr><td>Inversión inicial</td><td>$1.500</td><td>$5.500 en dos fases</td></tr>
+<tr><td>Ingreso por suscripción</td><td>90% para ti</td><td>100% para ti</td></tr>
+<tr><td>Costo mensual fijo</td><td>$60 de mantenimiento</td><td>Plataformas a tu cargo</td></tr>
+<tr><td>Código fuente</td><td>Lo opero yo por ti</td><td>Completo, en tus manos</td></tr>
+<tr><td>Servidores, seguridad y actualizaciones</td><td>Incluidos</td><td>Los gestionas tú</td></tr>
+<tr><td>Equipo técnico necesario</td><td>Ninguno</td><td>Recomendado</td></tr>
+<tr><td>Vender suscripciones con tu marca</td><td>Sí, ilimitadas</td><td>Sí, ilimitadas</td></tr>
+<tr><td>Licenciar la plataforma a otros</td><td>No</td><td>Sí</td></tr>
+<tr><td>Funciones nuevas</td><td>A convenir conmigo</td><td>Las desarrollas tú o las contratas</td></tr>
+</tbody>
+</table>
+</div>
+<p class="rv" style="color:var(--dim);font-size:14px;margin-top:14px">En la Opción B recibes el código completo con licencia perpetua para usarlo, modificarlo y comercializarlo. Daniela Silva conserva la autoría de su tecnología base y la libertad de seguir usándola en otros proyectos.</p>
+</div>
+</section>
+
+<!-- INCOME STREAMS -->
+<section class="band">
+<div class="wrap">
+<p class="eyebrow rv">Más de una fuente de ingreso</p>
+<h2 class="h2 rv d1">Una sola plataforma. Muchas formas de cobrar.</h2>
+<div class="inc">
+<div class="card rv"><div class="k">01</div><h3>Suscripciones mensuales</h3><p>Cada comercio paga su plan todos los meses. Es la base de un ingreso fijo que crece.</p></div>
+<div class="card rv d1"><div class="k">02</div><h3>Implementación por comercio</h3><p>Cobra la configuración, la carga de datos y la puesta en marcha de cada negocio nuevo.</p></div>
+<div class="card rv d2"><div class="k">03</div><h3>Nichos verticales</h3><p>Talleres, estéticas, contadores, bodegas: la misma base abre mercados distintos.</p></div>
+<div class="card rv"><div class="k">04</div><h3>Módulos premium</h3><p>IA, WhatsApp marketing y varias sucursales como extras de mayor valor.</p></div>
+<div class="card rv d1"><div class="k">05</div><h3>Capacitación y conferencias</h3><p>Llega a tus charlas con un producto propio que se puede ver funcionando. Esa es tu autoridad.</p></div>
+<div class="card rv d2"><div class="k">06</div><h3>Licencias a terceros <span class="badge">OPCIÓN B</span></h3><p>Con el código en tus manos, puedes licenciar la plataforma a otros revendedores.</p></div>
+</div>
+</div>
+</section>
+
+<!-- PROCESS -->
+<section>
+<div class="wrap">
+<p class="eyebrow rv">Cómo trabajamos</p>
+<h2 class="h2 rv d1">Primera versión funcional en 8 a 12 días.</h2>
+<div class="tl">
+<div class="card rv"><div class="num gold">01</div><h3>Contrato y pago</h3><p>Firmamos el contrato privado y se paga el monto acordado de la fase. Ese día arranca el reloj.</p></div>
+<div class="card rv d1"><div class="num gold">02</div><h3>Requisitos</h3><p>Me entregas la lista de abajo. Con todo completo, no hay pausas.</p></div>
+<div class="card rv d2"><div class="num gold">03</div><h3>Construcción</h3><p>Avances visibles durante la construcción, y tus aprobaciones en 24 a 48 horas.</p></div>
+<div class="card rv d3"><div class="num gold">04</div><h3>Entrega y capacitación</h3><p>Plataforma en línea, videos de uso y lista para tu primer cliente.</p></div>
+</div>
+</div>
+</section>
+
+<!-- REQUIREMENTS -->
+<section class="band" id="requisitos">
+<div class="wrap">
+<p class="eyebrow rv">Lo que necesito de ti</p>
+<h2 class="h2 rv d1">Tu lista para arrancar sin pausas.</h2>
+<p class="lead rv d2" style="margin-top:18px">Marca cada punto a medida que lo tengas listo. El plazo de entrega corre desde que la lista está completa.</p>
+<div class="prog" aria-live="polite"><strong id="pc">0 de 0</strong><div class="bar"><i id="pb"></i></div><span id="pt" style="font-size:14px;color:var(--dim)">listos</span></div>
+<div class="req">
+<div class="card rv"><h3><span>1</span>La idea</h3>
+<label class="ck"><input type="checkbox"><span>Nombre comercial de la plataforma</span></label>
+<label class="ck"><input type="checkbox"><span>Nichos con los que arrancamos (taller, estética, contable…)</span></label>
+<label class="ck"><input type="checkbox"><span>Flujo de cada nicho: qué pide el cliente y qué responde el negocio</span></label>
+<label class="ck"><input type="checkbox"><span>Preguntas del diagnóstico rápido por nicho</span></label>
+<label class="ck"><input type="checkbox"><span>Planes: precio mensual, usuarios por negocio y días de prueba gratis</span></label>
+<label class="ck"><input type="checkbox"><span>Servicios y precios base de referencia por nicho</span></label>
+</div>
+<div class="card rv d1"><h3><span>2</span>Marca</h3>
+<label class="ck"><input type="checkbox"><span>Logo en alta resolución (PNG o vectorial)</span></label>
+<label class="ck"><input type="checkbox"><span>Colores y tipografía de la marca</span></label>
+<label class="ck"><input type="checkbox"><span>Dominio (o lo registramos a tu nombre)</span></label>
+<label class="ck"><input type="checkbox"><span>Redes sociales y número de contacto público</span></label>
+</div>
+<div class="card rv d2"><h3><span>3</span>Empresa</h3>
+<label class="ck"><input type="checkbox"><span>Razón social y RIF</span></label>
+<label class="ck"><input type="checkbox"><span>Dirección fiscal</span></label>
+<label class="ck"><input type="checkbox"><span>Representante legal y su cédula</span></label>
+<label class="ck"><input type="checkbox"><span>Acta constitutiva (para contrato, Meta y bancos)</span></label>
+</div>
+<div class="card rv"><h3><span>4</span>WhatsApp · Meta</h3>
+<label class="ck"><input type="checkbox"><span>Cuenta de Meta Business con acceso de administrador</span></label>
+<label class="ck"><input type="checkbox"><span>Número exclusivo para la plataforma (sin WhatsApp activo)</span></label>
+<label class="ck"><input type="checkbox"><span>Método de pago registrado en Meta para los mensajes</span></label>
+<label class="ck"><input type="checkbox"><span>Documentos para la verificación de la empresa en Meta</span></label>
+</div>
+<div class="card rv d1"><h3><span>5</span>Cobros y pasarela</h3>
+<label class="ck"><input type="checkbox"><span>Cuenta bancaria jurídica para recibir pagos</span></label>
+<label class="ck"><input type="checkbox"><span>Banco(s) a integrar y solicitud de su API o afiliación de pago móvil comercio</span></label>
+<label class="ck"><input type="checkbox"><span>Datos de pago móvil y transferencias para mostrar al cliente</span></label>
+<label class="ck"><input type="checkbox"><span>Divisas: Binance, Zelle u otro, si aplica</span></label>
+</div>
+<div class="card rv d2"><h3><span>6</span>Plataformas <span class="badge" style="width:auto;height:auto;background:transparent;color:var(--gold);border:1px solid var(--gold);padding:2px 8px">OPCIÓN B</span></h3>
+<label class="ck"><input type="checkbox"><span>Cuentas a tu nombre: GitHub, Vercel, Supabase</span></label>
+<label class="ck"><input type="checkbox"><span>Cuenta del proveedor de IA con método de pago</span></label>
+<label class="ck"><input type="checkbox"><span>Acceso al DNS del dominio</span></label>
+</div>
+<div class="card rv"><h3><span>7</span>Legal y contenido</h3>
+<label class="ck"><input type="checkbox"><span>Términos y condiciones y política de privacidad</span></label>
+<label class="ck"><input type="checkbox"><span>Textos de bienvenida y mensajes automáticos</span></label>
+<label class="ck"><input type="checkbox"><span>Fotos o material de los negocios piloto, si los hay</span></label>
+</div>
+<div class="card rv d1"><h3><span>8</span>Comunicación</h3>
+<label class="ck"><input type="checkbox"><span>Una persona responsable de aprobar avances</span></label>
+<label class="ck"><input type="checkbox"><span>Compromiso de respuesta en 24 a 48 horas</span></label>
+<label class="ck"><input type="checkbox"><span>Negocios piloto para las primeras pruebas</span></label>
+</div>
+</div>
+</div>
+</section>
+
+<!-- TERMS -->
+<section>
+<div class="wrap">
+<p class="eyebrow rv">Condiciones claras</p>
+<h2 class="h2 rv d1">Reglas simples para trabajar bien.</h2>
+<div class="terms">
+<div class="term rv"><b>Contrato privado obligatorio</b><p>Todo trabajo se formaliza con un contrato privado antes de iniciar.</p></div>
+<div class="term rv d1"><b>Pago al iniciar</b><p>Cada trabajo o fase arranca con el pago completo del monto acordado.</p></div>
+<div class="term rv d2"><b>Plazo de entrega</b><p>8 a 12 días para la primera versión funcional, contados desde el pago y la entrega completa de los requisitos. El cronograma de fases queda en el contrato.</p></div>
+<div class="term rv"><b>Costos de terceros</b><p>Meta, bancos, IA, dominio y, en la Opción B, servidores, corren por cuenta del cliente.</p></div>
+<div class="term rv d1"><b>Cambios fuera del alcance</b><p>Funciones nuevas o cambios mayores se cotizan aparte y se acuerdan antes de hacerse.</p></div>
+<div class="term rv d2"><b>Tarifa de aliado</b><p>Precios preferenciales de alianza, válidos por 15 días desde el envío de esta propuesta.</p></div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta band" id="empezamos">
+<div class="ring"></div><div class="ring r2"></div><div class="ring r3"></div>
+<div class="wrap" style="position:relative">
+<p class="eyebrow rv">El siguiente paso</p>
+<h2 class="rv d1" style="font-weight:800;font-size:clamp(38px,6vw,76px)">La pregunta ya no es <span style="color:var(--dim)">si</span>.<br>Es <span class="gold">con cuál empezamos</span>.</h2>
+<p class="lead rv d2" style="margin:24px auto 0">Tus clientes ya tienen el problema. Tú tienes la red para llevarles la solución. En 8 a 12 días puedes estar mostrándola funcionando.</p>
+<div class="ctabtns rv d3">
+<a class="btn btn-gold pulse" style="font-size:19px;padding:18px 34px" href="https://wa.me/584221754245?text=Hola%20Daniela%2C%20%C2%BFempezamos%3F%20Vi%20la%20propuesta%20de%20MANDO%20y%20quiero%20avanzar." target="_blank" rel="noopener">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#07120c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"/></svg>¿Empezamos?</a>
+<a class="btn btn-line" href="https://wa.me/584269716765?text=Hola%20Daniela%2C%20tengo%20una%20pregunta%20sobre%20la%20propuesta%20de%20MANDO." target="_blank" rel="noopener">Tengo una pregunta</a>
+</div>
+<p class="rv d4" style="margin-top:22px;color:var(--dim);font-size:15px">WhatsApp: <a href="https://wa.me/584221754245">+58 422-175 4245</a> · <a href="https://wa.me/584269716765">+58 426-971 6765</a></p>
+</div>
+</section>
+
+<footer>
+<div class="wrap">
+<div style="display:flex;flex-direction:column;gap:10px">
+<span style="font-size:13px;color:var(--dim);letter-spacing:.12em;font-weight:700">PROPUESTA PREPARADA POR</span>
+<img src="../assets/logo-ds-light.png" alt="Daniela Silva · Estrategia Digital" width="240" style="height:auto">
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:10px 24px;font-weight:600;font-size:15px">
+<a href="https://www.instagram.com/danieladigital3.0/" style="text-decoration:none">Instagram @danieladigital3.0</a>
+<a href="https://www.tiktok.com/@danieladigital3.0" style="text-decoration:none">TikTok @danieladigital3.0</a>
+<a href="../" style="text-decoration:none">Demo de MANDO</a>
+</div>
+<p style="margin:0;width:100%;font-size:13px;color:#8f998b">Documento confidencial. Precios en USD, sujetos a contrato privado.</p>
+</div>
+</footer>
+
+<script>
+(function(){
+  // reveal on scroll
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.15});
+    els.forEach(function(el){io.observe(el);});
+  } else els.forEach(function(el){el.classList.add('in');});
+  // flow highlight loop
+  var steps=[].slice.call(document.querySelectorAll('#flow .step')),k=0;
+  setInterval(function(){steps.forEach(function(s,i){s.classList.toggle('on',i===k);});k=(k+1)%steps.length;},1400);
+  // simulator
+  var f=new Intl.NumberFormat('es-VE',{maximumFractionDigits:0});
+  var subs=document.getElementById('subs'),price=document.getElementById('price'),infra=document.getElementById('infra');
+  var cur={a:0,b:0};
+  function anim(id,from,to){var el=document.getElementById(id),t0=null;function st(t){if(!t0)t0=t;var p=Math.min((t-t0)/500,1),v=from+(to-from)*(1-Math.pow(1-p,3));el.textContent=(v<0?'-$':'$')+f.format(Math.abs(Math.round(v)));if(p<1)requestAnimationFrame(st);}requestAnimationFrame(st);}
+  function calc(){
+    var n=+subs.value,p=+price.value,c=Math.max(0,+infra.value||0),g=n*p;
+    document.getElementById('subsV').textContent=f.format(n);
+    document.getElementById('priceV').textContent='$'+p;
+    var a=g*0.9-60,b=g-c;
+    anim('outA',cur.a,a);anim('outB',cur.b,b);cur.a=a;cur.b=b;
+    document.getElementById('outAy').textContent='≈ $'+f.format(Math.round(a*12))+' al año · ya descontado el 10% y el mantenimiento de $60';
+    document.getElementById('outBy').textContent='≈ $'+f.format(Math.round(b*12))+' al año · sin comisión; tú pagas plataformas y mantenimiento';
+  }
+  [subs,price,infra].forEach(function(i){i.addEventListener('input',calc);});calc();
+  // checklist progress
+  var cks=[].slice.call(document.querySelectorAll('.ck input'));
+  function prog(){var d=cks.filter(function(c){return c.checked;}).length;document.getElementById('pc').textContent=d+' de '+cks.length;document.getElementById('pb').style.width=(d/cks.length*100)+'%';document.getElementById('pt').textContent=d===cks.length?'¡todo listo para arrancar!':'listos';}
+  cks.forEach(function(c){c.addEventListener('change',prog);});prog();
+})();
+</script>
+</body>
+</html>
