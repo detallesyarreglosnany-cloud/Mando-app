@@ -82,10 +82,18 @@
 	$('#carrusel').innerHTML = filas.map((f, i) => `
 		<div class="fila ${i ? 'der' : 'izq'}"><div class="pista">${f.map((s) => logo(s, false)).join('')}${f.map((s) => logo(s, true)).join('')}</div></div>`).join('');
 
+	// ---- Video promocional: botón grande de reproducir ----
+	const promo = $('#promo'), play = $('#promo-play');
+	if (promo && play) {
+		play.addEventListener('click', () => { promo.play(); });
+		promo.addEventListener('play', () => { play.hidden = true; });
+		promo.addEventListener('ended', () => { play.hidden = false; });
+	}
+
 	const quieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 	// ---- Aparición al hacer scroll ----
-	const revelar = document.querySelectorAll('.titulo, .intro, .tarjeta, .ponente, .panel, .linea li, .unete, .carrusel, details, .lugar .dos-col > *, .cierre .dos-col > *');
+	const revelar = document.querySelectorAll('.titulo, .intro, .promo-tel, .promo-texto, .tarjeta, .ponente, .panel, .linea li, .unete, .carrusel, details, .lugar .dos-col > *, .cierre .dos-col > *');
 	if (quieto || !('IntersectionObserver' in window)) revelar.forEach((el) => el.classList.add('visto'));
 	else {
 		const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('visto'); io.unobserve(e.target); } }), {threshold: 0.12});
