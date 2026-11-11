@@ -1,0 +1,16 @@
+{
+  "name": "promo-kickingball",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@remotion/cli": "4.0.532",
+    "remotion": "4.0.532",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "typescript": "5.9.3",
+    "@types/react": "19.2.7"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true
+  }
+}
