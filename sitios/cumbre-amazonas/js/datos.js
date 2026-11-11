@@ -51,7 +51,7 @@ const PONENTES = [
 		proyectos: ['KubIA Soluciones'],
 		entrega: 'Tu propia tienda virtual de prueba: sube tu logo, tus productos, precios, horario y WhatsApp, y mira cómo se vería tu negocio vendiendo las 24 horas.',
 		demo: 'demo.html', // demo interactivo en vivo
-		whatsapp: '', sitio: '', instagram: '',
+		whatsapp: 'https://wa.me/584221754245?text=Hola%20Daniela%2C%20te%20vi%20en%20la%20Cumbre', sitio: '', instagram: '',
 	},
 ];
 
