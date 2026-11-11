@@ -31,7 +31,7 @@
 		const lista = (titulo, items) => items && items.length ? `<h4>${titulo}</h4><ul>${items.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>` : '';
 		const enlaces = [
 			p.whatsapp && `<a class="btn btn-oro btn-chico" href="${esc(p.whatsapp)}" target="_blank" rel="noopener">WhatsApp</a>`,
-			p.sitio && `<a class="btn btn-linea-oscuro btn-chico" href="${esc(p.sitio)}" target="_blank" rel="noopener">Sitio web</a>`,
+			p.sitio && `<a class="btn btn-linea-oscuro btn-chico" href="${esc(p.sitio)}" target="_blank" rel="noopener">${esc(p.sitio.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, ''))}</a>`,
 			p.instagram && `<a class="btn btn-linea-oscuro btn-chico" href="${esc(p.instagram)}" target="_blank" rel="noopener">Instagram</a>`,
 			p.correo && `<a class="btn btn-linea-oscuro btn-chico" href="mailto:${esc(p.correo)}">Correo</a>`,
 		].filter(Boolean).join('');
@@ -47,7 +47,7 @@
 			${p.bio ? `<p>${esc(p.bio)}</p>` : '<p class="pendiente">Biografía en preparación.</p>'}
 			${lista('Experiencia', p.experiencia)}
 			${lista('Proyectos', p.proyectos)}
-			${p.entrega ? `<div class="entrega"><h4>🎁 Lo que te llevas de su ponencia</h4><p>${esc(p.entrega)}</p>${p.material && p.material.length ? `<ul>${p.material.map((m) => `<li>${esc(m)}</li>`).join('')}</ul>` : ''}${p.demo ? `<a class="btn btn-oro" href="${p.demo}">Pruébalo ahora</a>` : ''}</div>` : ''}
+			${p.entrega ? `<div class="entrega"><h4>🎁 Lo que te llevas de su ponencia</h4><p>${esc(p.entrega)}</p>${p.material && p.material.length ? `<ul>${p.material.map((m) => `<li>${esc(m)}</li>`).join('')}</ul>` : ''}${p.demo ? `<a class="btn btn-oro" href="${esc(p.demo)}" target="_blank" rel="noopener">Ver la demo</a>` : ''}</div>` : ''}
 			${enlaces ? `<div class="enlaces">${enlaces}</div>` : ''}`;
 		ficha.showModal();
 	};

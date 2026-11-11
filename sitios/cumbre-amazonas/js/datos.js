@@ -13,7 +13,7 @@ const PONENTES = [
 		resultado: 'Vende más',
 		area: 'Ventas y liderazgo',
 		foto: 'img/jose.webp',
-		bio: 'Su carrera va de la banca a la calle: gerenció una división bancaria durante cinco años y pasó otros diez en el área comercial, dominando merchandising, mercadeo y estrategias de ventas guiadas por indicadores (KPI). Esa experiencia lo llevó a emprender y a descubrir su vocación como formador. Desde 2007 se especializó en coaching empresarial, PNL e inteligencia emocional, y se certificó como Conferencista de Impacto (UNIMET–IESA) y como consultor empresarial (IEBS). Hoy acompaña a empresas a formar equipos que lideran, venden y atienden mejor. Un abridor de caminos para el emprendimiento en Amazonas.',
+		bio: 'Su carrera une dos mundos que pocos dominan a la vez, la gerencia y el terreno comercial: gerenció una división bancaria durante cinco años y pasó otros diez en el área comercial, dominando merchandising, mercadeo y estrategias de ventas guiadas por indicadores (KPI). Esa experiencia lo llevó a emprender y a descubrir su vocación como formador. Desde 2007 se especializó en coaching empresarial, PNL e inteligencia emocional, y se certificó como Conferencista de Impacto (UNIMET–IESA) y como consultor empresarial (IEBS). Hoy acompaña a empresas a formar equipos que lideran, venden y atienden mejor. Un abridor de caminos para el emprendimiento en Amazonas.',
 		experiencia: [
 			'Licenciado en Administración de Empresas (UNESR)',
 			'5 años en la gerencia de una división bancaria',
@@ -38,6 +38,9 @@ const PONENTES = [
 			'Plantillas FODA para tu empresa y para ti',
 			'Reto: Duplica tu productividad en 14 días',
 			'Guía de cross-selling y up-selling: vende más al mismo cliente',
+			'Evaluación empresarial: diagnostica tu negocio en 8 áreas clave',
+			'Formato de evaluación de desempeño por competencias para tu equipo',
+			'Guía de objetivos SMART: lo que no se mide no se puede mejorar',
 		],
 		whatsapp: 'https://wa.me/584267617944?text=Hola%20Jos%C3%A9%2C%20te%20vi%20en%20la%20Cumbre',
 		correo: 'multiempresariales.com@gmail.com',
@@ -89,13 +92,13 @@ const PONENTES = [
 		resultado: 'Vende 24/7',
 		area: 'Tu negocio digital',
 		foto: 'img/daniela.webp',
-		bio: '', // PENDIENTE
+		bio: 'Fundadora de KubIA Soluciones, crea herramientas digitales a la medida para negocios de Amazonas: tiendas virtuales que reciben pedidos por WhatsApp, sistemas administrativos y de inventario, y automatizaciones con inteligencia artificial. Su enfoque es práctico: tecnología que el dueño entiende y maneja desde su teléfono, pensada para cómo se trabaja aquí. En esta cumbre mostrará, en vivo, cómo un negocio local puede atender y recibir pedidos las 24 horas.',
 		experiencia: [],
-		proyectos: ['KubIA Soluciones'],
-		entrega: 'Tu propia tienda virtual de prueba en menos de un minuto: elige tu rubro, pon tu WhatsApp y hazte un pedido a ti mismo para ver cómo te llegan las ventas.',
+		proyectos: ['KubIA Soluciones: tiendas virtuales, sistemas administrativos y automatización con IA'],
+		entrega: 'Una demostración para hacer, no solo para ver: lleva tu teléfono a la ponencia.',
 		material: [],
-		demo: 'demo.html', // demo interactivo en vivo
-		whatsapp: 'https://wa.me/584221754245?text=Hola%20Daniela%2C%20te%20vi%20en%20la%20Cumbre', correo: '', sitio: '', instagram: '',
+		demo: '', // cuando Daniela pase la dirección exacta de la demo en kubiav.com, va aquí
+		whatsapp: 'https://wa.me/584221754245?text=Hola%20Daniela%2C%20te%20vi%20en%20la%20Cumbre', correo: 'kubiasoluciones@gmail.com', sitio: 'https://kubiav.com', instagram: '',
 	},
 ];
 
