@@ -2,87 +2,87 @@
 export const T = {
  "gancho": {
   "start": 0.0,
-  "dur": 14.843,
+  "dur": 15.719,
   "fases": [
    0.0,
-   5.517,
-   11.887
+   5.646,
+   12.334
   ]
  },
  "portada": {
-  "start": 14.843,
-  "dur": 7.253,
+  "start": 15.719,
+  "dur": 7.862,
   "fases": [
    0.0
   ]
  },
  "ponentes": [
   {
-   "start": 22.096,
-   "dur": 4.064,
+   "start": 23.581,
+   "dur": 4.391,
    "fases": [
     0.0
    ]
   },
   {
-   "start": 26.16,
-   "dur": 4.509,
+   "start": 27.972,
+   "dur": 5.114,
    "fases": [
     0.0
    ]
   },
   {
-   "start": 30.669,
-   "dur": 4.33,
+   "start": 33.086,
+   "dur": 5.066,
    "fases": [
     0.0
    ]
   },
   {
-   "start": 34.999,
-   "dur": 4,
+   "start": 38.152,
+   "dur": 5.367,
    "fases": [
     0.0
    ]
   }
  ],
  "panel": {
-  "start": 38.999,
-  "dur": 4.627,
+  "start": 43.519,
+  "dur": 4.656,
   "fases": [
    0.0
   ]
  },
  "patro": {
-  "start": 43.626,
+  "start": 48.175,
   "dur": 6.5,
   "fases": [
    0.0
   ]
  },
  "ben": {
-  "start": 50.126,
-  "dur": 20.88,
+  "start": 54.675,
+  "dur": 22.164,
   "fases": [
    0.0,
-   5.498,
-   10.259,
-   16.941
+   5.414,
+   10.365,
+   17.797
   ]
  },
  "paq": {
-  "start": 71.006,
+  "start": 76.839,
   "dur": 9,
   "fases": [
    0.0
   ]
  },
  "fin": {
-  "start": 80.006,
+  "start": 85.839,
   "dur": 9,
   "fases": [
    0.0
   ]
  },
- "total": 89.306
+ "total": 95.139
 } as const;
