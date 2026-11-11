@@ -19,9 +19,9 @@ const useFuentes = () => {
 
 const PONENTES = [
 	{nombre: 'JOSÉ RODRÍGUEZ', logro: 'Vende más', tema: 'Ventas y liderazgo', foto: 'img/jose-recorte.png'},
+	{nombre: 'TANIA ALZURU', logro: 'Que te elijan', tema: 'Neuromarketing y marca', foto: 'img/tania-recorte.png'},
 	{nombre: 'JUAN E. SIERRA', logro: 'Gana más', tema: 'Finanzas y ganancias', foto: 'img/juan-recorte.png'},
 	{nombre: 'DANIELA SILVA', logro: 'Vende 24/7', tema: 'Tu negocio digital', foto: 'img/daniela-recorte.png'},
-	{nombre: 'TANIA ALZURU', logro: 'Que te elijan', tema: 'Neuromarketing y marca', foto: 'img/tania-recorte.png'},
 ];
 const PUBLICO = ['Líderes con personal a su cargo', 'Dueños de comercio', 'Emprendedores con negocio en marcha', 'De marca personal a marca empresarial'];
 // Logos con dibujo oscuro → franja clara; logos con dibujo claro → franja azul noche
@@ -124,7 +124,7 @@ export const PendonFinal: React.FC = () => {
 				))}
 			</div>
 			{/* para quién */}
-			<AbsoluteFill style={{top: 1478, alignItems: 'center'}}>
+			<AbsoluteFill style={{top: 1472, alignItems: 'center'}}>
 				<div style={{display: 'flex', alignItems: 'center', gap: 16}}>
 					<span style={{fontFamily: F.texto, fontWeight: 900, fontSize: 28, letterSpacing: 5, color: C.oro}}>DISEÑADA PARA</span>
 					<span style={{fontFamily: F.texto, fontWeight: 700, fontSize: 26, color: C.gris}}>· + panel con experto tributario y asesor laboral</span>
@@ -133,32 +133,37 @@ export const PendonFinal: React.FC = () => {
 					{PUBLICO.map((t) => <div key={t} style={{fontFamily: F.texto, fontWeight: 800, fontSize: 27, color: '#FFFFFF', background: C.azul, padding: '7px 22px', borderRadius: 40}}>{t}</div>)}
 				</div>
 			</AbsoluteFill>
-			{/* tarjeta de compra */}
-			<div style={{position: 'absolute', left: M, right: M, top: 1640, height: 270, borderRadius: 30, background: C.marino, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 34px'}}>
-				<div style={{display: 'flex', flexDirection: 'column', gap: 10, fontFamily: F.texto, color: '#FFFFFF'}}>
+			{/* tarjeta de compra con urgencia */}
+			<div style={{position: 'absolute', left: M, right: M, top: 1660, height: 285, borderRadius: 30, background: C.marino, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '26px 34px 0'}}>
+				<div style={{display: 'flex', flexDirection: 'column', gap: 9, fontFamily: F.texto, color: '#FFFFFF'}}>
 					<div style={{lineHeight: 1}}><span style={{fontWeight: 700, fontSize: 26, color: C.celeste, letterSpacing: 3}}>VIERNES </span><span style={{fontWeight: 900, fontSize: 44}}>4 DE DICIEMBRE</span></div>
 					<div style={{lineHeight: 1}}><span style={{fontWeight: 700, fontSize: 26, color: C.celeste, letterSpacing: 3}}>DESDE LAS </span><span style={{fontWeight: 900, fontSize: 44}}>2:00 PM</span></div>
 					<div style={{lineHeight: 1}}><span style={{fontWeight: 900, fontSize: 40}}>Club Parapata</span><span style={{fontWeight: 700, fontSize: 28, color: C.celeste}}> · Puerto Ayacucho</span></div>
-					<div style={{fontWeight: 800, fontSize: 30, color: C.oro, marginTop: 4}}>Información: 0412-272-1986</div>
+					<div style={{marginTop: 6, fontWeight: 800, fontStyle: 'italic', fontSize: 31, color: C.oro, lineHeight: 1.2}}>Mientras lo piensas, tu competencia<br />aparta su lugar.</div>
 				</div>
 				<div style={{display: 'flex', alignItems: 'center', gap: 22}}>
 					<div style={{textAlign: 'right', fontFamily: F.texto}}>
 						<div style={{fontWeight: 900, fontSize: 46, color: C.oro, lineHeight: 1}}>ESCANEA</div>
 						<div style={{fontWeight: 900, fontSize: 30, color: '#FFFFFF', lineHeight: 1.15}}>Y COMPRA<br />TU ENTRADA</div>
-						<div style={{marginTop: 10, fontFamily: F.titulo, fontSize: 70, color: C.marino, background: C.oro, padding: '0 18px', borderRadius: 14, display: 'inline-block', lineHeight: 1.1}}>$50</div>
+						<div style={{marginTop: 8, fontFamily: F.titulo, fontSize: 66, color: C.marino, background: C.oro, padding: '0 18px', borderRadius: 14, display: 'inline-block', lineHeight: 1.1}}>$50</div>
+						<div style={{marginTop: 6, fontWeight: 800, fontSize: 24, color: C.celeste}}>Info: 0412-272-1986</div>
 					</div>
-					<QR tam={240} />
+					<QR tam={230} />
 				</div>
 			</div>
+			{/* cinta de escasez */}
+			<div style={{position: 'absolute', left: 0, right: 0, top: 1636, display: 'flex', justifyContent: 'center'}}>
+				<div style={{fontFamily: F.texto, fontWeight: 900, fontSize: 30, letterSpacing: 3, color: C.marino, background: C.oro, padding: '9px 34px', borderRadius: 40, boxShadow: '0 6px 16px rgba(7,26,74,0.35)', border: '4px solid #FFFFFF'}}>AFORO LIMITADO · TU LUGAR SE CONFIRMA AL PAGAR</div>
+			</div>
 			{/* patrocinadores oficiales */}
-			<div style={{position: 'absolute', left: M, right: M, top: 1935, bottom: M, display: 'flex', flexDirection: 'column', gap: 12}}>
+			<div style={{position: 'absolute', left: M, right: M, top: 1958, bottom: M, display: 'flex', flexDirection: 'column', gap: 12}}>
 				<div style={{display: 'flex', alignItems: 'center', gap: 18}}>
 					<div style={{flex: 1, height: 3, background: `${C.marino}33`}} />
 					<div style={{fontFamily: F.texto, fontWeight: 900, fontSize: 28, letterSpacing: 6, color: C.marino}}>PATROCINADORES OFICIALES</div>
 					<div style={{flex: 1, height: 3, background: `${C.marino}33`}} />
 				</div>
-				<Franja ids={CLAROS} oscura={false} alto={166} />
-				<Franja ids={OSCUROS} oscura alto={166} />
+				<Franja ids={CLAROS} oscura={false} alto={156} />
+				<Franja ids={OSCUROS} oscura alto={156} />
 			</div>
 		</AbsoluteFill>
 	);
