@@ -3,7 +3,7 @@
 // Campos vacíos ('') no se muestran: así se puede publicar aunque falte algo.
 // =====================================================================
 
-const WHATSAPP_EVENTO = 'https://wa.link/8e9pr6';
+const WHATSAPP_EVENTO = 'https://wa.me/584267617944?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20la%20Cumbre%20Amazonas%202026';
 
 const PONENTES = [
 	{

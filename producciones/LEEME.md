@@ -43,4 +43,4 @@ Composiciones principales:
 
 - Los efectos de sonido son sintetizados (sin derechos de terceros) y **no usan ruido**: nada suena a "radio sin señal".
 - Los recortes de los ponentes se hicieron con BiRefNet (licencia MIT).
-- Contacto de la cumbre: wa.link/8e9pr6 · 0412-272-1986.
+- Contacto de la cumbre: WhatsApp 0426-761-7944 (wa.me/584267617944). El número anterior quedó eliminado de todo el material.

@@ -162,7 +162,7 @@ export const PendonFinal: React.FC = () => {
 						<div style={{fontWeight: 900, fontSize: 48, color: C.oro, lineHeight: 1}}>ESCANEA</div>
 						<div style={{fontWeight: 900, fontSize: 31, color: '#FFFFFF', lineHeight: 1.15}}>Y ASEGURA<br />TU LUGAR</div>
 						<div style={{marginTop: 10, fontWeight: 800, fontSize: 25, color: '#FFFFFF'}}>50$ a BCV</div>
-						<div style={{fontWeight: 800, fontSize: 25, color: C.celeste}}>Info: 0412-272-1986</div>
+						<div style={{fontWeight: 800, fontSize: 25, color: C.celeste}}>Info: 0426-761-7944</div>
 					</div>
 					<QR tam={200} />
 				</div>

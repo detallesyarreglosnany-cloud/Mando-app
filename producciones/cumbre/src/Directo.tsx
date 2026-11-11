@@ -269,7 +269,7 @@ const Llamado: React.FC = () => {
 					<Img src={staticFile('img/qr.png')} style={{width: 230, height: 230, borderRadius: 16, border: `8px solid ${C.blanco}`}} />
 					<div style={{fontFamily: F.texto, color: C.blanco, lineHeight: 1.35}}>
 						<div style={{fontWeight: 700, fontSize: 30, color: C.celeste}}>Escríbenos por WhatsApp</div>
-						<div style={{fontWeight: 900, fontSize: 52, color: C.oro}}>wa.link/8e9pr6</div>
+						<div style={{fontWeight: 900, fontSize: 52, color: C.oro}}>0426-761-7944</div>
 					</div>
 				</div>
 				<div style={{marginTop: 60, fontFamily: F.texto, fontWeight: 800, fontSize: 34, color: C.blanco, textAlign: 'center', lineHeight: 1.4, opacity: entra(f, 32, 6)}}>

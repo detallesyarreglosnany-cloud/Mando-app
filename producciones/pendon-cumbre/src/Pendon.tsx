@@ -119,7 +119,7 @@ export const PendonA: React.FC = () => {
 						<div style={{fontWeight: 900, fontSize: 54, color: C.oro, lineHeight: 1}}>ESCANEA</div>
 						<div style={{fontWeight: 900, fontSize: 40, color: C.blanco, lineHeight: 1.15}}>Y COMPRA<br />TU ENTRADA</div>
 						<div style={{marginTop: 12, fontWeight: 900, fontSize: 46, color: C.marino, background: C.oro, padding: '4px 18px', borderRadius: 14, display: 'inline-block'}}>$50</div>
-						<div style={{marginTop: 10, fontWeight: 700, fontSize: 28, color: C.celeste}}>0412-272-1986</div>
+						<div style={{marginTop: 10, fontWeight: 700, fontSize: 28, color: C.celeste}}>0426-761-7944</div>
 					</div>
 					<QR tam={320} />
 				</div>
@@ -171,7 +171,7 @@ export const PendonB: React.FC = () => {
 				<div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', fontFamily: F.texto}}>
 					<div style={{fontWeight: 700, fontSize: 28, color: C.celeste, letterSpacing: 3}}>ENTRADA</div>
 					<div style={{fontFamily: F.titulo, fontSize: 150, color: C.oro, lineHeight: 1}}>$50</div>
-					<div style={{fontWeight: 700, fontSize: 28, color: C.blanco}}>0412-272-1986</div>
+					<div style={{fontWeight: 700, fontSize: 28, color: C.blanco}}>0426-761-7944</div>
 				</div>
 			</div>
 			<div style={{position: 'absolute', left: M, right: M, bottom: M}}><Logos alto={250} /></div>
@@ -219,7 +219,7 @@ export const PendonC: React.FC = () => {
 					<div style={{fontFamily: F.texto, fontWeight: 700, fontSize: 36, color: C.tinta}}>Club Parapata · Puerto Ayacucho</div>
 					<div style={{display: 'flex', alignItems: 'center', gap: 20, marginTop: 6}}>
 						<div style={{fontFamily: F.titulo, fontSize: 92, color: C.marino, background: C.oro, padding: '0 26px', borderRadius: 18, lineHeight: 1.15}}>$50</div>
-						<div style={{fontFamily: F.texto, fontWeight: 800, fontSize: 32, color: C.azul, lineHeight: 1.2}}>Escríbenos:<br />0412-272-1986</div>
+						<div style={{fontFamily: F.texto, fontWeight: 800, fontSize: 32, color: C.azul, lineHeight: 1.2}}>Escríbenos:<br />0426-761-7944</div>
 					</div>
 				</div>
 				<div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10}}>

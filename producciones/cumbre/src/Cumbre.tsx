@@ -224,7 +224,7 @@ const TarjetaFinal: React.FC<{f: number; boton: string; children: React.ReactNod
 			<div style={{display: 'flex', alignItems: 'center', gap: 26, marginTop: 26, opacity: entra(f, 30, 6)}}>
 				<Img src={staticFile('img/qr.png')} style={{width: 170, height: 170, borderRadius: 14, border: `6px solid ${C.blanco}`}} />
 				<div style={{fontFamily: F.texto, color: C.blanco, lineHeight: 1.3}}>
-					<div style={{fontWeight: 900, fontSize: 40, color: C.oro}}>wa.link/8e9pr6</div>
+					<div style={{fontWeight: 900, fontSize: 40, color: C.oro}}>0426-761-7944</div>
 					<div style={{fontWeight: 700, fontSize: 30}}>Viernes 4 de diciembre</div>
 					<div style={{fontWeight: 700, fontSize: 30}}>Club Parapata · Puerto Ayacucho</div>
 				</div>
