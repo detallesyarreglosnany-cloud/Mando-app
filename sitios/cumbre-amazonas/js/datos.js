@@ -92,9 +92,9 @@ const PONENTES = [
 		resultado: 'Vende 24/7',
 		area: 'Tu negocio digital',
 		foto: 'img/daniela.webp',
-		bio: 'Fundadora de KubIA Soluciones, crea herramientas digitales a la medida para negocios de Amazonas: tiendas virtuales que reciben pedidos por WhatsApp, sistemas administrativos y de inventario, y automatizaciones con inteligencia artificial. Su enfoque es práctico: tecnología que el dueño entiende y maneja desde su teléfono, pensada para cómo se trabaja aquí. En esta cumbre mostrará, en vivo, cómo un negocio local puede atender y recibir pedidos las 24 horas.',
+		bio: 'Fundadora de KubIA Soluciones, crea plataformas de venta a la medida: tu tienda virtual recibe el pedido y lo lleva directo a tu sistema, donde controlas ventas, finanzas y crédito, y le das seguimiento a cada cliente para que regrese. Pensadas para nuestra realidad: si se va el internet, siguen funcionando y sincronizan todo cuando vuelve la señal. Tecnología creada en el Amazonas, para el mundo. En esta cumbre mostrará, en vivo, cómo un negocio local puede vender las 24 horas.',
 		experiencia: [],
-		proyectos: ['KubIA Soluciones: tiendas virtuales, sistemas administrativos y automatización con IA'],
+		proyectos: ['KubIA Soluciones: plataformas de venta con tienda virtual, control de ventas, finanzas y crédito, seguimiento de clientes y trabajo sin internet'],
 		entrega: 'Una demostración para hacer, no solo para ver: lleva tu teléfono a la ponencia.',
 		material: [],
 		demo: '', // cuando Daniela pase la dirección exacta de la demo en kubiav.com, va aquí
@@ -116,25 +116,26 @@ const PROGRAMA = [
 	{hora: '9:00 PM', titulo: 'Cierre y networking', tipo: 'logistica'},
 ];
 
-// Patrocinadores: 'claro' = logo con dibujo oscuro (va sobre fondo claro); 'oscuro' = logo con dibujo claro
+// Patrocinadores, en dos filas animadas. Todos van sobre fondo claro: los logos de dibujo
+// claro usan su versión '-web' (dibujo oscurecido), sin tocar el archivo original del pendón.
+// Para enlazar un logo a su Instagram o WhatsApp: , enlace: 'https://instagram.com/...'
 const PATROCINADORES = [
-	{logo: 'logo3', nombre: 'Ferreconi', fondo: 'claro'},
-	{logo: 'logo4', nombre: 'Orthosmile', fondo: 'claro'},
-	{logo: 'logo6', nombre: 'Inversiones Navas Maldonado', fondo: 'claro'},
-	{logo: 'logo8', nombre: 'Tecnoama', fondo: 'claro'},
-	{logo: 'logo9', nombre: 'Abasto y Panadería Jesús de Nazareth', fondo: 'claro'},
-	{logo: 'logo12', nombre: 'MultiEmpresariales.com', fondo: 'claro', enlace: 'https://wa.me/584267617944?text=Hola%2C%20te%20vi%20en%20la%20Cumbre'},
-	{logo: 'logo14', nombre: 'Farma-Descuento Ayacucho Plus', fondo: 'claro'},
-	{logo: 'logo16', nombre: 'Marco Repuestos', fondo: 'claro'},
-	{logo: 'logo1', nombre: 'Perfumes Factory', fondo: 'oscuro'},
-	{logo: 'logo2', nombre: 'Distribuidora de Suministros Puerto Venado', fondo: 'oscuro'},
-	{logo: 'logo5', nombre: 'Moto Repuestos Daniel 2011', fondo: 'oscuro'},
-	{logo: 'logo10', nombre: 'Galaxia Luxe Nails', fondo: 'oscuro'},
-	{logo: 'logo11', nombre: 'La Casita del Sabor', fondo: 'oscuro'},
-	{logo: 'logo13', nombre: 'Milsi Beauty Studio', fondo: 'oscuro'},
-	{logo: 'logo15', nombre: 'Las Delicias del Llano', fondo: 'oscuro'},
-	{logo: 'logo17', nombre: 'KubIA Soluciones', fondo: 'oscuro', enlace: 'https://wa.me/584221754245?text=Hola%2C%20te%20vi%20en%20la%20Cumbre'},
-	// Para agregar el enlace de cada uno: , enlace: 'https://instagram.com/...'
+	{logo: 'logo3', nombre: 'Ferreconi'},
+	{logo: 'logo1-web', nombre: 'Perfumes Factory'},
+	{logo: 'logo4', nombre: 'Orthosmile'},
+	{logo: 'logo2-web', nombre: 'Distribuidora de Suministros Puerto Venado'},
+	{logo: 'logo6', nombre: 'Inversiones Navas Maldonado'},
+	{logo: 'logo5-web', nombre: 'Moto Repuestos Daniel 2011'},
+	{logo: 'logo8', nombre: 'Tecnoama'},
+	{logo: 'logo10-web', nombre: 'Galaxia Luxe Nails'},
+	{logo: 'logo9', nombre: 'Abasto y Panadería Jesús de Nazareth'},
+	{logo: 'logo11', nombre: 'La Casita del Sabor'},
+	{logo: 'logo12', nombre: 'MultiEmpresariales.com', enlace: 'https://wa.me/584267617944?text=Hola%2C%20te%20vi%20en%20la%20Cumbre'},
+	{logo: 'logo13-web', nombre: 'Milsi Beauty Studio'},
+	{logo: 'logo14', nombre: 'Farma-Descuento Ayacucho Plus'},
+	{logo: 'logo15', nombre: 'Las Delicias del Llano'},
+	{logo: 'logo16', nombre: 'Marco Repuestos'},
+	{logo: 'logo17-web', nombre: 'KubIA Soluciones', enlace: 'https://kubiav.com'},
 ];
 
 // Fecha y hora de inicio (Venezuela, UTC-4)

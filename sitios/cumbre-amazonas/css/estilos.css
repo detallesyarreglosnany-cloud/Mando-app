@@ -31,7 +31,12 @@ section { padding: 72px 0; }
 /* Botones */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--texto); font-weight: 900; font-size: 17px; padding: 15px 28px; border-radius: 50px; text-decoration: none; border: 0; cursor: pointer; transition: transform .15s, box-shadow .15s; }
 .btn:hover { transform: translateY(-2px); }
-.btn-oro { background: var(--oro); color: var(--marino); box-shadow: 0 8px 22px rgba(245, 168, 0, .35); }
+.btn-oro { position: relative; isolation: isolate; background: transparent; color: var(--marino); box-shadow: 0 8px 22px rgba(245, 168, 0, .35); animation: latido 3s ease-in-out infinite; }
+.btn-oro::before { content: ''; position: absolute; inset: -3px; border-radius: inherit; z-index: -2; background: conic-gradient(from var(--giro), var(--oro) 0 55%, #FFFFFF 66%, var(--celeste) 74%, var(--azul) 80%, var(--oro) 90%); animation: girar 2.6s linear infinite; }
+.btn-oro::after { content: ''; position: absolute; inset: 0; border-radius: inherit; z-index: -1; background: linear-gradient(180deg, #FFC23A, var(--oro)); }
+@property --giro { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+@keyframes girar { to { --giro: 360deg; } }
+@keyframes latido { 0%, 100% { box-shadow: 0 8px 22px rgba(245, 168, 0, .35); } 50% { box-shadow: 0 8px 30px rgba(245, 168, 0, .6), 0 0 22px rgba(47, 168, 224, .35); } }
 .btn-linea { border: 2px solid var(--blanco); color: var(--blanco); background: transparent; }
 .btn-linea-oscuro { border: 2px solid var(--marino); color: var(--marino); background: transparent; }
 .btn-chico { padding: 9px 18px; font-size: 14px; }
@@ -145,25 +150,46 @@ section { padding: 72px 0; }
 .linea small { display: block; color: #AFC2EE; font-weight: 600; }
 .linea li.ponencia { background: rgba(255, 255, 255, .05); border-radius: 12px; }
 
-/* Patrocinadores */
-.logos { display: grid; grid-template-columns: repeat(8, 1fr); align-items: center; justify-items: center; gap: 22px 18px; border-radius: 24px; padding: 26px 22px; margin-bottom: 14px; }
-@media (max-width: 900px) { .logos { grid-template-columns: repeat(4, 1fr); } }
-.logos.claros { background: var(--hielo); }
-.logos.oscuros { background: var(--marino); }
-.logos img { height: 62px; width: 100%; max-width: 130px; object-fit: contain; }
-@media (max-width: 560px) { .logos img { height: 48px; } }
-.logos a, .logos span { display: block; transition: transform .2s; }
-.logos a:hover { transform: scale(1.08); }
-.unete { margin-top: 34px; display: grid; grid-template-columns: 1.2fr 1fr auto; gap: 26px; align-items: center; background: linear-gradient(135deg, var(--azul), var(--marino)); color: var(--blanco); border-radius: 26px; padding: 30px; }
+/* Patrocinadores — dos filas en movimiento, todas sobre el mismo fondo */
+.patrocinadores { background: linear-gradient(180deg, var(--blanco), var(--hielo)); }
+.carrusel { display: grid; gap: 16px; }
+.fila { overflow: hidden; padding: 10px 0; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.pista { display: flex; gap: 16px; width: max-content; animation: desliza 42s linear infinite; }
+.fila.der .pista { animation-duration: 50s; animation-direction: reverse; }
+.fila:hover .pista, .fila:focus-within .pista { animation-play-state: paused; }
+@keyframes desliza { to { transform: translateX(calc(-50% - 8px)); } }
+.logo { position: relative; flex: 0 0 auto; width: 170px; height: 100px; display: flex; align-items: center; justify-content: center; padding: 12px 16px; background: var(--blanco); border: 1px solid #DCE5F5; border-radius: 18px; box-shadow: 0 6px 18px rgba(7, 26, 74, .06); overflow: hidden; transition: transform .25s, box-shadow .25s, border-color .25s; }
+.logo img { max-height: 72px; max-width: 100%; width: auto; object-fit: contain; }
+.logo:hover { transform: translateY(-5px); border-color: var(--celeste); box-shadow: 0 14px 28px rgba(30, 79, 216, .18); }
+/* Fila de arriba: un reflejo de luz cruza cada logo. Fila de abajo: el borde respira en celeste. */
+.fila.izq .logo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, .55) 50%, transparent 60%); transform: translateX(-120%); animation: reflejo 6s ease-in-out infinite; pointer-events: none; }
+.fila.izq .logo:nth-child(3n+2)::after { animation-delay: 2s; } .fila.izq .logo:nth-child(3n)::after { animation-delay: 4s; }
+@keyframes reflejo { 0%, 70% { transform: translateX(-120%); } 100% { transform: translateX(120%); } }
+.fila.der .logo { animation: respira 5s ease-in-out infinite; }
+.fila.der .logo:nth-child(odd) { animation-delay: 2.5s; }
+@keyframes respira { 0%, 100% { border-color: #DCE5F5; } 50% { border-color: rgba(47, 168, 224, .6); box-shadow: 0 6px 22px rgba(47, 168, 224, .18); } }
+a.logo::before { content: '↗'; position: absolute; top: 6px; right: 10px; font-size: 12px; font-weight: 900; color: var(--azul); opacity: .5; }
+@media (max-width: 560px) { .logo { width: 132px; height: 82px; padding: 10px; } .logo img { max-height: 58px; } }
+
+.unete { position: relative; overflow: hidden; margin-top: 40px; display: grid; grid-template-columns: 1.2fr 1fr auto; gap: 26px; align-items: center; background: radial-gradient(500px circle at var(--x, 80%) var(--y, 0%), rgba(47, 168, 224, .28), transparent 60%), linear-gradient(135deg, #0B2A7A, var(--marino)); color: var(--blanco); border-radius: 26px; padding: 34px 30px; }
 .unete h3 { margin: 0 0 6px; font-size: 24px; }
 .unete p { margin: 0; color: #CFDAF7; }
-.niveles { display: flex; gap: 12px; }
-.nivel { position: relative; flex: 1; text-align: center; border: 2px solid var(--oro); border-radius: 18px; padding: 16px 8px; }
-.nivel small { display: block; color: var(--celeste); font-weight: 800; letter-spacing: 3px; font-size: 11px; }
-.nivel b { display: block; font-family: var(--titulo); font-weight: 400; font-size: 30px; color: var(--oro); }
+.niveles { display: flex; gap: 14px; }
+.nivel { position: relative; flex: 1; text-align: center; border-radius: 18px; padding: 18px 8px; color: var(--marino); overflow: hidden; background-size: 220% 220%; animation: brillo 5s ease-in-out infinite; }
+.nivel small { display: block; font-weight: 800; letter-spacing: 3px; font-size: 11px; opacity: .8; }
+.nivel b { display: block; font-family: var(--titulo); font-weight: 400; font-size: 32px; line-height: 1.15; }
 .nivel span { font-weight: 800; font-size: 14px; }
-.nivel.diamante { background: rgba(255, 255, 255, .1); border-color: var(--celeste); }
-.nivel.diamante em { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-style: normal; font-weight: 900; font-size: 11px; background: var(--oro); color: var(--marino); padding: 3px 10px; border-radius: 20px; }
+@keyframes brillo { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+/* Oro: metal pulido */
+.nivel.oro { background-image: linear-gradient(120deg, #8A5A00 0%, #D9A21B 18%, #FFE38A 34%, #F5B800 48%, #A86E00 62%, #FFD866 80%, #B57D00 100%); border: 2px solid #FFE9A8; box-shadow: 0 10px 26px rgba(245, 168, 0, .35), inset 0 1px 0 rgba(255, 255, 255, .6); }
+.nivel.oro b { color: #3A2500; text-shadow: 0 1px 0 rgba(255, 240, 190, .8); }
+/* Diamante: hielo tallado con destellos */
+.nivel.diamante { overflow: visible; background-image: linear-gradient(125deg, #E9F8FF 0%, #FFFFFF 15%, #BDE8FF 30%, #F2EBFF 45%, #FFFFFF 58%, #A9DDFF 72%, #E6FBFF 86%, #FFFFFF 100%); border: 2px solid #FFFFFF; box-shadow: 0 0 0 1px rgba(47, 168, 224, .5), 0 10px 30px rgba(120, 200, 255, .45), inset 0 0 18px rgba(255, 255, 255, .9); }
+.nivel.diamante b { background: linear-gradient(90deg, #0B2A7A, #2F7FE0, #6A4FD8, #0B2A7A); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: brillo 4s linear infinite; }
+.nivel.diamante em { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-style: normal; font-weight: 900; font-size: 11px; background: var(--oro); color: var(--marino); padding: 3px 10px; border-radius: 20px; z-index: 2; }
+.destello { position: absolute; width: 14px; height: 14px; background: #FFFFFF; clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%); filter: drop-shadow(0 0 4px #9FDCFF); animation: destella 2.4s ease-in-out infinite; pointer-events: none; }
+.d1 { top: 12px; left: 12px; } .d2 { bottom: 14px; right: 14px; animation-delay: .8s; } .d3 { top: 40%; right: 20px; width: 9px; height: 9px; animation-delay: 1.6s; }
+@keyframes destella { 0%, 100% { transform: scale(0) rotate(0); opacity: 0; } 50% { transform: scale(1) rotate(90deg); opacity: 1; } }
 @media (max-width: 900px) { .unete { grid-template-columns: 1fr; text-align: center; } }
 
 /* Lugar */
@@ -199,4 +225,40 @@ footer .credito b { color: #1DB97F; }
 	.ponente small { font-size: 11px; }
 	.marca span { display: none; }
 	section { padding: 54px 0; }
+}
+
+/* ===== Capa tecnológica ===== */
+.red { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.portada { isolation: isolate; }
+.portada .contenedor { z-index: 1; }
+/* La escalera crece al cargar */
+.escalon span { transform-origin: bottom; animation: crece .9s cubic-bezier(.2, .8, .2, 1) both; }
+.e2 span { animation-delay: .15s; } .e3 span { animation-delay: .3s; }
+.escalon strong { animation: sube .8s ease-out both; }
+.e2 strong { animation-delay: .25s; } .e3 strong { animation-delay: .45s; }
+@keyframes crece { from { transform: scaleY(0); } }
+@keyframes sube { from { opacity: 0; transform: translateY(18px); } }
+/* La píldora y el boleto con luz propia */
+.pildora { box-shadow: 0 0 0 0 rgba(30, 79, 216, .5); animation: onda 2.8s ease-out infinite; }
+@keyframes onda { 0% { box-shadow: 0 0 0 0 rgba(30, 79, 216, .45); } 100% { box-shadow: 0 0 0 16px rgba(30, 79, 216, 0); } }
+.boleto { position: relative; background: radial-gradient(420px circle at var(--x, 50%) var(--y, 0%), rgba(47, 168, 224, .22), transparent 60%), var(--marino); }
+.boleto::before { content: ''; position: absolute; inset: 0; border-radius: inherit; padding: 2px; background: conic-gradient(from var(--giro), transparent 0 70%, var(--celeste) 80%, var(--oro) 88%, transparent 96%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; animation: girar 6s linear infinite; pointer-events: none; }
+.boleto-pie { background: rgba(12, 39, 102, .85); }
+#c-seg { animation: tic 1s steps(1) infinite; }
+@keyframes tic { 50% { color: var(--azul); } }
+/* Tarjetas con luz que sigue al cursor */
+.tarjeta { position: relative; overflow: hidden; }
+.tarjeta::after { content: ''; position: absolute; inset: 0; background: radial-gradient(260px circle at var(--x, -100px) var(--y, -100px), rgba(30, 79, 216, .10), transparent 70%); pointer-events: none; }
+.tarjeta:hover { translate: 0 -6px; box-shadow: 0 18px 36px rgba(7, 26, 74, .12); }
+/* Ponentes: aro de luz al pasar */
+.ponente:hover .arco { box-shadow: 0 0 0 4px rgba(47, 168, 224, .35), 0 18px 40px rgba(30, 79, 216, .35); }
+/* Programa: una señal recorre la línea del tiempo */
+.linea::after { content: ''; position: absolute; left: 96px; top: 0; width: 3px; height: 90px; background: linear-gradient(transparent, var(--celeste), var(--oro), transparent); animation: recorre 4s linear infinite; }
+@keyframes recorre { from { top: 0; } to { top: calc(100% - 90px); } }
+/* Aparición al hacer scroll */
+.revela { opacity: 0; transform: translateY(26px); transition: opacity .7s ease var(--retraso, 0ms), transform .7s cubic-bezier(.2, .8, .2, 1) var(--retraso, 0ms), translate .25s, box-shadow .25s; }
+.revela.visto { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after { animation: none !important; transition: none !important; }
+	.revela { opacity: 1; transform: none; }
 }
