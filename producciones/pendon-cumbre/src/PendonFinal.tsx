@@ -34,7 +34,7 @@ const Cabecera: React.FC = () => (
 	<div style={{position: 'absolute', left: M, right: M, top: M, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
 		<div style={{display: 'flex', alignItems: 'center', gap: 22}}>
 			<div style={{width: 120, height: 5, background: C.oro, borderRadius: 3}} />
-			<div style={{fontFamily: F.texto, fontWeight: 900, fontSize: 46, letterSpacing: 14, color: C.azul}}>CUMBRE DE</div>
+			<div style={{fontFamily: F.texto, fontWeight: 900, fontSize: 52, letterSpacing: 14, color: C.azul, marginBottom: 22, lineHeight: 1}}>CUMBRE DE</div>
 			<div style={{width: 120, height: 5, background: C.oro, borderRadius: 3}} />
 		</div>
 		<div style={{fontFamily: F.titulo, fontSize: 116, lineHeight: 1.02, color: C.marino, letterSpacing: 1, whiteSpace: 'nowrap'}}>TRANSFORMACIÓN EMPRESARIAL</div>
@@ -45,8 +45,8 @@ const Cabecera: React.FC = () => (
 // ---------- Título en escalera: LIDERA → VENDE → CRECE ----------
 const ESCALONES = [
 	{palabra: 'LIDERA', sub: 'a tu equipo', alto: 86, color: C.azul, font: 168},
-	{palabra: 'VENDE', sub: 'más y mejor', alto: 166, color: C.marino, font: 176},
-	{palabra: 'CRECE', sub: 'hacia el 2027', alto: 246, color: C.oro, font: 196},
+	{palabra: 'VENDE', sub: 'más y mejor', alto: 156, color: C.marino, font: 176},
+	{palabra: 'CRECE', sub: 'hacia el 2027', alto: 226, color: C.oro, font: 196},
 ];
 const Escalera: React.FC<{base: number}> = ({base}) => {
 	const ancho = 470, gap = 15;
@@ -58,7 +58,7 @@ const Escalera: React.FC<{base: number}> = ({base}) => {
 				const final = i === 2;
 				return (
 					<React.Fragment key={e.palabra}>
-						<div style={{position: 'absolute', left: x, top: top - e.font - 4, width: ancho, textAlign: 'center', fontFamily: F.titulo, fontSize: e.font, lineHeight: 1, color: final ? C.oro : i === 0 ? C.azul : C.marino}}>{e.palabra}</div>
+						<div style={{position: 'absolute', left: x, top: top - e.font - 4, width: ancho, textAlign: 'center', fontFamily: F.titulo, fontSize: e.font, lineHeight: 1, color: final ? '#F5A800' : i === 0 ? C.azul : C.marino, WebkitTextStroke: final ? `5px ${C.marino}` : undefined, paintOrder: 'stroke fill'}}>{e.palabra}</div>
 						<div style={{position: 'absolute', left: x, top, width: ancho, height: e.alto, background: e.color, borderRadius: '18px 18px 0 0', display: 'flex', alignItems: 'flex-start', justifyContent: 'center', gap: 14, paddingTop: 20, boxSizing: 'border-box'}}>
 							<span style={{fontFamily: F.texto, fontWeight: 900, fontSize: 32, color: final ? C.marino : C.oro}}>{`0${i + 1}`}</span>
 							<span style={{fontFamily: F.texto, fontWeight: 800, fontSize: 34, color: final ? C.marino : '#FFFFFF'}}>{e.sub}</span>
@@ -145,7 +145,7 @@ export const PendonFinal: React.FC = () => {
 			<AbsoluteFill style={{top: 1726, alignItems: 'center'}}>
 				<div style={{display: 'flex', alignItems: 'center', gap: 18}}>
 					<div style={{width: 90, height: 4, background: C.oro, borderRadius: 2}} />
-					<div style={{fontFamily: F.texto, fontWeight: 900, fontSize: 30, letterSpacing: 3, color: C.marino}}>AFORO LIMITADO · TU LUGAR SE CONFIRMA AL PAGAR</div>
+					<div style={{fontFamily: F.texto, fontWeight: 900, fontSize: 30, letterSpacing: 3, color: C.marino}}>AFORO LIMITADO · INSCRIPCIÓN POR ORDEN DE LLEGADA</div>
 					<div style={{width: 90, height: 4, background: C.oro, borderRadius: 2}} />
 				</div>
 			</AbsoluteFill>
@@ -155,7 +155,7 @@ export const PendonFinal: React.FC = () => {
 					<div style={{lineHeight: 1}}><span style={{fontWeight: 700, fontSize: 26, color: C.celeste, letterSpacing: 3}}>VIERNES </span><span style={{fontWeight: 900, fontSize: 44}}>4 DE DICIEMBRE</span></div>
 					<div style={{lineHeight: 1}}><span style={{fontWeight: 700, fontSize: 26, color: C.celeste, letterSpacing: 3}}>DESDE LAS </span><span style={{fontWeight: 900, fontSize: 44}}>2:00 PM</span></div>
 					<div style={{lineHeight: 1}}><span style={{fontWeight: 900, fontSize: 40}}>Club Parapata</span><span style={{fontWeight: 700, fontSize: 28, color: C.celeste}}> · Puerto Ayacucho</span></div>
-					<div style={{fontWeight: 800, fontStyle: 'italic', fontSize: 29, color: C.oro}}>Mientras lo piensas, tu competencia aparta su lugar.</div>
+					<div style={{fontWeight: 800, fontStyle: 'italic', fontSize: 29, color: C.oro}}>Mientras lo piensas, tu competencia se prepara.</div>
 				</div>
 				<div style={{display: 'flex', alignItems: 'center', gap: 22}}>
 					<div style={{textAlign: 'right', fontFamily: F.texto}}>
