@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crea tu tienda en 2 minutos · KubIA Soluciones</title>
+<meta name="description" content="Prueba gratis cómo se vería tu negocio vendiendo las 24 horas: sube tu logo, tus productos y tus precios.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilos.css">
+<link rel="stylesheet" href="css/demo.css">
+</head>
+<body class="demo">
+
+<header class="barra">
+	<a href="index.html" class="marca">CUMBRE <span>AMAZONAS 2026</span></a>
+	<span class="kubia">Kub<b>IA</b> <i>Soluciones</i></span>
+</header>
+
+<section class="demo-cabeza">
+	<div class="contenedor">
+		<p class="supra claro">DEMO EN VIVO · DANIELA SILVA</p>
+		<h1>Crea tu tienda en 2 minutos</h1>
+		<p>Sube tu logo, tus productos y tus precios, y mira cómo se vería tu negocio <b>vendiendo las 24 horas</b>, aunque la santamaría esté abajo.</p>
+		<p class="privado">🔒 Todo se queda en tu teléfono. No se sube nada a ningún servidor.</p>
+	</div>
+</section>
+
+<main class="contenedor demo-grid">
+	<!-- EDITOR -->
+	<section class="editor" aria-label="Datos de tu tienda">
+		<div class="paso"><span>1</span><h2>Tu negocio</h2></div>
+		<label class="subir-logo">
+			<input type="file" id="in-logo" accept="image/*" hidden>
+			<div id="logo-prev" class="logo-prev">Sube tu logo</div>
+		</label>
+		<label>Nombre del negocio<input id="in-nombre" maxlength="40" placeholder="Ej.: Bodega La Esquina"></label>
+		<label>Frase corta<input id="in-frase" maxlength="60" placeholder="Ej.: Todo para tu hogar, cerca de ti"></label>
+		<div class="fila2">
+			<label>WhatsApp<input id="in-wa" inputmode="tel" maxlength="15" placeholder="04121234567"></label>
+			<label>Horario<input id="in-horario" maxlength="40" placeholder="Lun a Sáb · 8am a 6pm"></label>
+		</div>
+		<label>Color de tu marca<input type="color" id="in-color" value="#1E4FD8"></label>
+
+		<div class="paso"><span>2</span><h2>Tus productos <small id="contador">0 / 10</small></h2></div>
+		<form id="form-prod" class="form-prod">
+			<label class="subir-foto"><input type="file" id="in-foto" accept="image/*" hidden><div id="foto-prev" class="foto-prev">📷<br>Foto</div></label>
+			<div class="campos">
+				<input id="in-pnombre" maxlength="40" placeholder="Nombre del producto" required>
+				<input id="in-precio" inputmode="decimal" maxlength="10" placeholder="Precio ($)" required>
+				<input id="in-desc" maxlength="70" placeholder="Descripción corta (opcional)">
+			</div>
+			<button class="btn btn-oro btn-chico" type="submit">+ Agregar</button>
+		</form>
+		<ul id="lista-prod" class="lista-prod"></ul>
+
+		<div class="botonera">
+			<button class="btn btn-linea-oscuro btn-chico" id="btn-ejemplo" type="button">Cargar un ejemplo</button>
+			<button class="btn btn-linea-oscuro btn-chico" id="btn-borrar" type="button">Empezar de cero</button>
+		</div>
+	</section>
+
+	<!-- VISTA PREVIA EN UN TELÉFONO -->
+	<section class="vista" aria-label="Así se ve tu tienda">
+		<div class="paso"><span>3</span><h2>Así la ven tus clientes</h2></div>
+		<div class="telefono">
+			<div class="pantalla" id="tienda">
+				<div class="t-cabeza" id="t-cabeza">
+					<div class="t-logo" id="t-logo"></div>
+					<div>
+						<h3 id="t-nombre">Tu negocio</h3>
+						<p id="t-frase">Tu frase aquí</p>
+					</div>
+				</div>
+				<div class="t-info"><span id="t-estado"></span><span id="t-horario"></span></div>
+				<div class="t-productos" id="t-productos"></div>
+				<div class="t-carrito" id="t-carrito" hidden>
+					<span id="t-total"></span>
+					<a id="t-pedir" class="t-pedir" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+
+<section class="demo-cta">
+	<div class="contenedor">
+		<h2>¿Te imaginas a tu negocio así?</h2>
+		<p>Esto es solo una prueba. Con <b>KubIA Soluciones</b> tienes tu tienda real: tu dominio, productos ilimitados, pedidos ordenados y reportes desde el celular.</p>
+		<a class="btn btn-oro" href="https://wa.link/8e9pr6" target="_blank" rel="noopener">Quiero mi tienda real</a>
+		<p class="volver"><a href="index.html">← Volver a la cumbre</a></p>
+	</div>
+</section>
+
+<script src="js/demo.js"></script>
+</body>
+</html>
