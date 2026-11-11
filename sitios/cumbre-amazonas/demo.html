@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Crea tu tienda en 2 minutos · KubIA Soluciones</title>
+<title>Crea tu tienda en 30 segundos · KubIA Soluciones</title>
 <meta name="description" content="Prueba gratis cómo se vería tu negocio vendiendo las 24 horas: sube tu logo, tus productos y tus precios.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,15 +21,30 @@
 <section class="demo-cabeza">
 	<div class="contenedor">
 		<p class="supra claro">DEMO EN VIVO · DANIELA SILVA</p>
-		<h1>Crea tu tienda en 2 minutos</h1>
+		<h1>Crea tu tienda en 30 segundos</h1>
 		<p>Sube tu logo, tus productos y tus precios, y mira cómo se vería tu negocio <b>vendiendo las 24 horas</b>, aunque la santamaría esté abajo.</p>
 		<p class="privado">🔒 Todo se queda en tu teléfono. No se sube nada a ningún servidor.</p>
 	</div>
 </section>
 
-<main class="contenedor demo-grid">
+<section class="rapido">
+	<div class="contenedor">
+		<div class="paso"><span>⚡</span><h2>Tu tienda en 30 segundos</h2></div>
+		<p class="r-guia">1. Toca tu rubro &nbsp;·&nbsp; 2. Escribe tu negocio y tu WhatsApp &nbsp;·&nbsp; 3. ¡Listo!</p>
+		<div class="rubros" id="rubros"></div>
+		<div class="fila-rapida">
+			<input id="r-nombre" maxlength="40" placeholder="Nombre de tu negocio">
+			<input id="r-wa" inputmode="tel" maxlength="15" placeholder="Tu WhatsApp: 0412...">
+			<button class="btn btn-oro" id="r-crear" type="button">Crear mi tienda</button>
+		</div>
+		<p class="consejo">💡 Pon <b>tu propio WhatsApp</b>, agrega productos al pedido y tócale a "Pedir por WhatsApp": <b>te llegará el pedido a tu teléfono</b>, igual que le llegaría de un cliente.</p>
+	</div>
+</section>
+
+<main class="contenedor demo-grid" id="editor">
 	<!-- EDITOR -->
 	<section class="editor" aria-label="Datos de tu tienda">
+		<p class="personaliza">¿Tienes tu logo y fotos a la mano? Personaliza tu tienda aquí 👇</p>
 		<div class="paso"><span>1</span><h2>Tu negocio</h2></div>
 		<label class="subir-logo">
 			<input type="file" id="in-logo" accept="image/*" hidden>
@@ -88,6 +103,7 @@
 	<div class="contenedor">
 		<h2>¿Te imaginas a tu negocio así?</h2>
 		<p>Esto es solo una prueba. Con <b>KubIA Soluciones</b> tienes tu tienda real: tu dominio, productos ilimitados, pedidos ordenados y reportes desde el celular.</p>
+		<div class="qr-demo"><img src="img/qr-demo.svg" alt="QR para abrir este demo en tu teléfono" width="150" height="150"><p><b>Pruébalo en tu teléfono</b><br>Escanea y llévate el demo contigo.</p></div>
 		<a class="btn btn-oro" href="https://wa.me/584221754245?text=Hola%20Daniela%2C%20prob%C3%A9%20el%20demo%20de%20la%20Cumbre%20y%20quiero%20mi%20tienda%20real%20con%20KubIA" target="_blank" rel="noopener">Quiero mi tienda real</a>
 		<p class="volver"><a href="index.html">← Volver a la cumbre</a></p>
 	</div>
