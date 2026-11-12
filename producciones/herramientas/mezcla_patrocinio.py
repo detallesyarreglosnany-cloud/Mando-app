@@ -1,4 +1,4 @@
-# Mezcla del video "Cumbre · Patrocinadores": voz (José Manuel, ElevenLabs) + música sintetizada + efectos, sincronizados
+# Mezcla del video "Cumbre · Patrocinadores": voz (carpeta con 01.wav…16.wav) + música sintetizada + efectos, sincronizados
 # con los tiempos de src/Patrocinio.tsx. Uso: python3 mezcla_patrocinio.py <carpeta_voz | sin-voz> <salida.wav> [recorrido.json]
 # Con [recorrido.json] (config de producciones/amazonas-intro) la mezcla empieza con el recorrido satelital: su duración
 # reemplaza los primeros EXPLOTA segundos y todo lo demás se corre en consecuencia.
@@ -47,7 +47,10 @@ for k, t in (V.items() if VOZ != 'sin-voz' else []):  # 'sin-voz': solo música 
     with wave.open(os.path.join(VOZ, f'{k}.wav')) as w:
         x = np.frombuffer(w.readframes(w.getnframes()), np.int16).reshape(-1, w.getnchannels()).astype(float) / 32768
         assert w.getframerate() == SR
-    add(voz, x.mean(1), t)
+    if SAT and k == '01':  # con el recorrido satelital, la frase 01 termina justo antes de la explosión
+        add(voz, x.mean(1), DUR_INTRO - len(x) / SR - 0.3, fijo=True)
+    else:
+        add(voz, x.mean(1), t)
 v = np.abs(voz[0]); voz = (voz[0] / max(1e-9, v.max()) * 0.9, voz[1] / max(1e-9, v.max()) * 0.9)
 
 # ---- efectos (mismos tiempos que src/Patrocinio.tsx)
@@ -64,12 +67,12 @@ else:
     for t in T_PARADA[1:]: add(fx, whoosh(0.55), t - 0.6, 1.0, rng.uniform(-.5, .5))
     for t in T_PARADA: add(fx, tick(1500, 0.3), t)
 add(fx, subida(1.2), EXPLOTA - 1.2, 0.6); add(fx, golpe(1.2, 1.6), EXPLOTA); add(fx, brillo(1.8, 0.35), EXPLOTA)
-for t in (16.2, 17.3, 18.39): add(fx, golpe(0.7), t); add(fx, brillo(0.8, 0.15), t)
-for t in (21.0, 23.68, 25.19): add(fx, whoosh(0.4), t - 0.15, 0.5); add(fx, pop(0.4), t + 0.25)
-add(fx, whoosh(0.6), 27.05, 0.6); add(fx, brillo(1.0, 0.2), 28.0)
+for t in (16.74, 17.63, 18.49): add(fx, golpe(0.7), t); add(fx, brillo(0.8, 0.15), t)
+for t in (21.0, 23.5, 24.85): add(fx, whoosh(0.4), t - 0.15, 0.5); add(fx, pop(0.4), t + 0.25)
+add(fx, whoosh(0.6), 26.22, 0.6); add(fx, brillo(1.0, 0.2), 27.17)
 for t in (31.7, 35.0, 38.6, 41.8): add(fx, whoosh(0.5), t - 0.2, 0.7); add(fx, golpe(0.5), t + 0.05)
 for k, t in enumerate((32.0, 35.2, 38.8, 42.0)): add(fx, pop(0.45), t + 0.47)
-for t in (45.4, 47.27, 48.7): add(fx, golpe(0.6), t)
+for t in (45.4, 47.24, 48.42): add(fx, golpe(0.6), t)
 llega = []; t = 51.7
 for i in range(18): llega.append(t); t += np.interp(i, [0, 16], [0.85, 0.36])
 for i, t in enumerate(llega): add(fx, pop(0.5), t, 1.0, (-0.4, 0, 0.4)[i % 3]); add(fx, whoosh(0.3), t + 0.25, 0.35)
@@ -79,7 +82,7 @@ for i in range(len('cumbre.kubiav.com')): add(fx, tecla(0.45), 78.3 + i / 12, 1.
 add(fx, tecla(0.9), 80.15); add(fx, golpe(0.5, 0.5), 80.15); add(fx, brillo(1.4, 0.35), 80.2); add(fx, whoosh(0.5), 80.25, 0.6)
 add(fx, pop(0.5), 81.55)
 add(fx, whoosh(0.6), 84.3, 0.6); add(fx, golpe(0.6), 84.55)
-for t in (87.32, 88.42, 89.35): add(fx, golpe(0.8), t); add(fx, brillo(0.9, 0.18), t)
+for t in (87.07, 87.96, 88.81): add(fx, golpe(0.8), t); add(fx, brillo(0.9, 0.18), t)
 
 # ---- música sintetizada: La menor, 100 BPM (pulso 0.6 s). Acordes Am–F–C–G, cada uno 2 compases.
 BPM = 100; B = 60 / BPM

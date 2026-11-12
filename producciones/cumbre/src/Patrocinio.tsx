@@ -168,10 +168,10 @@ const Pilares: React.FC = () => {
 	const f = useCurrentFrame();
 	const base = E.pilares[0];
 	const r = (s: number) => f - S(s - base);
-	const golpes: [string, number, string, number][] = [['LIDERA', V.v03 + 3.0, C.azul, 300], ['VENDE', V.v03 + 4.1, C.celeste, 400], ['CRECE', V.v03 + 5.19, C.oro, 520]];
+	const golpes: [string, number, string, number][] = [['LIDERA', V.v03 + 3.54, C.azul, 300], ['VENDE', V.v03 + 4.43, C.celeste, 400], ['CRECE', V.v03 + 5.29, C.oro, 520]];
 	const fase2 = r(V.v04) >= 0;
-	const items: [string, string, number][] = [['👥', 'Capacita a tu equipo', V.v04], ['📋', 'Organiza tu negocio', V.v04 + 2.68], ['⭐', 'Posiciona tu marca', V.v04 + 4.19]];
-	const kPapel = r(V.v04 + 6.12);
+	const items: [string, string, number][] = [['👥', 'Capacita a tu equipo', V.v04], ['📋', 'Organiza tu negocio', V.v04 + 2.5], ['⭐', 'Posiciona tu marca', V.v04 + 3.85]];
+	const kPapel = r(V.v04 + 5.29);
 	return (
 		<AbsoluteFill>
 			<FondoMarca />
@@ -274,7 +274,7 @@ const Red: React.FC = () => {
 	const f = useCurrentFrame();
 	const r = (s: number) => f - S(s - E.red[0]);
 	const nodos = new Array(26).fill(0).map((_, i) => ({x: 90 + random(`nx${i}`) * 900, y: 260 + random(`ny${i}`) * 1400, d: random(`nd${i}`) * 60}));
-	const palabras: [string, number, string][] = [['CONECTA', V.v09, C.blanco], ['INTERCAMBIA', V.v09 + 1.87, C.celeste], ['CONSIGUE NUEVOS CLIENTES', V.v09 + 3.3, C.oro]];
+	const palabras: [string, number, string][] = [['CONECTA', V.v09, C.blanco], ['INTERCAMBIA', V.v09 + 1.84, C.celeste], ['CONSIGUE NUEVOS CLIENTES', V.v09 + 3.02, C.oro]];
 	return (
 		<AbsoluteFill>
 			<FondoMarca />
@@ -435,7 +435,7 @@ const Cierre: React.FC = () => {
 	const f = useCurrentFrame();
 	const r = (s: number) => f - S(s - E.cierre[0]);
 	const fin = interpolate(f, [S(E.cierre[1] - E.cierre[0]) - 18, S(E.cierre[1] - E.cierre[0])], [0, 1], clamp);
-	const lemas: [string, number, string][] = [['LIDERA', V.v16 + 2.72, C.blanco], ['VENDE', V.v16 + 3.82, C.celeste], ['CRECE', V.v16 + 4.75, C.oro]];
+	const lemas: [string, number, string][] = [['LIDERA', V.v16 + 2.47, C.blanco], ['VENDE', V.v16 + 3.36, C.celeste], ['CRECE', V.v16 + 4.21, C.oro]];
 	return (
 		<AbsoluteFill>
 			<FondoMarca />
