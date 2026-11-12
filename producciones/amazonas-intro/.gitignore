@@ -4,3 +4,4 @@ salida/publico/cuadros
 datos/dem/*.tif
 datos/dem/dem.bin
 salida/*.mp4
+salida/*.wav

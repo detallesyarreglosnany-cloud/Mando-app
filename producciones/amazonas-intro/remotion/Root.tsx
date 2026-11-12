@@ -5,7 +5,7 @@ import cfg from '../config/recorrido.json';
 
 // Una sola composición: el formato, la duración y la cantidad de cuadros capturados llegan como props
 // (scripts/render.sh los pasa con --props). El tamaño final sale de config/recorrido.json.
-type P = {formato: string; cuadros: number; duracion: number};
+type P = {formato: string; cuadros: number; duracion: number; cierre?: 'titulo' | 'sede'};
 const formatos = cfg.formatos as Record<string, {ancho: number; alto: number}>;
 export const Root: React.FC = () => (
 	<Composition

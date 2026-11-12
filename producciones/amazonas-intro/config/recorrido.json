@@ -1,5 +1,5 @@
 {
- "_ayuda": "Configuración central. Los tiempos van en fracción de la duración total (0 = inicio, 1 = final): si cambias 'duracion_s', todo se escala solo. 'rango_m' es la distancia de la cámara al punto mirado; 'inclinacion' es el ángulo (-90 = mirando hacia abajo, -30 = más de costado); 'rumbo' es hacia dónde mira (0 = norte, 90 = este).",
+ "_ayuda": "Configuración central. Los tiempos van en fracción de la duración total (0 = inicio, 1 = final): si cambias 'duracion_s', todo se escala solo. 'rango_m' es la distancia de la cámara al punto mirado; 'inclinacion' es el ángulo (-90 = mirando hacia abajo, -30 = más de costado); 'rumbo' es hacia dónde mira (0 = norte, 90 = este). 'sede': tarjeta final con el lugar del evento, desde el momento 'desde'.",
  "duracion_s": 20,
  "fps": 30,
  "exageracion_relieve": 1.6,
@@ -68,7 +68,7 @@
    "detalle": "Puerta de entrada por el Orinoco",
    "lat": 6.213163,
    "lng": -67.423578,
-   "t": 0.45,
+   "t": 0.43,
    "rango_m": 9000,
    "rumbo": 350,
    "inclinacion": -42
@@ -79,7 +79,7 @@
    "detalle": "Naturaleza de Amazonas",
    "lat": 5.387537,
    "lng": -67.617578,
-   "t": 0.56,
+   "t": 0.53,
    "rango_m": 7000,
    "rumbo": 330,
    "inclinacion": -45
@@ -90,7 +90,7 @@
    "detalle": "Puerto Ayacucho",
    "lat": 5.650263,
    "lng": -67.599797,
-   "t": 0.66,
+   "t": 0.62,
    "rango_m": 6000,
    "rumbo": 300,
    "inclinacion": -45
@@ -101,7 +101,7 @@
    "detalle": "Puerto Ayacucho",
    "lat": 5.668288,
    "lng": -67.614609,
-   "t": 0.74,
+   "t": 0.69,
    "rango_m": 5500,
    "rumbo": 270,
    "inclinacion": -44
@@ -112,7 +112,7 @@
    "detalle": "Casco central",
    "lat": 5.666438,
    "lng": -67.628078,
-   "t": 0.82,
+   "t": 0.76,
    "rango_m": 5000,
    "rumbo": 240,
    "inclinacion": -42
@@ -123,7 +123,7 @@
    "detalle": "Puerto Ayacucho",
    "lat": 5.666288,
    "lng": -67.628297,
-   "t": 0.91,
+   "t": 0.83,
    "rango_m": 4600,
    "rumbo": 210,
    "inclinacion": -40
@@ -150,5 +150,12 @@
   "url": "https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless_3857/default/g/{TileMatrix}/{TileRow}/{TileCol}.jpg",
   "nivel_maximo": 14,
   "_nota": "Sentinel-2 cloudless 2016 (CC BY 4.0). Más allá del nivel 14 (~10 m/píxel) la imagen se ve borrosa: por eso la cámara no baja de ~4 km de distancia."
+ },
+ "sede": {
+  "_nota": "Sede del evento. No hay imagen propia del lugar: se muestra solo el nombre, sobre la toma final.",
+  "etiqueta": "Sede de la Cumbre",
+  "nombre": "Club Parapata",
+  "detalle": "Viernes 4 de diciembre · 2:00 PM",
+  "desde": 0.885
  }
 }

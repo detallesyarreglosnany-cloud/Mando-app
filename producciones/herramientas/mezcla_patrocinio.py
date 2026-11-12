@@ -1,8 +1,14 @@
 # Mezcla del video "Cumbre · Patrocinadores": voz (José Manuel, ElevenLabs) + música sintetizada + efectos, sincronizados
-# con los tiempos de src/Patrocinio.tsx. Uso: python3 mezcla_patrocinio.py <carpeta_voz | sin-voz> <salida.wav>
+# con los tiempos de src/Patrocinio.tsx. Uso: python3 mezcla_patrocinio.py <carpeta_voz | sin-voz> <salida.wav> [recorrido.json]
+# Con [recorrido.json] (config de producciones/amazonas-intro) la mezcla empieza con el recorrido satelital: su duración
+# reemplaza los primeros EXPLOTA segundos y todo lo demás se corre en consecuencia.
 import numpy as np, wave, sys, json, subprocess, os
 VOZ, OUT = sys.argv[1], sys.argv[2]
-SR = 48000; DUR = 91.0; N = int(SR * DUR); rng = np.random.default_rng(7)
+SAT = json.load(open(sys.argv[3])) if len(sys.argv) > 3 else None
+EXPLOTA_BASE = 9.6
+DUR_INTRO = SAT['duracion_s'] if SAT else EXPLOTA_BASE
+OFF = DUR_INTRO - EXPLOTA_BASE  # corrimiento de todo lo que pasa desde la explosión
+SR = 48000; DUR = 91.0 + OFF; N = int(SR * DUR); rng = np.random.default_rng(7)
 def tt(d): return np.arange(int(d * SR)) / SR
 def ruido(d): return rng.uniform(-1, 1, int(d * SR))
 def lp(x, fc):  # filtro pasa bajos de un polo
@@ -10,7 +16,8 @@ def lp(x, fc):  # filtro pasa bajos de un polo
     for i in range(len(x)): acc = (1 - a) * x[i] + a * acc; y[i] = acc
     return y
 def canal(): return np.zeros(N), np.zeros(N)
-def add(buf, s, t, g=1.0, pan=0.0):
+def add(buf, s, t, g=1.0, pan=0.0, fijo=False):
+    if not fijo and t >= EXPLOTA_BASE - 1.3: t += OFF  # lo posterior a la explosión se corre junto con el video
     L, R = buf; i = int(t * SR)
     if i >= N: return
     s = s[:N - i] * g; L[i:i + len(s)] += s * np.sqrt(.5 * (1 - pan)); R[i:i + len(s)] += s * np.sqrt(.5 * (1 + pan))
@@ -45,9 +52,17 @@ v = np.abs(voz[0]); voz = (voz[0] / max(1e-9, v.max()) * 0.9, voz[1] / max(1e-9,
 
 # ---- efectos (mismos tiempos que src/Patrocinio.tsx)
 EXPLOTA = 9.6; T_PARADA = [2.9, 4.0, 5.1, 6.2, 7.3, 8.4]
-add(fx, subida(2.6), 0.2, 0.45)
-for t in T_PARADA[1:]: add(fx, whoosh(0.55), t - 0.6, 1.0, rng.uniform(-.5, .5))
-for t in T_PARADA: add(fx, tick(1500, 0.3), t)
+if SAT:  # recorrido satelital: rótulos y paradas salen de su configuración
+    D = SAT['duracion_s']
+    add(fx, subida(3.5), 0.2, 0.35, fijo=True)
+    for u in (0.10, 0.255, 0.355): add(fx, brillo(1.4, 0.18), u * D, fijo=True)
+    paradas = [p['t'] for p in SAT['paradas']] + ([SAT['sede']['desde']] if SAT.get('sede') else [])
+    for u in paradas: add(fx, whoosh(0.55), u * D - 0.6, 0.9, rng.uniform(-.5, .5), fijo=True); add(fx, tick(1500, 0.3), u * D, fijo=True)
+    if SAT.get('sede'): add(fx, brillo(1.6, 0.3), SAT['sede']['desde'] * D, fijo=True)
+else:
+    add(fx, subida(2.6), 0.2, 0.45)
+    for t in T_PARADA[1:]: add(fx, whoosh(0.55), t - 0.6, 1.0, rng.uniform(-.5, .5))
+    for t in T_PARADA: add(fx, tick(1500, 0.3), t)
 add(fx, subida(1.2), EXPLOTA - 1.2, 0.6); add(fx, golpe(1.2, 1.6), EXPLOTA); add(fx, brillo(1.8, 0.35), EXPLOTA)
 for t in (16.2, 17.3, 18.39): add(fx, golpe(0.7), t); add(fx, brillo(0.8, 0.15), t)
 for t in (21.0, 23.68, 25.19): add(fx, whoosh(0.4), t - 0.15, 0.5); add(fx, pop(0.4), t + 0.25)
@@ -85,14 +100,14 @@ def palmas():
 BOMBO, PLATO, PALMAS = bombo(), plato(), palmas()
 bombo = lambda: BOMBO; plato = lambda: PLATO; palmas = lambda: PALMAS
 # introducción (antes de la explosión): solo un colchón grave
-d0 = EXPLOTA; t0 = tt(d0); add(mus, 0.16 * np.sin(2 * np.pi * 55 * t0) * np.minimum(1, t0 / 1.5), 0)
+d0 = DUR_INTRO; t0 = tt(d0); add(mus, 0.16 * np.sin(2 * np.pi * 55 * t0) * np.minimum(1, t0 / 1.5), 0, fijo=True)
 compas = 4 * B; c = 0; t = EXPLOTA
-while t < DUR - 1.2:
+while t < 91.0 - 1.2:  # tiempos en la línea base; add() los corre
     ac = ACORDES[(c // 2) % 4]
     add(mus, pad(ac, compas + 0.3), t); add(mus, bajo(ac[0], compas), t)
     for b in range(4):
         tb = t + b * B
-        if tb > DUR - 1.2: break
+        if tb > 91.0 - 1.2: break
         add(mus, bombo(), tb)
         if tb >= 13.0: add(mus, plato(), tb + B / 2, 1.0, 0.3); add(mus, plato(), tb, 0.6, -0.3)
         if 51.2 <= tb < 66.6 and b % 2 == 1: add(mus, palmas(), tb)

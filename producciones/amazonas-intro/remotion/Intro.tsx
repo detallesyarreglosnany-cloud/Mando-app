@@ -4,7 +4,10 @@ import cfg from '../config/recorrido.json';
 
 // Capa gráfica sobre los cuadros satelitales capturados de CesiumJS. Todo lo editable (textos, tiempos de las paradas,
 // logo, música) sale de config/recorrido.json.
-export type Props = {formato: string; cuadros: number};
+// cierre 'titulo': termina con la identidad de la Cumbre. 'sede': termina en la sede y funde a blanco, para empalmar
+// con la explosión del video de patrocinadores.
+export type Props = {formato: string; cuadros: number; cierre?: 'titulo' | 'sede'};
+type Sede = {nombre: string; detalle: string; etiqueta: string; desde: number};
 
 const ORO = '#F2C230', CELESTE = '#7FD3FF', BLANCO = '#FFFFFF';
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
@@ -20,7 +23,7 @@ const useFuentes = () => {
 	}, [h]);
 };
 
-export const Intro: React.FC<Props> = ({formato, cuadros}) => {
+export const Intro: React.FC<Props> = ({formato, cuadros, cierre = 'titulo'}) => {
 	useFuentes();
 	const f = useCurrentFrame();
 	const {width: W, height: H, durationInFrames} = useVideoConfig();
@@ -30,7 +33,10 @@ export const Intro: React.FC<Props> = ({formato, cuadros}) => {
 	const idx = Math.min(cuadros - 1, Math.round(u * (cuadros - 1)));
 	const T = cfg.textos;
 	const paradas = cfg.paradas;
-	const activa = paradas.findIndex((p) => u >= p.t - 0.045 && u < p.t + 0.045);
+	const sede = (cfg as {sede?: Sede}).sede;
+	// ventana de cada rótulo: hasta ±0.045, sin pisarse con el vecino (ni con la sede)
+	const marcas = [...paradas.map((p) => p.t), ...(sede ? [sede.desde + 0.045] : [])];
+	const medio = (i: number) => Math.min(0.045, i > 0 ? (marcas[i] - marcas[i - 1]) / 2 : 1, i < marcas.length - 1 ? (marcas[i + 1] - marcas[i]) / 2 : 1);
 	const finalU = 0.94;
 
 	const etiquetaGrande = (texto: string, a: number, b: number, color = BLANCO, tam = 96) => {
@@ -68,9 +74,10 @@ export const Intro: React.FC<Props> = ({formato, cuadros}) => {
 
 			{/* rótulo de cada parada */}
 			{paradas.map((p, i) => {
-				const o = ventana(u, p.t - 0.045, p.t + 0.045, 0.018);
+				const m = medio(i);
+				const o = ventana(u, p.t - m, p.t + m, 0.015);
 				if (o <= 0) return null;
-				const x = interpolate(u, [p.t - 0.045, p.t - 0.02], [-40, 0], {...clamp, easing: suave});
+				const x = interpolate(u, [p.t - m, p.t - m + 0.025], [-40, 0], {...clamp, easing: suave});
 				return (
 					<div key={p.id} style={{position: 'absolute', left: (vertical ? 70 : 110) * k, bottom: (vertical ? 300 : 150) * k, opacity: o, transform: `translateX(${x * k}px)`}}>
 						<div style={{display: 'flex', alignItems: 'center', gap: 14 * k, fontFamily: 'Montserrat', fontWeight: 800, fontSize: 24 * k, letterSpacing: '0.25em', color: ORO}}>
@@ -82,8 +89,27 @@ export const Intro: React.FC<Props> = ({formato, cuadros}) => {
 				);
 			})}
 
+			{/* sede del evento: solo el nombre (no hay imagen propia del lugar) */}
+			{sede && u >= sede.desde && (() => {
+				const o = interpolate(u, [sede.desde, sede.desde + 0.015], [0, 1], clamp);
+				const x = interpolate(u, [sede.desde, sede.desde + 0.025], [-40, 0], {...clamp, easing: suave});
+				const esc = interpolate(u, [sede.desde, 1], [1, 1.04], clamp);
+				return (
+					<div style={{position: 'absolute', left: (vertical ? 70 : 110) * k, bottom: (vertical ? 300 : 150) * k, opacity: o, transform: `translateX(${x * k}px) scale(${esc})`, transformOrigin: 'left bottom'}}>
+						<div style={{display: 'flex', alignItems: 'center', gap: 14 * k, fontFamily: 'Montserrat', fontWeight: 800, fontSize: 26 * k, letterSpacing: '0.25em', color: ORO}}>
+							<svg width={28 * k} height={36 * k} viewBox="0 0 24 32"><path d="M12 0C5.4 0 0 5.3 0 11.9 0 20.8 12 32 12 32s12-11.2 12-20.1C24 5.3 18.6 0 12 0zm0 16.5a4.6 4.6 0 1 1 0-9.2 4.6 4.6 0 0 1 0 9.2z" fill={ORO} /></svg>
+							{sede.etiqueta.toUpperCase()}
+						</div>
+						<div style={{fontFamily: 'Anton', fontSize: (vertical ? 120 : 110) * k, color: ORO, lineHeight: 1.02, marginTop: 8 * k, textShadow: `0 0 40px ${ORO}55, 0 4px 30px rgba(0,0,0,0.8)`, maxWidth: (vertical ? 940 : 1400) * k}}>{sede.nombre.toUpperCase()}</div>
+						<div style={{fontFamily: 'Montserrat', fontWeight: 600, fontSize: 32 * k, color: BLANCO, marginTop: 8 * k, textShadow: '0 2px 12px rgba(0,0,0,0.9)'}}>{sede.detalle}</div>
+					</div>
+				);
+			})()}
+
+			{cierre === 'sede' && <AbsoluteFill style={{background: '#FFF6D8', opacity: interpolate(u, [0.985, 1], [0, 1], clamp)}} />}
+
 			{/* cierre: identidad de la Cumbre (espacio reservado para el logo oficial) */}
-			<AbsoluteFill style={{justifyContent: 'center', alignItems: 'center', gap: 18 * k, opacity: interpolate(u, [finalU, finalU + 0.03], [0, 1], clamp), background: `rgba(3,10,30,${interpolate(u, [finalU, 1], [0, 0.45], clamp)})`}}>
+			{cierre === 'titulo' && <AbsoluteFill style={{justifyContent: 'center', alignItems: 'center', gap: 18 * k, opacity: interpolate(u, [finalU, finalU + 0.03], [0, 1], clamp), background: `rgba(3,10,30,${interpolate(u, [finalU, 1], [0, 0.45], clamp)})`}}>
 				{cfg.logo ? (
 					<Img src={staticFile(cfg.logo)} style={{height: 200 * k, objectFit: 'contain'}} />
 				) : (
@@ -91,7 +117,7 @@ export const Intro: React.FC<Props> = ({formato, cuadros}) => {
 				)}
 				<div style={{fontFamily: 'Montserrat', fontWeight: 800, fontSize: 34 * k, letterSpacing: '0.3em', color: BLANCO, textAlign: 'center', padding: `0 ${40 * k}px`}}>{T.titulo_1}</div>
 				<div style={{fontFamily: 'Anton', fontSize: 120 * k, color: ORO, letterSpacing: '0.04em', textShadow: `0 0 40px ${ORO}66`}}>{T.titulo_2}</div>
-			</AbsoluteFill>
+			</AbsoluteFill>}
 
 			{/* atribución obligatoria de las fuentes (CC BY 4.0 y Copernicus) */}
 			<div style={{position: 'absolute', left: 24 * k, right: 24 * k, bottom: 18 * k, fontFamily: 'Montserrat', fontWeight: 500, fontSize: (vertical ? 13 : 12) * k, lineHeight: 1.35, color: 'rgba(255,255,255,0.72)', textShadow: '0 1px 4px rgba(0,0,0,0.9)'}}>{T.atribucion}</div>
