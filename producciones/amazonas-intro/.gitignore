@@ -1,0 +1,5 @@
+node_modules/
+salida/frames/
+salida/publico/cuadros
+datos/dem/*.tif
+datos/dem/dem.bin

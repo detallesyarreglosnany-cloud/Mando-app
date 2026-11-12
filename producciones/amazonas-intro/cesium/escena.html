@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Escena satelital · Cumbre Amazonas</title>
+<link rel="stylesheet" href="/node_modules/cesium/Build/Cesium/Widgets/widgets.css">
+<style>html, body, #mapa { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #000; }</style>
+<script>window.CESIUM_BASE_URL = '/node_modules/cesium/Build/Cesium/';</script>
+<script src="/node_modules/cesium/Build/Cesium/Cesium.js"></script>
+<script src="/node_modules/topojson-client/dist/topojson-client.min.js"></script>
+</head>
+<body>
+<div id="mapa"></div>
+<script src="/cesium/camara.js"></script>
+<script>
+// Escena 3D. Solo fuentes con licencia verificada:
+//  - Imagen: Sentinel-2 cloudless 2016 de EOX (CC BY 4.0).
+//  - Relieve: Copernicus GLO-30 (licencia libre, aviso obligatorio), preparado por scripts/preparar_dem.py.
+//  - Contorno de Venezuela: Natural Earth vía world-atlas (dominio público).
+// Sin Cesium ion, sin Google, sin Bing.
+(async () => {
+	const C = Cesium;
+	const cfg = await (await fetch('/config/recorrido.json')).json();
+	const demInfo = await (await fetch('/datos/dem/dem.json')).json();
+	const dem = new Float32Array(await (await fetch('/datos/dem/dem.bin')).arrayBuffer());
+
+	// --- relieve: muestreo bilineal de la malla Copernicus; fuera de la zona, la cota base local
+	const altura = (latDeg, lngDeg) => {
+		const {oeste, este, sur, norte, ancho, alto, base} = demInfo;
+		if (lngDeg < oeste || lngDeg > este || latDeg < sur || latDeg > norte) return base;
+		const x = (lngDeg - oeste) / (este - oeste) * (ancho - 1), y = (norte - latDeg) / (norte - sur) * (alto - 1);
+		const x0 = Math.floor(x), y0 = Math.floor(y), x1 = Math.min(x0 + 1, ancho - 1), y1 = Math.min(y0 + 1, alto - 1);
+		const fx = x - x0, fy = y - y0, v = (i, j) => dem[j * ancho + i];
+		return (v(x0, y0) * (1 - fx) + v(x1, y0) * fx) * (1 - fy) + (v(x0, y1) * (1 - fx) + v(x1, y1) * fx) * fy;
+	};
+	const N = 33;
+	const terreno = new C.CustomHeightmapTerrainProvider({
+		width: N, height: N,
+		callback: (x, y, nivel) => {
+			const r = terreno.tilingScheme.tileXYToRectangle(x, y, nivel);
+			const out = new Float32Array(N * N);
+			for (let j = 0; j < N; j++) for (let i = 0; i < N; i++) {
+				const lng = C.Math.toDegrees(r.west + (r.east - r.west) * i / (N - 1));
+				const lat = C.Math.toDegrees(r.north - (r.north - r.south) * j / (N - 1));
+				out[j * N + i] = nivel < 6 ? 0 : altura(lat, lng);
+			}
+			return out;
+		},
+	});
+
+	const imagen = new C.WebMapTileServiceImageryProvider({
+		url: cfg.imagen.url, layer: cfg.imagen.capa, style: 'default', format: 'image/jpeg',
+		tileMatrixSetID: 'g', maximumLevel: cfg.imagen.nivel_maximo, tilingScheme: new C.WebMercatorTilingScheme(),
+		credit: 'Sentinel-2 cloudless (EOX) · Copernicus',
+	});
+
+	const viewer = new C.Viewer('mapa', {
+		baseLayer: new C.ImageryLayer(imagen), terrainProvider: terreno,
+		animation: false, timeline: false, baseLayerPicker: false, geocoder: false, homeButton: false, sceneModePicker: false,
+		navigationHelpButton: false, fullscreenButton: false, infoBox: false, selectionIndicator: false,
+		useDefaultRenderLoop: false, contextOptions: {webgl: {preserveDrawingBuffer: true}},
+	});
+	viewer.cesiumWidget.creditContainer.style.display = 'none'; // la atribución completa va en el video (Remotion)
+	const scene = viewer.scene;
+	scene.verticalExaggeration = cfg.exageracion_relieve;
+	scene.globe.maximumScreenSpaceError = 1.2;
+	scene.globe.tileCacheSize = 400;
+	scene.globe.enableLighting = false;
+	scene.fog.enabled = true;
+	scene.fog.density = 0.00008; // menos neblina en las tomas cercanas
+	scene.fog.screenSpaceErrorFactor = 1.0;
+	scene.skyAtmosphere.show = true;
+	scene.globe.showGroundAtmosphere = true;
+	scene.postProcessStages.fxaa.enabled = true;
+	viewer.clock.currentTime = C.JulianDate.fromIso8601('2026-06-21T15:00:00Z');
+
+	// --- contorno de Venezuela (Natural Earth 1:50m, dominio público)
+	const mundo = await (await fetch('/node_modules/world-atlas/countries-50m.json')).json();
+	const ve = topojson.feature(mundo, mundo.objects.countries).features.find((f) => f.id === '862');
+	const anillos = ve.geometry.type === 'Polygon' ? [ve.geometry.coordinates[0]] : ve.geometry.coordinates.map((p) => p[0]);
+	const contornos = anillos.filter((a) => a.length > 40).map((a) => viewer.entities.add({
+		polyline: {positions: C.Cartesian3.fromDegreesArrayHeights(a.flatMap(([x, y]) => [x, y, 3000])), width: 3.5, arcType: C.ArcType.GEODESIC,
+			material: new C.ColorMaterialProperty(new C.CallbackProperty(() => C.Color.fromCssColorString('#F2C230').withAlpha(window.alfaContorno || 0), false))},
+	}));
+	// --- marcadores discretos en las paradas
+	const marcas = cfg.paradas.map((p) => viewer.entities.add({
+		position: C.Cartesian3.fromDegrees(p.lng, p.lat, altura(p.lat, p.lng) * cfg.exageracion_relieve + 25),
+		point: {pixelSize: 0, color: C.Color.fromCssColorString('#F2C230'), outlineColor: C.Color.WHITE.withAlpha(0.9), outlineWidth: 3,
+			disableDepthTestDistance: Number.POSITIVE_INFINITY},
+	}));
+
+	const ruta = construirRuta(cfg, altura);
+	const D = cfg.duracion_s;
+	const opacidadContorno = (u) => Math.max(0, Math.min(1, (u - 0.08) / 0.06)) * Math.max(0, Math.min(1, (0.36 - u) / 0.05));
+
+	window.aplicar = (u) => {
+		const k = ruta(u);
+		const destino = C.Cartesian3.fromDegrees(k.lng, k.lat, k.alturaSuelo);
+		viewer.camera.lookAt(destino, new C.HeadingPitchRange(C.Math.toRadians(k.rumbo), C.Math.toRadians(k.inclinacion), k.rango));
+		viewer.camera.lookAtTransform(C.Matrix4.IDENTITY);
+		const a = opacidadContorno(u);
+		window.alfaContorno = a;
+		marcas.forEach((m, i) => {
+			const p = cfg.paradas[i];
+			const cerca = Math.max(0, 1 - Math.abs(u - p.t) / 0.07);
+			m.point.pixelSize = u > 0.38 ? 8 + 10 * cerca : 0;
+		});
+		return k;
+	};
+	// Renderiza hasta que todas las teselas visibles estén cargadas (o hasta el límite de intentos)
+	window.cuadro = async (u) => {
+		window.aplicar(u);
+		const t0 = performance.now(); let listos = 0, i = 0;
+		for (; i < 400; i++) {
+			viewer.render(); // incluye la actualización de entidades (contorno, marcadores)
+			if (scene.globe.tilesLoaded) { if (++listos >= 2) break; } else listos = 0;
+			await new Promise((r) => setTimeout(r, 20));
+		}
+		return {pasadas: i + 1, ms: Math.round(performance.now() - t0)};
+	};
+	window.altura = altura;
+	window.listo = true;
+})().catch((e) => { window.errorEscena = String(e && e.stack || e); console.error(e); });
+</script>
+</body>
+</html>

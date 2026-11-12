@@ -1,0 +1,20 @@
+{
+  "name": "amazonas-intro",
+  "private": true,
+  "description": "Intro satelital cinematogr\u00e1fica de la Cumbre de Amazonas: CesiumJS (render 3D) + Playwright (captura) + Remotion (gr\u00e1ficos) + FFmpeg",
+  "dependencies": {
+    "cesium": "1.146.0",
+    "world-atlas": "2.0.2",
+    "topojson-client": "3.1.0",
+    "remotion": "4.0.532",
+    "@remotion/cli": "4.0.532",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "typescript": "5.9.3",
+    "@types/react": "19.2.7"
+  },
+  "scripts": {
+    "estudio": "remotion studio remotion/index.ts --public-dir=salida/publico",
+    "prueba": "bash scripts/render.sh prueba"
+  }
+}

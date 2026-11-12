@@ -1,0 +1,154 @@
+{
+ "_ayuda": "Configuración central. Los tiempos van en fracción de la duración total (0 = inicio, 1 = final): si cambias 'duracion_s', todo se escala solo. 'rango_m' es la distancia de la cámara al punto mirado; 'inclinacion' es el ángulo (-90 = mirando hacia abajo, -30 = más de costado); 'rumbo' es hacia dónde mira (0 = norte, 90 = este).",
+ "duracion_s": 20,
+ "fps": 30,
+ "exageracion_relieve": 1.6,
+ "formatos": {
+  "vertical": {
+   "ancho": 1080,
+   "alto": 1920
+  },
+  "horizontal": {
+   "ancho": 3840,
+   "alto": 2160,
+   "render_ancho": 1920,
+   "render_alto": 1080
+  },
+  "prueba_vertical": {
+   "ancho": 540,
+   "alto": 960
+  },
+  "prueba_horizontal": {
+   "ancho": 960,
+   "alto": 540
+  }
+ },
+ "camara": [
+  {
+   "t": 0.0,
+   "lat": 2.0,
+   "lng": -63.0,
+   "rango_m": 19000000,
+   "rumbo": 0,
+   "inclinacion": -90,
+   "nota": "La Tierra desde el espacio"
+  },
+  {
+   "t": 0.15,
+   "lat": 6.8,
+   "lng": -66.2,
+   "rango_m": 3200000,
+   "rumbo": 0,
+   "inclinacion": -90,
+   "nota": "Sudamérica: aparece Venezuela"
+  },
+  {
+   "t": 0.27,
+   "lat": 4.6,
+   "lng": -66.6,
+   "rango_m": 700000,
+   "rumbo": 0,
+   "inclinacion": -85,
+   "nota": "Estado Amazonas"
+  },
+  {
+   "t": 0.37,
+   "lat": 5.9,
+   "lng": -67.5,
+   "rango_m": 90000,
+   "rumbo": 0,
+   "inclinacion": -70,
+   "nota": "El Orinoco y Puerto Ayacucho"
+  }
+ ],
+ "paradas": [
+  {
+   "id": "burro",
+   "nombre": "Puerto Nuevo · El Burro",
+   "detalle": "Puerta de entrada por el Orinoco",
+   "lat": 6.213163,
+   "lng": -67.423578,
+   "t": 0.45,
+   "rango_m": 9000,
+   "rumbo": 350,
+   "inclinacion": -42
+  },
+  {
+   "id": "tobogan",
+   "nombre": "Tobogán de la Selva",
+   "detalle": "Naturaleza de Amazonas",
+   "lat": 5.387537,
+   "lng": -67.617578,
+   "t": 0.56,
+   "rango_m": 7000,
+   "rumbo": 330,
+   "inclinacion": -45
+  },
+  {
+   "id": "aparo",
+   "nombre": "El Aparo",
+   "detalle": "Puerto Ayacucho",
+   "lat": 5.650263,
+   "lng": -67.599797,
+   "t": 0.66,
+   "rango_m": 6000,
+   "rumbo": 300,
+   "inclinacion": -45
+  },
+  {
+   "id": "yoamo",
+   "nombre": "Plaza Yo Amo Amazonas",
+   "detalle": "Puerto Ayacucho",
+   "lat": 5.668288,
+   "lng": -67.614609,
+   "t": 0.74,
+   "rango_m": 5500,
+   "rumbo": 270,
+   "inclinacion": -44
+  },
+  {
+   "id": "catedral",
+   "nombre": "Catedral María Auxiliadora",
+   "detalle": "Casco central",
+   "lat": 5.666438,
+   "lng": -67.628078,
+   "t": 0.82,
+   "rango_m": 5000,
+   "rumbo": 240,
+   "inclinacion": -42
+  },
+  {
+   "id": "bolivar",
+   "nombre": "Plaza Bolívar",
+   "detalle": "Puerto Ayacucho",
+   "lat": 5.666288,
+   "lng": -67.628297,
+   "t": 0.91,
+   "rango_m": 4600,
+   "rumbo": 210,
+   "inclinacion": -40
+  }
+ ],
+ "final": {
+  "t": 1.0,
+  "rango_m": 4000,
+  "rumbo": 175,
+  "inclinacion": -34
+ },
+ "textos": {
+  "pais": "VENEZUELA",
+  "estado": "ESTADO AMAZONAS",
+  "ciudad": "PUERTO AYACUCHO",
+  "titulo_1": "CUMBRE DE TRANSFORMACIÓN EMPRESARIAL",
+  "titulo_2": "AMAZONAS 2026",
+  "atribucion": "Imágenes: Sentinel-2 cloudless — s2maps.eu, EOX IT Services GmbH (contiene datos modificados de Copernicus Sentinel 2016), CC BY 4.0 · Relieve: producido con Copernicus WorldDEM-30 © DLR e.V. 2010-2014 y © Airbus Defence and Space GmbH 2014-2018, provisto bajo COPERNICUS por la Unión Europea y la ESA"
+ },
+ "logo": "",
+ "musica": "",
+ "imagen": {
+  "capa": "s2cloudless_3857",
+  "url": "https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless_3857/default/g/{TileMatrix}/{TileRow}/{TileCol}.jpg",
+  "nivel_maximo": 14,
+  "_nota": "Sentinel-2 cloudless 2016 (CC BY 4.0). Más allá del nivel 14 (~10 m/píxel) la imagen se ve borrosa: por eso la cámara no baja de ~4 km de distancia."
+ }
+}
