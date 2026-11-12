@@ -20,6 +20,9 @@
 // Sin Cesium ion, sin Google, sin Bing.
 (async () => {
 	const C = Cesium;
+	// el servidor de teselas responde en ~0,7 s: más peticiones en paralelo = mucho menos espera por cuadro
+	C.RequestScheduler.maximumRequestsPerServer = 48;
+	C.RequestScheduler.maximumRequests = 96;
 	const cfg = await (await fetch('/config/recorrido.json')).json();
 	const demInfo = await (await fetch('/datos/dem/dem.json')).json();
 	const dem = new Float32Array(await (await fetch('/datos/dem/dem.bin')).arrayBuffer());
@@ -63,7 +66,7 @@
 	viewer.cesiumWidget.creditContainer.style.display = 'none'; // la atribución completa va en el video (Remotion)
 	const scene = viewer.scene;
 	scene.verticalExaggeration = cfg.exageracion_relieve;
-	scene.globe.maximumScreenSpaceError = 1.2;
+	scene.globe.maximumScreenSpaceError = 2; // captura a media resolución: con 2 sobra detalle y carga muchas menos teselas
 	scene.globe.tileCacheSize = 400;
 	scene.globe.enableLighting = false;
 	scene.fog.enabled = true;

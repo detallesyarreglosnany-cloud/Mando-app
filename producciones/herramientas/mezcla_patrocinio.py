@@ -119,7 +119,8 @@ add(mus, golpe(1.0, 2.0), 89.35, 0.6)
 
 # ---- mezcla: la música baja cuando habla el locutor
 envv = np.abs(voz[0]); k = int(0.25 * SR)
-envv = np.convolve(envv, np.ones(k) / k, 'same'); envv = np.clip(envv / max(1e-9, np.percentile(envv, 99)), 0, 1)
+c = np.concatenate([[0], np.cumsum(envv)]); envv = (c[np.minimum(np.arange(N) + k // 2, N)] - c[np.maximum(np.arange(N) - k // 2, 0)]) / k  # media móvil O(N)
+envv = np.clip(envv / max(1e-9, np.percentile(envv, 99)), 0, 1)
 duck = 1 - 0.7 * envv
 mL = mus[0] * duck * 0.9; mR = mus[1] * duck * 0.9
 L = voz[0] + mL + fx[0] * 0.5; R = voz[1] + mR + fx[1] * 0.5
