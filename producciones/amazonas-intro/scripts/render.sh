@@ -29,6 +29,14 @@ case "$modo" in
 	final)    pieza vertical 20 amazonas-intro-vertical-20s; pieza horizontal 20 amazonas-intro-evento-4k-20s ;;
 	anuncios) pieza vertical 15 amazonas-intro-vertical-15s; pieza vertical 10 amazonas-intro-vertical-10s
 	          pieza horizontal 15 amazonas-intro-horizontal-15s; pieza horizontal 10 amazonas-intro-horizontal-10s ;;
-	patrocinio) pieza vertical 20 amazonas-intro-patrocinio-vertical sede ;;
+	patrocinio) # captura vertical en 2 procesos paralelos; el cuadrado reutiliza esos cuadros
+		rm -rf salida/frames/vertical; mkdir -p salida/frames/vertical
+		node scripts/capturar.js vertical --duracion 20 --desde 0 --hasta 300 & node scripts/capturar.js vertical --duracion 20 --desde 300 --hasta 600 & wait
+		for f in vertical cuadrado; do
+			npx remotion render remotion/index.ts Intro "salida/amazonas-intro-patrocinio-$f.mp4" --public-dir=salida/publico \
+				--props="{\"formato\":\"$f\",\"cuadros\":600,\"duracion\":20,\"cierre\":\"sede\"}" \
+				--browser-executable="$CHROME" --codec=h264 --crf=16 --concurrency=4 --log=error
+			echo "OK salida/amazonas-intro-patrocinio-$f.mp4"
+		done ;;
 	*) echo "modo desconocido: $modo"; exit 1 ;;
 esac

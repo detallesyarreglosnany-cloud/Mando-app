@@ -6,7 +6,9 @@
  "formatos": {
   "vertical": {
    "ancho": 1080,
-   "alto": 1920
+   "alto": 1920,
+   "render_ancho": 540,
+   "render_alto": 960
   },
   "horizontal": {
    "ancho": 3840,
@@ -21,6 +23,12 @@
   "prueba_horizontal": {
    "ancho": 960,
    "alto": 540
+  },
+  "cuadrado": {
+   "ancho": 1080,
+   "alto": 1080,
+   "cuadros_de": "vertical",
+   "_nota": "usa los cuadros capturados en vertical, recortados al centro"
   }
  },
  "camara": [

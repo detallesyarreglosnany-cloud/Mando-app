@@ -10,7 +10,8 @@ CHROME=${CHROME:-/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-s
 VIDEO=${VIDEO_CUMBRE:-/home/user/video-cumbre}
 HERR=$(cd ../herramientas && pwd)
 VOZ=${1:-sin-voz}
-INTRO=salida/amazonas-intro-patrocinio-vertical.mp4
+INTRO_V=salida/amazonas-intro-patrocinio-vertical.mp4
+INTRO_C=salida/amazonas-intro-patrocinio-cuadrado.mp4
 EXPLOTA_CUADRO=288   # 9,6 s x 30 fps: la explosión del título en src/Patrocinio.tsx
 
 # 1. fondo tras la explosión = último cuadro satelital (sin rótulos)
@@ -21,9 +22,13 @@ python3 "$HERR/mezcla_patrocinio.py" "$VOZ" salida/mezcla-satelite.wav config/re
 # 3. el video de patrocinadores desde la explosión, sin audio (va aparte)
 (cd "$VIDEO" && npx remotion render src/index.ts CumbreInvitaPatrocinio "$OLDPWD/salida/patro-cola.mp4" \
 	--props='{"conAudio":false}' --frames=$EXPLOTA_CUADRO- --browser-executable="$CHROME" --codec=h264 --crf=18 --concurrency=4 --log=error)
-# 4. unión + audio
-ffmpeg -nostdin -v error -y -i "$INTRO" -i salida/patro-cola.mp4 -i salida/mezcla-satelite.wav \
-	-filter_complex "[0:v]fps=30,format=yuv420p[a];[1:v]fps=30,format=yuv420p[b];[a][b]concat=n=2:v=1:a=0[v]" \
-	-map "[v]" -map 2:a -c:v libx264 -crf 18 -preset medium -pix_fmt yuv420p -c:a aac -b:a 192k -shortest -movflags +faststart \
-	salida/cumbre-patrocinadores-satelite.mp4
-echo "OK salida/cumbre-patrocinadores-satelite.mp4"
+# 4. unión + audio. Vertical: tal cual. Cuadrado: el video de patrocinadores (diseñado en 9:16) va completo al centro,
+#    sobre una copia ampliada y desenfocada de sí mismo.
+une () { # intro cola_filtro salida
+	ffmpeg -nostdin -v error -y -i "$1" -i salida/patro-cola.mp4 -i salida/mezcla-satelite.wav \
+		-filter_complex "[0:v]fps=30,format=yuv420p,setsar=1[a];[1:v]fps=30,$2,format=yuv420p,setsar=1[b];[a][b]concat=n=2:v=1:a=0[v]" \
+		-map "[v]" -map 2:a -c:v libx264 -crf 18 -preset medium -pix_fmt yuv420p -c:a aac -b:a 192k -shortest -movflags +faststart "$3"
+	echo "OK $3"
+}
+une "$INTRO_V" "null" salida/cumbre-patrocinadores-vertical.mp4
+une "$INTRO_C" "split[x][y];[x]scale=1080:1080:force_original_aspect_ratio=increase,crop=1080:1080,boxblur=30:2,eq=brightness=-0.15[f];[y]scale=-2:1080[c];[f][c]overlay=(W-w)/2:0" salida/cumbre-patrocinadores-cuadrado.mp4

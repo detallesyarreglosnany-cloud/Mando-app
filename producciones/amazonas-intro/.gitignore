@@ -5,3 +5,4 @@ datos/dem/*.tif
 datos/dem/dem.bin
 salida/*.mp4
 salida/*.wav
+salida/*.txt

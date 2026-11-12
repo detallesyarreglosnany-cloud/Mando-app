@@ -28,8 +28,8 @@ export const Intro: React.FC<Props> = ({formato, cuadros, cierre = 'titulo'}) =>
 	const f = useCurrentFrame();
 	const {width: W, height: H, durationInFrames} = useVideoConfig();
 	const u = durationInFrames > 1 ? f / (durationInFrames - 1) : 0;
-	const vertical = H > W;
-	const k = W / (vertical ? 1080 : 1920); // escala tipográfica relativa al diseño base
+	const vertical = H >= W; // el cuadrado usa la diagramación vertical
+	const k = Math.min(W / (vertical ? 1080 : 1920), H / (vertical ? 1080 : 1080)); // escala tipográfica relativa al diseño base
 	const idx = Math.min(cuadros - 1, Math.round(u * (cuadros - 1)));
 	const T = cfg.textos;
 	const paradas = cfg.paradas;
@@ -53,7 +53,7 @@ export const Intro: React.FC<Props> = ({formato, cuadros, cierre = 'titulo'}) =>
 	return (
 		<AbsoluteFill style={{background: '#000'}}>
 			{cfg.musica && <Audio src={staticFile(cfg.musica)} />}
-			<Img src={staticFile(`cuadros/${formato}/${String(idx).padStart(4, '0')}.jpg`)} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
+			<Img src={staticFile(`cuadros/${(cfg.formatos as Record<string, {cuadros_de?: string}>)[formato].cuadros_de || formato}/${String(idx).padStart(4, '0')}.jpg`)} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
 			{/* acabado cinematográfico: viñeta y degradados para que los textos respiren */}
 			<AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 45%, transparent 55%, rgba(0,0,0,0.55) 100%)'}} />
 			<AbsoluteFill style={{background: `linear-gradient(180deg, rgba(3,10,30,0.55) 0%, transparent ${vertical ? 22 : 28}%, transparent 62%, rgba(3,10,30,0.75) 100%)`}} />
