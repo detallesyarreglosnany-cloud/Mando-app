@@ -129,7 +129,7 @@ const PATROCINADORES = [
 	{logo: 'jesus-nazareth', nombre: 'Abasto y Panadería Jesús de Nazareth'},
 	{logo: 'marco', nombre: 'Marco Repuestos'},
 	{logo: 'puerto-venado', nombre: 'Distribuidora de Suministros Puerto Venado'},
-	{logo: 'multiempresariales', nombre: 'MultiEmpresariales.com', enlace: 'https://wa.me/584267617944?text=Hola%2C%20te%20vi%20en%20la%20Cumbre'},
+	{logo: 'multiempresariales-2', nombre: 'MultiEmpresariales.com', enlace: 'https://wa.me/584267617944?text=Hola%2C%20te%20vi%20en%20la%20Cumbre'},
 	{logo: 'orthosmile', nombre: 'Orthosmile'},
 	{logo: 'wahari', nombre: 'Wahari Pizza'},
 	{logo: 'delicias', nombre: 'Las Delicias del Llano'},

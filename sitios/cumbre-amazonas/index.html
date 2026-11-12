@@ -23,7 +23,7 @@
 		<a href="#patrocinadores">Patrocinadores</a>
 		<a href="#lugar">Lugar</a>
 	</nav>
-	<a class="btn btn-oro btn-chico" href="https://wa.me/584267617944?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20la%20Cumbre%20Amazonas%202026" target="_blank" rel="noopener">Asegura tu lugar</a>
+	<a class="btn btn-oro btn-chico" href="#registro">Asegura tu lugar</a>
 </header>
 
 <!-- 1. PORTADA -->
@@ -56,7 +56,7 @@
 					<div><b id="c-seg">--</b><small>seg</small></div>
 				</div>
 				<div class="reserva">
-					<a class="btn btn-oro" href="https://wa.me/584267617944?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20la%20Cumbre%20Amazonas%202026" target="_blank" rel="noopener">Asegura tu lugar · 50$ a BCV</a>
+					<a class="btn btn-oro" href="#registro">Asegura tu lugar · 50$ a BCV</a>
 					<p class="aforo">Aforo limitado · por orden de llegada</p>
 				</div>
 			</div>
@@ -81,7 +81,7 @@
 				<li><b>Vende</b> más y que te elijan por algo más que precio</li>
 				<li><b>Crece</b> con tus números en orden y tu negocio en digital</li>
 			</ul>
-			<a class="btn btn-oro" href="https://wa.me/584267617944?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20la%20Cumbre%20Amazonas%202026" target="_blank" rel="noopener">Asegura tu lugar</a>
+			<a class="btn btn-oro" href="#registro">Asegura tu lugar</a>
 		</div>
 	</div>
 </section>
@@ -167,14 +167,31 @@
 	</div>
 </section>
 
-<!-- 8. CIERRE -->
-<section class="cierre">
+<!-- 8. CIERRE + PRE-REGISTRO -->
+<section class="cierre" id="registro">
 	<div class="contenedor dos-col">
 		<div>
 			<p class="supra claro">AFORO LIMITADO</p>
 			<h2>Mientras lo piensas, tu competencia se prepara.</h2>
-			<p>Escanea el código o escríbenos y asegura tu lugar.</p>
-			<a class="btn btn-oro" href="https://wa.me/584267617944?text=Hola%2C%20quiero%20informaci%C3%B3n%20de%20la%20Cumbre%20Amazonas%202026" target="_blank" rel="noopener">Asegura tu lugar · 50$ a BCV</a>
+			<p>Aparta tu cupo en 30 segundos. Te escribimos por WhatsApp para confirmar tu entrada <b>(50$ a tasa BCV)</b>.</p>
+			<form class="registro" id="form-registro" novalidate>
+				<label>Nombre y apellido<input name="nombre" autocomplete="name" required minlength="2" maxlength="80"></label>
+				<label>WhatsApp<input name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="0412 123 4567" required maxlength="20"></label>
+				<label><span>Tu negocio <small>(opcional)</small></span><input name="negocio" autocomplete="organization" maxlength="100"></label>
+				<div class="dos">
+					<label>Rubro<select name="rubro"><option value="">Elige…</option><option>Comercio</option><option>Alimentos y bebidas</option><option>Servicios profesionales</option><option>Salud y belleza</option><option>Construcción y ferretería</option><option>Tecnología</option><option>Emprendimiento en inicio</option><option>Otro</option></select></label>
+					<label>¿Cómo te enteraste?<select name="origen"><option value="">Elige…</option><option>Instagram</option><option>WhatsApp</option><option>Un amigo</option><option>Un patrocinador</option><option>Radio o perifoneo</option><option>Otro</option></select></label>
+				</div>
+				<label class="trampa" aria-hidden="true">No llenar<input name="web" tabindex="-1" autocomplete="off"></label>
+				<label class="acepto"><input type="checkbox" name="acepto" required> Acepto que me contacten por WhatsApp sobre la Cumbre.</label>
+				<button class="btn btn-oro" type="submit">Apartar mi cupo</button>
+				<p class="aviso" id="registro-aviso" role="status" aria-live="polite"></p>
+			</form>
+			<div class="registro-ok" id="registro-ok" hidden>
+				<h3>¡Listo, <span id="ok-nombre"></span>! Tu cupo está apartado.</h3>
+				<p>Último paso: escríbenos por WhatsApp para confirmar tu entrada.</p>
+				<a class="btn btn-oro" id="ok-whatsapp" href="#" target="_blank" rel="noopener">Confirmar por WhatsApp</a>
+			</div>
 			<p class="tel">Info: <a href="tel:+584267617944">0426-761-7944</a></p>
 		</div>
 		<img class="qr" src="img/qr.svg" alt="Código QR al WhatsApp de la cumbre" width="260" height="260">
@@ -198,5 +215,6 @@
 
 <script src="js/datos.js"></script>
 <script src="js/app.js"></script>
+<script src="js/registro.js"></script>
 </body>
 </html>

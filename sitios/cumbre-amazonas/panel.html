@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Panel de registros · Cumbre Amazonas 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root { --marino: #071A4A; --azul: #1E4FD8; --oro: #F5A800; --hielo: #EEF3FB; --gris: #5B6478; --tinta: #0B1B3F; --verde: #12A150; --rojo: #D93A2B; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Montserrat, sans-serif; color: var(--tinta); background: var(--hielo); }
+header { background: var(--marino); color: #fff; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+header h1 { font-family: Anton, sans-serif; font-weight: 400; letter-spacing: 1px; margin: 0; font-size: 22px; }
+header h1 span { color: var(--oro); }
+main { max-width: 1200px; margin: 0 auto; padding: 20px 16px 60px; }
+button, .b { font: 800 14px Montserrat, sans-serif; border: 0; border-radius: 10px; padding: 10px 16px; cursor: pointer; background: var(--azul); color: #fff; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+button.sec { background: #fff; color: var(--marino); box-shadow: inset 0 0 0 2px #D3DDF1; }
+.acceso { max-width: 420px; margin: 60px auto; background: #fff; padding: 28px; border-radius: 18px; box-shadow: 0 10px 30px rgba(7, 26, 74, .08); }
+.acceso h2 { margin-top: 0; }
+input, select, textarea { font: 600 15px Montserrat, sans-serif; border: 2px solid #D3DDF1; border-radius: 10px; padding: 10px 12px; width: 100%; color: var(--tinta); background: #fff; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 18px; }
+.kpi { background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 6px 18px rgba(7, 26, 74, .06); }
+.kpi b { display: block; font-size: 30px; font-family: Anton, sans-serif; font-weight: 400; }
+.kpi small { color: var(--gris); font-weight: 700; }
+.filtros { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
+.filtros input { flex: 1 1 220px; width: auto; }
+.filtros select { flex: 0 0 auto; width: auto; }
+.tabla { background: #fff; border-radius: 16px; overflow: auto; box-shadow: 0 6px 18px rgba(7, 26, 74, .06); }
+table { border-collapse: collapse; width: 100%; min-width: 900px; font-size: 14px; }
+th { text-align: left; background: #F6F8FD; color: var(--gris); font-size: 12px; text-transform: uppercase; letter-spacing: .5px; padding: 12px; position: sticky; top: 0; }
+td { padding: 10px 12px; border-top: 1px solid #EEF2F9; vertical-align: top; }
+td small { color: var(--gris); display: block; }
+td select { width: auto; padding: 6px 8px; font-size: 13px; }
+td textarea { min-height: 38px; font-size: 13px; padding: 6px 8px; resize: vertical; }
+.wa { background: #25D366; color: #fff; padding: 7px 10px; border-radius: 8px; font-size: 13px; }
+.e-registrado { color: var(--azul); } .e-contactado { color: #B97E00; } .e-pagado { color: var(--verde); } .e-descartado { color: var(--gris); }
+.msg { font-weight: 700; color: var(--gris); }
+.msg.error { color: var(--rojo); }
+.vacio { padding: 30px; text-align: center; color: var(--gris); font-weight: 700; }
+</style>
+</head>
+<body>
+<header>
+	<h1>CUMBRE <span>· REGISTROS</span></h1>
+	<div id="sesion" hidden><small id="quien"></small> <button class="sec" id="salir">Salir</button></div>
+</header>
+<main>
+	<section class="acceso" id="acceso" hidden>
+		<h2>Entrar al panel</h2>
+		<p>Escribe tu correo de administradora. Te llega un enlace para entrar, sin contraseña.</p>
+		<form id="form-acceso"><input type="email" id="correo" required placeholder="tu@correo.com" autocomplete="email"><p></p><button>Enviarme el enlace</button></form>
+		<p class="msg" id="msg-acceso"></p>
+	</section>
+
+	<section id="app" hidden>
+		<div class="kpis" id="kpis"></div>
+		<div class="filtros">
+			<input id="buscar" placeholder="Buscar por nombre, negocio o teléfono">
+			<select id="f-estado"><option value="">Todos los estados</option><option>registrado</option><option>contactado</option><option>pagado</option><option>descartado</option></select>
+			<button class="sec" id="recargar">Actualizar</button>
+			<button class="sec" id="exportar">Descargar CSV</button>
+		</div>
+		<p class="msg" id="msg"></p>
+		<div class="tabla"><table><thead><tr><th>Fecha</th><th>Persona</th><th>Negocio</th><th>Llegó por</th><th>Estado</th><th>Notas</th><th></th></tr></thead><tbody id="filas"></tbody></table></div>
+	</section>
+</main>
+
+<script src="js/vendor/supabase.js"></script>
+<script>
+(() => {
+	const sb = supabase.createClient('https://pzrrkcsftchkqmxczlhu.supabase.co', 'sb_publishable_jqG79oqq5nREgs34lntZFg_LCf_Usuj');
+	const $ = (s) => document.querySelector(s);
+	const esc = (t) => String(t ?? '').replace(/[&<>"']/g, (c) => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]));
+	let datos = [];
+
+	const msg = (t, error) => { $('#msg').textContent = t || ''; $('#msg').classList.toggle('error', !!error); };
+
+	$('#form-acceso').addEventListener('submit', async (e) => {
+		e.preventDefault();
+		const correo = $('#correo').value.trim().toLowerCase();
+		$('#msg-acceso').textContent = 'Enviando…';
+		const {error} = await sb.auth.signInWithOtp({email: correo, options: {emailRedirectTo: location.origin + location.pathname}});
+		$('#msg-acceso').textContent = error ? 'No se pudo enviar: ' + error.message : 'Listo. Revisa tu correo (y la carpeta de spam) y abre el enlace en este mismo navegador.';
+	});
+	$('#salir').addEventListener('click', async () => { await sb.auth.signOut(); location.reload(); });
+
+	const kpis = () => {
+		const n = (e) => datos.filter((d) => d.estado === e).length;
+		const tot = datos.length, pag = n('pagado');
+		const hoy = datos.filter((d) => new Date(d.creado).toDateString() === new Date().toDateString()).length;
+		const pend = datos.filter((d) => d.estado === 'registrado').length;
+		$('#kpis').innerHTML = [
+			[tot, 'Registrados en total'], [hoy, 'Registrados hoy'], [pend, 'Sin contactar todavía'],
+			[n('contactado'), 'Contactados, sin pagar'], [pag, 'Pagaron'], [tot ? Math.round(pag * 100 / tot) + '%' : '—', 'Conversión a pago'],
+		].map(([v, t]) => `<div class="kpi"><b>${v}</b><small>${t}</small></div>`).join('');
+	};
+
+	const pintar = () => {
+		const q = $('#buscar').value.trim().toLowerCase(), fe = $('#f-estado').value;
+		const lista = datos.filter((d) => (!fe || d.estado === fe) && (!q || [d.nombre, d.negocio, d.whatsapp].join(' ').toLowerCase().includes(q)));
+		$('#filas').innerHTML = lista.length ? lista.map((d) => {
+			const primero = (d.nombre || '').split(' ')[0];
+			const texto = encodeURIComponent(`Hola ${primero}, te escribimos de la Cumbre de Transformación Empresarial Amazonas 2026. Gracias por apartar tu cupo.`);
+			const llego = [d.origen, d.utm_source && `${d.utm_source}${d.utm_campaign ? ' · ' + d.utm_campaign : ''}`].filter(Boolean).join('<small>') || '—';
+			return `<tr data-id="${d.id}">
+				<td>${new Date(d.creado).toLocaleString('es-VE', {day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit'})}</td>
+				<td><b>${esc(d.nombre)}</b><small>+${esc(d.whatsapp)}</small></td>
+				<td>${esc(d.negocio || '—')}<small>${esc(d.rubro || '')}</small></td>
+				<td>${llego}</td>
+				<td><select class="estado e-${d.estado}">${['registrado', 'contactado', 'pagado', 'descartado'].map((e) => `<option${e === d.estado ? ' selected' : ''}>${e}</option>`).join('')}</select></td>
+				<td><textarea class="notas" maxlength="500" placeholder="Notas">${esc(d.notas || '')}</textarea></td>
+				<td><a class="b wa" href="https://wa.me/${esc(d.whatsapp)}?text=${texto}" target="_blank" rel="noopener">WhatsApp</a></td>
+			</tr>`;
+		}).join('') : '<tr><td colspan="7" class="vacio">Todavía no hay registros con ese filtro.</td></tr>';
+	};
+
+	const cargar = async () => {
+		msg('Cargando…');
+		const {data, error} = await sb.from('preregistros').select('id,creado,nombre,whatsapp,negocio,rubro,origen,utm_source,utm_medium,utm_campaign,estado,notas').order('creado', {ascending: false}).limit(5000);
+		if (error) return msg('No se pudieron cargar los registros: ' + error.message, true);
+		datos = data; msg(datos.length ? '' : 'Tu cuenta no tiene registros visibles. Si ya hay inscritos, esta cuenta no es administradora.');
+		kpis(); pintar();
+	};
+
+	const guardar = async (id, cambios, el) => {
+		cambios.actualizado = new Date().toISOString();
+		const {data, error} = await sb.from('preregistros').update(cambios).eq('id', id).select('id');
+		if (error || !data || !data.length) return msg('No se guardó el cambio' + (error ? ': ' + error.message : '.'), true);
+		Object.assign(datos.find((d) => d.id === id), cambios); kpis();
+		if (el) { el.style.outline = '2px solid #12A150'; setTimeout(() => { el.style.outline = ''; }, 900); }
+		msg('');
+	};
+
+	$('#filas').addEventListener('change', (e) => {
+		const id = e.target.closest('tr')?.dataset.id; if (!id) return;
+		if (e.target.classList.contains('estado')) { e.target.className = 'estado e-' + e.target.value; guardar(id, {estado: e.target.value}, e.target); }
+		if (e.target.classList.contains('notas')) guardar(id, {notas: e.target.value.slice(0, 500)}, e.target);
+	});
+	$('#buscar').addEventListener('input', pintar);
+	$('#f-estado').addEventListener('change', pintar);
+	$('#recargar').addEventListener('click', cargar);
+	$('#exportar').addEventListener('click', () => {
+		const cols = ['creado', 'nombre', 'whatsapp', 'negocio', 'rubro', 'origen', 'utm_source', 'utm_medium', 'utm_campaign', 'estado', 'notas'];
+		const celda = (v) => { let s = String(v ?? ''); if (/^[=+\-@]/.test(s)) s = "'" + s; return '"' + s.replace(/"/g, '""') + '"'; };
+		const csv = '﻿' + [cols.join(','), ...datos.map((d) => cols.map((c) => celda(d[c])).join(','))].join('\n');
+		const a = document.createElement('a');
+		a.href = URL.createObjectURL(new Blob([csv], {type: 'text/csv;charset=utf-8'}));
+		a.download = `registros-cumbre-${new Date().toISOString().slice(0, 10)}.csv`; a.click();
+	});
+
+	let actual = null;
+	const mostrar = (sesion) => {
+		const id = sesion ? sesion.user.id : null;
+		if (id === actual && $('#acceso').hidden !== $('#app').hidden) return;
+		actual = id;
+		$('#acceso').hidden = !!sesion; $('#app').hidden = !sesion; $('#sesion').hidden = !sesion;
+		if (sesion) { $('#quien').textContent = sesion.user.email; cargar(); }
+	};
+	sb.auth.onAuthStateChange((_e, sesion) => mostrar(sesion));
+	sb.auth.getSession().then(({data}) => mostrar(data.session));
+})();
+</script>
+</body>
+</html>
