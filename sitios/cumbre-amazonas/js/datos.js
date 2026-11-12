@@ -116,26 +116,29 @@ const PROGRAMA = [
 	{hora: '9:00 PM', titulo: 'Cierre y networking', tipo: 'logistica'},
 ];
 
-// Patrocinadores, en dos filas animadas. Todos van sobre fondo claro: los logos de dibujo
-// claro usan su versión '-web' (dibujo oscurecido), sin tocar el archivo original del pendón.
+// Patrocinadores, en dos filas animadas sobre una franja marino. Cada logo va en una tarjeta 3:2
+// (img/patrocinadores/) que conserva su fondo y sus colores originales, todas del mismo tamaño.
+// Las primeras 9 forman la fila de arriba y las otras 9 la de abajo; están alternadas claro/color.
 // Para enlazar un logo a su Instagram o WhatsApp: , enlace: 'https://instagram.com/...'
 const PATROCINADORES = [
-	{logo: 'logo3', nombre: 'Ferreconi'},
-	{logo: 'logo1-web', nombre: 'Perfumes Factory'},
-	{logo: 'logo4', nombre: 'Orthosmile'},
-	{logo: 'logo2-web', nombre: 'Distribuidora de Suministros Puerto Venado'},
-	{logo: 'logo6', nombre: 'Inversiones Navas Maldonado'},
-	{logo: 'logo5-web', nombre: 'Moto Repuestos Daniel 2011'},
-	{logo: 'logo8', nombre: 'Tecnoama'},
-	{logo: 'logo10-web', nombre: 'Galaxia Luxe Nails'},
-	{logo: 'logo9', nombre: 'Abasto y Panadería Jesús de Nazareth'},
-	{logo: 'logo11', nombre: 'La Casita del Sabor'},
-	{logo: 'logo12', nombre: 'MultiEmpresariales.com', enlace: 'https://wa.me/584267617944?text=Hola%2C%20te%20vi%20en%20la%20Cumbre'},
-	{logo: 'logo13-web', nombre: 'Milsi Beauty Studio'},
-	{logo: 'logo14', nombre: 'Farma-Descuento Ayacucho Plus'},
-	{logo: 'logo15', nombre: 'Las Delicias del Llano'},
-	{logo: 'logo16', nombre: 'Marco Repuestos'},
-	{logo: 'logo17-web', nombre: 'KubIA Soluciones', enlace: 'https://kubiav.com'},
+	{logo: 'ferreconi', nombre: 'Ferreconi'},
+	{logo: 'perfumes', nombre: 'Perfumes Factory'},
+	{logo: 'navas', nombre: 'Inversiones Navas Maldonado'},
+	{logo: 'galaxia', nombre: 'Galaxia Luxe Nails'},
+	{logo: 'tecnoama', nombre: 'Tecnoama'},
+	{logo: 'jesus-nazareth', nombre: 'Abasto y Panadería Jesús de Nazareth'},
+	{logo: 'marco', nombre: 'Marco Repuestos'},
+	{logo: 'puerto-venado', nombre: 'Distribuidora de Suministros Puerto Venado'},
+	{logo: 'multiempresariales', nombre: 'MultiEmpresariales.com', enlace: 'https://wa.me/584267617944?text=Hola%2C%20te%20vi%20en%20la%20Cumbre'},
+	{logo: 'orthosmile', nombre: 'Orthosmile'},
+	{logo: 'wahari', nombre: 'Wahari Pizza'},
+	{logo: 'delicias', nombre: 'Las Delicias del Llano'},
+	{logo: 'moto-daniel', nombre: 'Moto Repuestos Daniel 2011'},
+	{logo: 'milsi', nombre: 'Milsi Beauty Studio'},
+	{logo: 'divino-nino', nombre: 'Frutas, Verduras y Hortalizas El Divino Niño'},
+	{logo: 'kubia', nombre: 'KubIA Soluciones', enlace: 'https://kubiav.com'},
+	{logo: 'farma', nombre: 'Farma-Descuento Ayacucho Plus'},
+	{logo: 'casita', nombre: 'La Casita del Sabor'},
 ];
 
 // Fecha y hora de inicio (Venezuela, UTC-4)

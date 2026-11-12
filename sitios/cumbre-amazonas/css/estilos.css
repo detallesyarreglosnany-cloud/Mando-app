@@ -152,24 +152,25 @@ section { padding: 72px 0; }
 
 /* Patrocinadores — dos filas en movimiento, todas sobre el mismo fondo */
 .patrocinadores { background: linear-gradient(180deg, var(--blanco), var(--hielo)); }
-.carrusel { display: grid; gap: 16px; }
-.fila { overflow: hidden; padding: 10px 0; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-.pista { display: flex; gap: 16px; width: max-content; animation: desliza 42s linear infinite; }
-.fila.der .pista { animation-duration: 50s; animation-direction: reverse; }
+/* Franja marino a todo lo ancho: cada logo conserva su fondo original en una tarjeta 3:2 del mismo tamaño */
+.carrusel { display: grid; gap: 18px; width: 100vw; margin-left: calc(50% - 50vw); padding: 34px 0; background: radial-gradient(rgba(255, 255, 255, .07) 1px, transparent 1.4px) 0 0 / 18px 18px, linear-gradient(135deg, #0A2160, var(--marino) 55%, #051238); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06), inset 0 -1px 0 rgba(255, 255, 255, .06); }
+.fila { overflow: hidden; padding: 8px 0; mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+.pista { display: flex; gap: 18px; width: max-content; animation: desliza 48s linear infinite; }
+.fila.der .pista { animation-duration: 56s; animation-direction: reverse; }
 .fila:hover .pista, .fila:focus-within .pista { animation-play-state: paused; }
-@keyframes desliza { to { transform: translateX(calc(-50% - 8px)); } }
-.logo { position: relative; flex: 0 0 auto; width: 170px; height: 100px; display: flex; align-items: center; justify-content: center; padding: 12px 16px; background: var(--blanco); border: 1px solid #DCE5F5; border-radius: 18px; box-shadow: 0 6px 18px rgba(7, 26, 74, .06); overflow: hidden; transition: transform .25s, box-shadow .25s, border-color .25s; }
-.logo img { max-height: 72px; max-width: 100%; width: auto; object-fit: contain; }
-.logo:hover { transform: translateY(-5px); border-color: var(--celeste); box-shadow: 0 14px 28px rgba(30, 79, 216, .18); }
-/* Fila de arriba: un reflejo de luz cruza cada logo. Fila de abajo: el borde respira en celeste. */
-.fila.izq .logo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, .55) 50%, transparent 60%); transform: translateX(-120%); animation: reflejo 6s ease-in-out infinite; pointer-events: none; }
+@keyframes desliza { to { transform: translateX(calc(-50% - 9px)); } }
+.logo { position: relative; flex: 0 0 auto; width: 198px; aspect-ratio: 3 / 2; display: block; border-radius: 16px; overflow: hidden; box-shadow: 0 0 0 1px rgba(255, 255, 255, .14), 0 10px 24px rgba(0, 0, 0, .35); transition: transform .25s, box-shadow .25s; }
+.logo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.logo:hover { transform: translateY(-5px) scale(1.03); box-shadow: 0 0 0 2px var(--oro), 0 16px 30px rgba(0, 0, 0, .45); }
+/* Fila de arriba: un reflejo de luz cruza cada tarjeta. Fila de abajo: el borde respira en celeste. */
+.fila.izq .logo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, .32) 50%, transparent 60%); transform: translateX(-120%); animation: reflejo 6s ease-in-out infinite; pointer-events: none; }
 .fila.izq .logo:nth-child(3n+2)::after { animation-delay: 2s; } .fila.izq .logo:nth-child(3n)::after { animation-delay: 4s; }
 @keyframes reflejo { 0%, 70% { transform: translateX(-120%); } 100% { transform: translateX(120%); } }
 .fila.der .logo { animation: respira 5s ease-in-out infinite; }
 .fila.der .logo:nth-child(odd) { animation-delay: 2.5s; }
-@keyframes respira { 0%, 100% { border-color: #DCE5F5; } 50% { border-color: rgba(47, 168, 224, .6); box-shadow: 0 6px 22px rgba(47, 168, 224, .18); } }
-a.logo::before { content: '↗'; position: absolute; top: 6px; right: 10px; font-size: 12px; font-weight: 900; color: var(--azul); opacity: .5; }
-@media (max-width: 560px) { .logo { width: 132px; height: 82px; padding: 10px; } .logo img { max-height: 58px; } }
+@keyframes respira { 0%, 100% { box-shadow: 0 0 0 1px rgba(255, 255, 255, .14), 0 10px 24px rgba(0, 0, 0, .35); } 50% { box-shadow: 0 0 0 2px rgba(47, 168, 224, .75), 0 10px 28px rgba(47, 168, 224, .3); } }
+a.logo::before { content: '↗'; position: absolute; z-index: 1; top: 7px; right: 8px; width: 20px; height: 20px; display: grid; place-items: center; border-radius: 50%; font-size: 11px; font-weight: 900; color: var(--marino); background: rgba(255, 255, 255, .9); }
+@media (max-width: 560px) { .logo { width: 150px; } .carrusel { gap: 12px; padding: 24px 0; } .pista { gap: 12px; } }
 
 .unete { position: relative; overflow: hidden; margin-top: 40px; display: grid; grid-template-columns: 1.2fr 1fr auto; gap: 26px; align-items: center; background: radial-gradient(500px circle at var(--x, 80%) var(--y, 0%), rgba(47, 168, 224, .28), transparent 60%), linear-gradient(135deg, #0B2A7A, var(--marino)); color: var(--blanco); border-radius: 26px; padding: 34px 30px; }
 .unete h3 { margin: 0 0 6px; font-size: 24px; }

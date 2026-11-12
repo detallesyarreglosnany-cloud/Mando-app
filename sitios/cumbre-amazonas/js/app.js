@@ -73,7 +73,7 @@
 
 	// ---- Patrocinadores: dos filas en movimiento, en sentidos opuestos ----
 	const logo = (s, copia) => {
-		const img = `<img src="img/logos/${s.logo}.webp" alt="${copia ? '' : esc(s.nombre)}" title="${esc(s.nombre)}" loading="lazy">`;
+		const img = `<img src="img/patrocinadores/${s.logo}.webp" width="480" height="320" alt="${copia ? '' : esc(s.nombre)}" title="${esc(s.nombre)}" loading="lazy">`;
 		const extra = copia ? ' tabindex="-1" aria-hidden="true"' : '';
 		return s.enlace ? `<a class="logo" href="${esc(s.enlace)}" target="_blank" rel="noopener"${extra}>${img}</a>` : `<span class="logo"${copia ? ' aria-hidden="true"' : ''}>${img}</span>`;
 	};
