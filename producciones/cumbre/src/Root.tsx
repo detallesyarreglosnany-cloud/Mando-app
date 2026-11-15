@@ -6,6 +6,7 @@ import {Directo, DURACION_DIRECTO} from './Directo';
 import {DirectoVoz, DURACION_VOZ} from './DirectoVoz';
 import {Patrocinio, DURACION_PATRO} from './Patrocinio';
 import {Patro59, DURACION_59} from './Patro59';
+import {Gracias, DURACION_GRACIAS} from './Gracias';
 export const Root: React.FC = () => (
 	<>
 		<Composition id="CumbrePatrocinadores" component={Cumbre} defaultProps={{version: 'A' as const, conAudio: true}} durationInFrames={86 * 30} fps={30} width={1080} height={1920} />
@@ -15,5 +16,6 @@ export const Root: React.FC = () => (
 		<Composition id="CumbreDirectoVoz" component={DirectoVoz} durationInFrames={Math.ceil(DURACION_VOZ * 30)} fps={30} width={1080} height={1920} />
 		<Composition id="CumbreInvitaPatrocinio" component={Patrocinio} defaultProps={{conAudio: true}} durationInFrames={Math.ceil(DURACION_PATRO * 30)} fps={30} width={1080} height={1920} />
 		<Composition id="Cumbre59" component={Patro59} defaultProps={{conAudio: true}} durationInFrames={Math.ceil(DURACION_59 * 30)} fps={30} width={1080} height={1920} />
+		<Composition id="CumbreGracias" component={Gracias} defaultProps={{conAudio: true}} durationInFrames={Math.ceil(DURACION_GRACIAS * 30)} fps={30} width={1080} height={1920} />
 	</>
 );
