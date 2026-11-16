@@ -38,6 +38,7 @@ env = np.abs(voz).mean(1); k = int(0.2 * SR); c = np.concatenate([[0], np.cumsum
 env = (c[np.minimum(np.arange(N) + k // 2, N)] - c[np.maximum(np.arange(N) - k // 2, 0)]) / k
 env = np.clip(env / max(1e-9, np.percentile(env, 95)), 0, 1)
 mus *= (0.62 * (1 - 0.6 * env))[:, None]
+if os.environ.get('SIN_MUSICA'): mus[:] = 0  # versión solo voz + efectos
 x = voz + mus + fx * 0.6
 f = np.ones(N); n = int(1.4 * SR); f[-n:] = np.linspace(1, 0, n) ** 1.5; x *= f[:, None]
 x *= 0.95 / np.abs(x).max()
