@@ -155,7 +155,7 @@ const MW = 132, MH = 88, MG = 12, MTOP = 1392; // mosaico pequeño 7 x 4
 const mini = (i: number) => ({x: 540 - (7 * MW + 6 * MG) / 2 + (i % 7) * (MW + MG), y: MTOP + Math.floor(i / 7) * (MH + MG), w: MW, h: MH});
 const TW = 240, TH = 160, GAP = 16, TOP = 400; // muro final 4 x 7
 const muro = (i: number) => ({x: 540 - (4 * TW + 3 * GAP) / 2 + (i % 4) * (TW + GAP), y: TOP + Math.floor(i / 4) * (TH + GAP), w: TW, h: TH});
-const FRASES = ['Los que creyeron en el talento amazonense', 'Los que apostaron por Amazonas', 'Los que construyen, desde ya, su futuro', '28 marcas que ya son parte de esta historia'];
+const FRASES = ['Los que creyeron en el talento amazonense', 'Los que apostaron por Amazonas', 'Los que le abren paso a las nuevas tendencias', '28 marcas que ya son parte de esta historia'];
 const Logos: React.FC = () => {
 	const f = useCurrentFrame();
 	const t = f / 30 + E.logos[0];

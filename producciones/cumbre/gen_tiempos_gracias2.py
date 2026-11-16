@@ -12,7 +12,7 @@ o = {'D': D, 'DUR': 57.0, 'V': V, 'E': {'gancho': [0, 4.0], 'ponentes': [4.0, 8.
  'antes': V['01'] + w('01', 'antes'), 'despues': V['01'] + w('01', 'después'), 'ponentes': [4.0, 4.5, 5.0, 5.5], 'apagon': 7.4,
  'pilares': [V['04'] + w('04', x) for x in ('liderar', 'vender', 'crecer')],
  'logos': [18.5 + 1.0 * i for i in range(N)], 'por_logo': 1.0,
- 'frases': [V['05'] + w('05', 'los', 0), V['05'] + w('05', 'los', 1), V['05'] + w('05', 'los', 2), V['06']], 'frases_fin': [V['05'] + 3.7, V['05'] + 6.0, V['05'] + 9.6, V['06'] + 3.6],
+ 'frases': [V['05'] + w('05', 'los', 0), V['05'] + w('05', 'los', 1), V['05'] + w('05', 'los', 2), V['06']], 'frases_fin': [V['05'] + 4.4, V['05'] + 7.2, V['05'] + T['05']['dur'] + 0.3, V['06'] + 3.6],
  'muro': 46.5, 'gracias': V['07'] + w('07', 'gracias'), 'venta': V['08'] + w('08', 'venta'), 'asegura': V['08'] + w('08', 'asegura'), 'vive': V['08'] + w('08', 'vive'), 'contacto': 54.0}
 o = json.loads(json.dumps(o), parse_float=lambda x: round(float(x), 3))
 PICO = {'zoom': 0, 'impacto': 0.02, 'explosion': 0.25, 'swish': 0.15, 'swish2': 0.13, 'pop': 0.01, 'chime': 0, 'riser': 1.42, 'golpe': 0}
