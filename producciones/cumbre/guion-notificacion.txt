@@ -1,0 +1,39 @@
+GUION DE VOZ · VIDEO "NOTIFICACIÓN" (71 s) — para ElevenLabs
+Entre corchetes: segundo del video donde empieza y cuánto puede durar como máximo.
+Después de grabar, la voz se sincroniza al video (los cortes se ajustan a tu voz).
+
+[0:00 · máx 2.5 s]
+¿Ya tienes tu entrada para este viernes?
+
+[0:03 · máx 3.5 s]
+Más de treinta y un empresarios se van a encontrar en un mismo lugar.
+
+[0:07 · máx 3.6 s]
+Cumbre de Transformación Empresarial. Lidera, vende y crece.
+
+[0:11 · máx 4.6 s]
+Con Juan Ernesto Sierra: actualízate con las nuevas modalidades tributarias.
+
+[0:16 · máx 4.6 s]
+Con José Rodríguez: el cierre de venta estratégico. No más ventas perdidas.
+
+[0:21 · máx 4.6 s]
+Con Tania Alzuru: neuromarketing para que tu cliente te elija, sin bajar tu precio.
+
+[0:26 · máx 4.6 s]
+Con Daniela Silva: reportes, inventario y tu tienda vendiendo veinticuatro siete, desde tu teléfono.
+
+[0:31 · máx 17 s — mientras pasan los logos]
+Y esto lo hacen posible los que le apuestan a Amazonas. Comercios, marcas y emprendedores que decidieron invertir en su propia tierra. Que no esperan a que las cosas cambien: las hacen cambiar. Gracias a cada uno de ellos por estar del lado de los que construyen.
+
+[0:48 · máx 2.8 s]
+Treinta y una marcas que creen en Amazonas.
+
+[0:51 · máx 4 s]
+Ven con tu socio. Ven con tu equipo. Y llévate las herramientas que tu negocio necesita.
+
+[0:55 · máx 3 s]
+No hace falta salir de Amazonas para vivir un evento de este nivel.
+
+[0:58 · máx 9 s — el final se queda en pantalla]
+Las entradas ya están a la venta. Escríbenos al cero cuatro dos seis, siete seis uno, setenta y nueve, cuarenta y cuatro. Porque el dos mil veintisiete de tu negocio empieza el cuatro de diciembre.
