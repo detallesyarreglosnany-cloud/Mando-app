@@ -146,7 +146,7 @@ const PATROCINADORES = [
 	{logo: 'orthosmile', nombre: 'Orthosmile'},
 	{logo: 'jac', nombre: 'JAC'},
 	{logo: 'delicias', nombre: 'Las Delicias del Llano'},
-	{logo: 'tania', nombre: 'Patrocinador oficial'},
+	{logo: 'tania', nombre: 'Tania Alzuru'},
 	{logo: 'moto-daniel', nombre: 'Moto Repuestos Daniel 2011'},
 	{logo: 'milsi', nombre: 'Milsi Beauty Studio'},
 	{logo: 'divino-nino', nombre: 'Frutas, Verduras y Hortalizas El Divino Niño'},
