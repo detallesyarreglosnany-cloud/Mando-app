@@ -24,15 +24,14 @@ const PONENTES = [
 	{nombre: 'JUAN E. SIERRA', logro: 'Gana más', tema: 'Finanzas y ganancias', foto: 'img/juan-recorte.png'},
 	{nombre: 'DANIELA SILVA', logro: 'Vende 24/7', tema: 'Tu negocio digital', foto: 'img/daniela-recorte.png'},
 ];
-const PUBLICO = ['Líderes con personal a su cargo', 'Dueños de comercio', 'Emprendedores en marcha', 'De marca personal a empresarial'];
-// 31 patrocinadores en 5 filas (6-6-7-6-6), cada uno en su tarjeta 3:2 con su fondo original, borde blanco y sombra.
-// Fila central (la que más se mira): Club Parapata al centro, rodeado por los medios aliados.
+const PUBLICO = ['Líderes con personal a su cargo', 'Dueños de comercio', 'Emprendedores con negocio en marcha', 'De marca personal a marca empresarial'];
+// 31 patrocinadores en 4 filas a lo ancho (8-7-8-8), cada uno en su tarjeta 3:2 con su fondo original, borde blanco
+// y sombra. La fila de 7 lleva a Club Parapata al centro, con los medios aliados a los lados.
 const FILAS = [
-	['ferreconi', 'perfumes', 'gran-hotel-apure', 'navas', 'reyes-rivero', 'galaxia'],
-	['tecnoama', 'jesus-nazareth', 'esquina-caliente', 'marco', 'betty-guillen', 'puerto-venado'],
-	['condimentos', 'mas-network', 'amavision', 'parapata', 'shamanika', 'multiempresariales', 'orthosmile'],
-	['wahari', 'delicias', 'moto-daniel', 'tania', 'shabono', 'milsi'],
-	['broaster', 'divino-nino', 'kubia', 'farma', 'jac', 'casita'],
+	['ferreconi', 'perfumes', 'gran-hotel-apure', 'navas', 'reyes-rivero', 'galaxia', 'tecnoama', 'jesus-nazareth'],
+	['condimentos', 'mas-network', 'amavision', 'parapata', 'shamanika', 'multiempresariales', 'esquina-caliente'],
+	['marco', 'betty-guillen', 'puerto-venado', 'orthosmile', 'wahari', 'delicias', 'moto-daniel', 'tania'],
+	['shabono', 'milsi', 'broaster', 'divino-nino', 'kubia', 'farma', 'jac', 'casita'],
 ];
 
 // ---------- Título de la cumbre (bloque protagonista) ----------
@@ -50,9 +49,9 @@ const Cabecera: React.FC = () => (
 
 // ---------- Título en escalera: LIDERA → VENDE → CRECE ----------
 const ESCALONES = [
-	{palabra: 'LIDERA', sub: 'a tu equipo', alto: 60, color: C.azul, font: 118},
-	{palabra: 'VENDE', sub: 'más y mejor', alto: 98, color: C.marino, font: 126},
-	{palabra: 'CRECE', sub: 'hacia el 2027', alto: 136, color: C.oro, font: 138},
+	{palabra: 'LIDERA', sub: 'a tu equipo', alto: 68, color: C.azul, font: 134},
+	{palabra: 'VENDE', sub: 'más y mejor', alto: 110, color: C.marino, font: 142},
+	{palabra: 'CRECE', sub: 'hacia el 2027', alto: 152, color: C.oro, font: 156},
 ];
 const Escalera: React.FC<{base: number}> = ({base}) => {
 	const ancho = 470, gap = 15;
@@ -88,10 +87,10 @@ const Tarjeta: React.FC<{l: string; w: number}> = ({l, w}) => (
 	</div>
 );
 
-const TW = 184; // ancho de cada tarjeta = 9,2 cm
+const TW = 172; // 8 tarjetas a lo ancho: 8,6 cm cada una
 export const PendonMarcas: React.FC = () => {
 	useFuentes();
-	const BASE = 596; // suelo de la escalera
+	const BASE = 630; // suelo de la escalera
 	return (
 		<AbsoluteFill style={{background: '#FFFFFF'}}>
 			<Cabecera />
@@ -102,11 +101,11 @@ export const PendonMarcas: React.FC = () => {
 				</div>
 			</AbsoluteFill>
 			{/* ponentes: más grandes */}
-			<div style={{position: 'absolute', left: M - 10, right: M - 10, top: 708, display: 'flex', justifyContent: 'space-between'}}>
+			<div style={{position: 'absolute', left: M - 10, right: M - 10, top: 742, display: 'flex', justifyContent: 'space-between'}}>
 				{PONENTES.map((p) => (
 					<div key={p.nombre} style={{width: 360, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-						<div style={{width: 330, height: 290, display: 'flex', justifyContent: 'center', alignItems: 'flex-end', overflow: 'hidden', borderRadius: '165px 165px 24px 24px', background: `linear-gradient(180deg, #3D6BE0, ${C.marino})`, border: `6px solid ${C.oro}`, boxSizing: 'border-box'}}>
-							<Img src={staticFile(p.foto)} style={{height: 276, objectFit: 'contain'}} />
+						<div style={{width: 340, height: 330, display: 'flex', justifyContent: 'center', alignItems: 'flex-end', overflow: 'hidden', borderRadius: '170px 170px 24px 24px', background: `linear-gradient(180deg, #3D6BE0, ${C.marino})`, border: `6px solid ${C.oro}`, boxSizing: 'border-box'}}>
+							<Img src={staticFile(p.foto)} style={{height: 314, objectFit: 'contain'}} />
 						</div>
 						<div style={{marginTop: 8, fontFamily: F.titulo, fontSize: 44, color: C.marino, whiteSpace: 'nowrap', lineHeight: 1.05}}>{p.nombre}</div>
 						<div style={{fontFamily: F.texto, fontWeight: 900, fontSize: 32, color: C.azul, lineHeight: 1.15}}>{p.logro}</div>
@@ -115,18 +114,18 @@ export const PendonMarcas: React.FC = () => {
 				))}
 			</div>
 			{/* panel: justo debajo de los ponentes */}
-			<AbsoluteFill style={{top: 1128, alignItems: 'center'}}>
+			<AbsoluteFill style={{top: 1202, alignItems: 'center'}}>
 				<div style={{fontFamily: F.texto, fontWeight: 800, fontSize: 28, color: C.marino, border: `3px solid ${C.azul}`, padding: '8px 30px', borderRadius: 40}}>+ Panel central con experto tributario y asesor laboral</div>
 			</AbsoluteFill>
 			{/* diseñada para: con aire */}
-			<AbsoluteFill style={{top: 1194, alignItems: 'center'}}>
+			<AbsoluteFill style={{top: 1268, alignItems: 'center'}}>
 				<div style={{fontFamily: F.texto, fontWeight: 900, fontSize: 24, letterSpacing: 6, color: C.marino, background: C.oro, padding: '4px 22px', borderRadius: 10}}>DISEÑADA PARA</div>
-				<div style={{marginTop: 10, width: 1440, display: 'flex', flexWrap: 'nowrap', justifyContent: 'center', gap: 8}}>
-					{PUBLICO.map((t) => <div key={t} style={{fontFamily: F.texto, fontWeight: 800, fontSize: 21, color: '#FFFFFF', background: C.azul, padding: '6px 15px', borderRadius: 40, whiteSpace: 'nowrap'}}>{t}</div>)}
+				<div style={{marginTop: 10, width: 1440, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 10}}>
+					{PUBLICO.map((t) => <div key={t} style={{fontFamily: F.texto, fontWeight: 800, fontSize: 25, color: '#FFFFFF', background: C.azul, padding: '6px 20px', borderRadius: 40, whiteSpace: 'nowrap'}}>{t}</div>)}
 				</div>
 			</AbsoluteFill>
 			{/* cinta de escasez: separada de la tarjeta */}
-			<AbsoluteFill style={{top: 1308, alignItems: 'center'}}>
+			<AbsoluteFill style={{top: 1432, alignItems: 'center'}}>
 				<div style={{display: 'flex', alignItems: 'center', gap: 18}}>
 					<div style={{width: 90, height: 4, background: C.oro, borderRadius: 2}} />
 					<div style={{fontFamily: F.texto, fontWeight: 900, fontSize: 26, letterSpacing: 3, color: C.marino}}>AFORO LIMITADO · INSCRIPCIÓN POR ORDEN DE LLEGADA</div>
@@ -134,7 +133,7 @@ export const PendonMarcas: React.FC = () => {
 				</div>
 			</AbsoluteFill>
 			{/* tarjeta de compra */}
-			<div style={{position: 'absolute', left: M, right: M, top: 1352, height: 206, borderRadius: 30, background: C.marino, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 34px'}}>
+			<div style={{position: 'absolute', left: M, right: M, top: 1478, height: 206, borderRadius: 30, background: C.marino, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 34px'}}>
 				<div style={{display: 'flex', flexDirection: 'column', gap: 10, fontFamily: F.texto, color: '#FFFFFF'}}>
 					<div style={{lineHeight: 1}}><span style={{fontWeight: 700, fontSize: 26, color: C.celeste, letterSpacing: 3}}>VIERNES </span><span style={{fontWeight: 900, fontSize: 44}}>4 DE DICIEMBRE</span></div>
 					<div style={{lineHeight: 1}}><span style={{fontWeight: 700, fontSize: 26, color: C.celeste, letterSpacing: 3}}>DESDE LAS </span><span style={{fontWeight: 900, fontSize: 44}}>2:00 PM</span></div>
@@ -152,7 +151,7 @@ export const PendonMarcas: React.FC = () => {
 				</div>
 			</div>
 			{/* patrocinadores oficiales: el protagonismo de las marcas */}
-			<div style={{position: 'absolute', left: 40, right: 40, top: 1576, bottom: 34, borderRadius: 30, background: C.hielo, display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: 16, gap: 14}}>
+			<div style={{position: 'absolute', left: 40, right: 40, top: 1704, bottom: 34, borderRadius: 30, background: C.hielo, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 16}}>
 				<div style={{display: 'flex', alignItems: 'center', gap: 18, width: 1440}}>
 					<div style={{flex: 1, height: 4, background: C.oro, borderRadius: 2}} />
 					<div style={{textAlign: 'center'}}>
@@ -162,7 +161,7 @@ export const PendonMarcas: React.FC = () => {
 					<div style={{flex: 1, height: 4, background: C.oro, borderRadius: 2}} />
 				</div>
 				{FILAS.map((fila, i) => (
-					<div key={i} style={{display: 'flex', gap: 18, justifyContent: 'center'}}>
+					<div key={i} style={{display: 'flex', gap: 14, justifyContent: 'center'}}>
 						{fila.map((l) => <Tarjeta key={l} l={l} w={TW} />)}
 					</div>
 				))}
