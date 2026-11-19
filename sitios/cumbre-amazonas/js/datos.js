@@ -118,25 +118,38 @@ const PROGRAMA = [
 
 // Patrocinadores, en dos filas animadas sobre una franja marino. Cada logo va en una tarjeta 3:2
 // (img/patrocinadores/) que conserva su fondo y sus colores originales, todas del mismo tamaño.
-// Las primeras 9 forman la fila de arriba y las otras 9 la de abajo; están alternadas claro/color.
+// La primera mitad (16) forma la fila de arriba y el resto (15) la de abajo; van alternadas claro/oscuro.
 // Para enlazar un logo a su Instagram o WhatsApp: , enlace: 'https://instagram.com/...'
 const PATROCINADORES = [
+	{logo: 'parapata', nombre: 'Club Parapata'},
+	{logo: 'mas-network', nombre: 'Más Network 90.9 FM'},
 	{logo: 'ferreconi', nombre: 'Ferreconi'},
-	{logo: 'perfumes', nombre: 'Perfumes Factory'},
+	{logo: 'gran-hotel-apure', nombre: 'Gran Hotel Apure'},
 	{logo: 'navas', nombre: 'Inversiones Navas Maldonado'},
+	{logo: 'amavision', nombre: 'Amavisión Canal 7'},
+	{logo: 'reyes-rivero', nombre: 'Ferretería Reyes & Rivero'},
 	{logo: 'galaxia', nombre: 'Galaxia Luxe Nails'},
+	{logo: 'esquina-caliente', nombre: 'La Esquina Caliente'},
+	{logo: 'shamanika', nombre: 'Shamanika 101'},
 	{logo: 'tecnoama', nombre: 'Tecnoama'},
-	{logo: 'jesus-nazareth', nombre: 'Abasto y Panadería Jesús de Nazareth'},
+	{logo: 'perfumes', nombre: 'Perfumes Factory'},
+	{logo: 'betty-guillen', nombre: 'Laboratorio Betty Guillén'},
 	{logo: 'marco', nombre: 'Marco Repuestos'},
+	{logo: 'condimentos', nombre: 'Condimentos del Sur'},
+	{logo: 'kubia-nuevo', nombre: 'KubIA Soluciones', enlace: 'https://kubiav.com'},
+	{logo: 'jesus-nazareth', nombre: 'Abasto y Panadería Jesús de Nazareth'},
+	{logo: 'shabono', nombre: 'Shabono by Nelson Méndez'},
 	{logo: 'puerto-venado', nombre: 'Distribuidora de Suministros Puerto Venado'},
+	{logo: 'broaster', nombre: 'El Broaster del Chef'},
 	{logo: 'multiempresariales-2', nombre: 'MultiEmpresariales.com', enlace: 'https://wa.me/584267617944?text=Hola%2C%20te%20vi%20en%20la%20Cumbre'},
-	{logo: 'orthosmile', nombre: 'Orthosmile'},
 	{logo: 'wahari', nombre: 'Wahari Pizza'},
+	{logo: 'orthosmile', nombre: 'Orthosmile'},
+	{logo: 'jac', nombre: 'JAC'},
 	{logo: 'delicias', nombre: 'Las Delicias del Llano'},
+	{logo: 'tania', nombre: 'Patrocinador oficial'},
 	{logo: 'moto-daniel', nombre: 'Moto Repuestos Daniel 2011'},
 	{logo: 'milsi', nombre: 'Milsi Beauty Studio'},
 	{logo: 'divino-nino', nombre: 'Frutas, Verduras y Hortalizas El Divino Niño'},
-	{logo: 'kubia', nombre: 'KubIA Soluciones', enlace: 'https://kubiav.com'},
 	{logo: 'farma', nombre: 'Farma-Descuento Ayacucho Plus'},
 	{logo: 'casita', nombre: 'La Casita del Sabor'},
 ];
