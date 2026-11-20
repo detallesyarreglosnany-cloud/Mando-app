@@ -55,17 +55,17 @@ const Logo: React.FC<{l: string}> = ({l}) => {
 
 export const PendonPremium: React.FC = () => {
 	useFuentes();
-	const Y = 900; // línea de cabezas de los ponentes
+	const Y = 880; // línea de cabezas de los ponentes
 	return (
 		<AbsoluteFill style={{background: '#FFFFFF'}}>
 			{/* ZONA 1 · identidad del evento: clara, pero por debajo del mensaje */}
 			{centro(118, <>
-				<T s={40} p={900} c={C.azul} ls={18}>CUMBRE DE</T>
+				<T s={58} p={900} c={C.azul} ls={14}>CUMBRE DE</T>
 				<T s={112} f={F.titulo} p={400} style={{marginTop: 12, whiteSpace: 'nowrap'}}>TRANSFORMACIÓN EMPRESARIAL</T>
-				<T s={36} p={900} c={C.azul} ls={22} style={{marginTop: 14}}>AMAZONAS 2026</T>
+				<T s={58} p={900} c={C.azul} ls={14} style={{marginTop: 14}}>AMAZONAS 2026</T>
 			</>)}
 			{/* ZONA 2 · mensaje principal: el elemento dominante */}
-			{centro(392, <div style={{display: 'flex', alignItems: 'center', gap: 34}}>
+			{centro(430, <div style={{display: 'flex', alignItems: 'center', gap: 34}}>
 				{['LIDERA', 'VENDE', 'CRECE'].map((w, i) => (
 					<React.Fragment key={w}>
 						{i > 0 && <div style={{width: 22, height: 22, borderRadius: 22, background: C.oro}} />}
@@ -73,17 +73,16 @@ export const PendonPremium: React.FC = () => {
 					</React.Fragment>
 				))}
 			</div>)}
-			{centro(640, <>
+			{centro(670, <>
 				<T s={58} p={900} c={C.azul}>VIERNES 4 DE DICIEMBRE · 2:00 PM</T>
 				<T s={40} p={700} ls={6} style={{marginTop: 12}}>CLUB PARAPATA · PUERTO AYACUCHO</T>
-				<T s={32} p={500} c={C.gris} style={{marginTop: 26}}>Herramientas reales para vender más, ganar más y competir en lo que viene.</T>
 			</>)}
 			{/* ZONA 3 · ponentes: una sola franja de bruma azul, sin marcos individuales */}
 			<div style={{position: 'absolute', left: 0, right: 0, top: Y - 40, height: 500, background: `linear-gradient(180deg, #FFFFFF 0%, ${C.bruma} 22%, #D9E5F8 100%)`, overflow: 'hidden'}}>
-				<div style={{position: 'absolute', left: 80, right: 80, top: 40, display: 'flex', justifyContent: 'space-between'}}>
+				<div style={{position: 'absolute', left: 80, right: 80, top: 40, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start'}}>
 					{PONENTES.map((p) => (
-						<div key={p.nombre} style={{width: 410, display: 'flex', justifyContent: 'center'}}>
-							<Img src={staticFile(p.foto)} style={{width: p.w, display: 'block'}} />
+						<div key={p.nombre} style={{width: 410, display: 'flex', justifyContent: 'center', alignItems: 'flex-start'}}>
+							<Img src={staticFile(p.foto)} style={{width: p.w, height: 'auto', display: 'block', flexShrink: 0}} />
 						</div>
 					))}
 				</div>
@@ -101,7 +100,7 @@ export const PendonPremium: React.FC = () => {
 				<T s={28} p={500} c={C.gris} style={{marginTop: 10}}>Para dueños de comercio, líderes de equipo y emprendedores con negocio en marcha.</T>
 			</>)}
 			{/* ZONA 4 · patrocinadores: ecosistema de marcas en grilla abierta */}
-			{centro(1640, <>
+			{centro(1588, <>
 				<div style={{display: 'flex', alignItems: 'center', gap: 26, width: 1640}}>
 					<div style={{flex: 1, height: 2, background: `${C.marino}26`}} />
 					<T s={38} p={900} ls={10}>PATROCINADORES OFICIALES</T>
@@ -113,8 +112,8 @@ export const PendonPremium: React.FC = () => {
 				</div>
 			</>)}
 			{/* ZONA 5 · conversión: franja azul marino a sangre */}
-			<div style={{position: 'absolute', left: 0, right: 0, top: 2486, bottom: 0, background: C.marino}} />
-			<div style={{position: 'absolute', left: 100, right: 100, top: 2530, height: 360, display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+			<div style={{position: 'absolute', left: 0, right: 0, top: 2448, bottom: 0, background: C.marino}} />
+			<div style={{position: 'absolute', left: 100, right: 100, top: 2474, height: 330, display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
 				<div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}>
 					<T s={30} p={900} c={C.oro} ls={10}>AFORO LIMITADO</T>
 					<T s={44} p={900} c="#FFFFFF" ls={2} style={{marginTop: 14}}>ENTRADAS A LA VENTA</T>
@@ -122,11 +121,11 @@ export const PendonPremium: React.FC = () => {
 						<div style={{fontFamily: F.titulo, fontSize: 168, lineHeight: 1, color: C.oro}}>50$</div>
 						<div style={{fontFamily: F.titulo, fontSize: 76, lineHeight: 1, color: '#FFFFFF'}}>A BCV</div>
 					</div>
-					<T s={30} p={600} c="#C9D6F2" style={{marginTop: 18, fontStyle: 'italic', textAlign: 'left'}}>El 2027 de tu negocio se construye el 4 de diciembre.</T>
 				</div>
 				<div style={{display: 'flex', alignItems: 'center', gap: 30}}>
 					<div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-end'}}>
-						<T s={44} p={900} c="#FFFFFF" style={{textAlign: 'right', lineHeight: 1.12}}>ESCANEA Y<br />ASEGURA<br />TU LUGAR</T>
+						<T s={64} p={900} c={C.oro} style={{textAlign: 'right', lineHeight: 1}}>ESCANEA</T>
+						<T s={40} p={900} c="#FFFFFF" style={{textAlign: 'right', marginTop: 8}}>ASEGURA TU LUGAR</T>
 						<div style={{marginTop: 10, fontFamily: F.texto, fontWeight: 900, fontSize: 60, color: C.oro, lineHeight: 1}}>→</div>
 						<T s={36} p={800} c="#FFFFFF" style={{marginTop: 18}}>0426-761-7944</T>
 					</div>
@@ -135,6 +134,7 @@ export const PendonPremium: React.FC = () => {
 					</div>
 				</div>
 			</div>
+			{centro(2826, <T s={48} p={800} c="#FFFFFF" style={{fontStyle: 'italic'}}>El 2027 de tu negocio se construye el <span style={{color: C.oro}}>4 de diciembre</span>.</T>)}
 		</AbsoluteFill>
 	);
 };
