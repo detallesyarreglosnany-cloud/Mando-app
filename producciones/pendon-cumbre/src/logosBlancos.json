@@ -4,40 +4,40 @@
   "tinta": 0.459
  },
  "betty-guillen": {
-  "r": 1.001,
-  "tinta": 0.542
+  "r": 1.0,
+  "tinta": 0.382
  },
  "broaster": {
   "r": 1.003,
   "tinta": 0.677
  },
  "casita": {
-  "r": 1.004,
-  "tinta": 0.446
+  "r": 1.106,
+  "tinta": 0.371
  },
  "cefoage": {
   "r": 0.897,
   "tinta": 0.339
  },
  "condimentos": {
-  "r": 0.969,
-  "tinta": 0.389
+  "r": 1.0,
+  "tinta": 0.279
  },
  "delicias": {
   "r": 1.008,
   "tinta": 0.314
  },
  "divino-nino": {
-  "r": 1.301,
-  "tinta": 0.408
+  "r": 1.462,
+  "tinta": 0.265
  },
  "esquina-caliente": {
-  "r": 1.001,
-  "tinta": 0.395
+  "r": 1.0,
+  "tinta": 0.419
  },
  "farma": {
-  "r": 0.931,
-  "tinta": 0.541
+  "r": 1.0,
+  "tinta": 0.232
  },
  "ferreconi": {
   "r": 2.976,
@@ -48,8 +48,8 @@
   "tinta": 0.185
  },
  "gran-hotel-apure": {
-  "r": 0.963,
-  "tinta": 0.33
+  "r": 0.84,
+  "tinta": 0.231
  },
  "jac": {
   "r": 3.207,
@@ -57,7 +57,7 @@
  },
  "jesus-nazareth": {
   "r": 1.064,
-  "tinta": 0.279
+  "tinta": 0.296
  },
  "kubia": {
   "r": 2.836,
@@ -92,8 +92,8 @@
   "tinta": 0.119
  },
  "parapata": {
-  "r": 0.963,
-  "tinta": 0.385
+  "r": 1.0,
+  "tinta": 0.459
  },
  "perfumes": {
   "r": 2.51,
@@ -104,12 +104,12 @@
   "tinta": 0.155
  },
  "reyes-rivero": {
-  "r": 1.069,
-  "tinta": 0.332
+  "r": 0.997,
+  "tinta": 0.293
  },
  "shabono": {
-  "r": 1.683,
-  "tinta": 0.743
+  "r": 1.736,
+  "tinta": 0.265
  },
  "shamanika": {
   "r": 3.033,
@@ -124,7 +124,7 @@
   "tinta": 0.346
  },
  "wahari": {
-  "r": 1.136,
-  "tinta": 0.579
+  "r": 1.391,
+  "tinta": 0.378
  }
 }
