@@ -4,24 +4,24 @@
   "tinta": 0.459
  },
  "betty-guillen": {
-  "r": 1.0,
-  "tinta": 0.382
+  "r": 1.024,
+  "tinta": 0.47
  },
  "broaster": {
-  "r": 1.003,
-  "tinta": 0.677
+  "r": 1.001,
+  "tinta": 0.528
  },
  "casita": {
-  "r": 1.106,
-  "tinta": 0.371
+  "r": 1.084,
+  "tinta": 0.39
  },
  "cefoage": {
   "r": 0.897,
   "tinta": 0.339
  },
  "condimentos": {
-  "r": 1.0,
-  "tinta": 0.279
+  "r": 0.928,
+  "tinta": 0.393
  },
  "delicias": {
   "r": 1.008,
@@ -29,15 +29,15 @@
  },
  "divino-nino": {
   "r": 1.462,
-  "tinta": 0.265
+  "tinta": 0.36
  },
  "esquina-caliente": {
-  "r": 1.0,
-  "tinta": 0.419
+  "r": 1.499,
+  "tinta": 0.332
  },
  "farma": {
-  "r": 1.0,
-  "tinta": 0.232
+  "r": 0.993,
+  "tinta": 0.422
  },
  "ferreconi": {
   "r": 2.976,
@@ -56,16 +56,16 @@
   "tinta": 0.364
  },
  "jesus-nazareth": {
-  "r": 1.064,
-  "tinta": 0.296
+  "r": 1.07,
+  "tinta": 0.372
  },
  "kubia": {
   "r": 2.836,
   "tinta": 0.409
  },
  "marco": {
-  "r": 0.924,
-  "tinta": 0.481
+  "r": 1.095,
+  "tinta": 0.369
  },
  "mas-network": {
   "r": 1.499,
@@ -76,8 +76,8 @@
   "tinta": 0.202
  },
  "moto-daniel": {
-  "r": 3.5,
-  "tinta": 0.461
+  "r": 3.443,
+  "tinta": 0.362
  },
  "multiempresariales": {
   "r": 5.688,
@@ -92,8 +92,8 @@
   "tinta": 0.119
  },
  "parapata": {
-  "r": 1.0,
-  "tinta": 0.459
+  "r": 0.981,
+  "tinta": 0.355
  },
  "perfumes": {
   "r": 2.51,
@@ -108,8 +108,8 @@
   "tinta": 0.293
  },
  "shabono": {
-  "r": 1.736,
-  "tinta": 0.265
+  "r": 1.721,
+  "tinta": 0.383
  },
  "shamanika": {
   "r": 3.033,
