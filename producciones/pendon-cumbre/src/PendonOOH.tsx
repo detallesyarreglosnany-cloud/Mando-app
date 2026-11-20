@@ -22,17 +22,20 @@ const PONENTES = [
 	{nombre: 'JUAN E. SIERRA', tema: 'Finanzas y tributos', foto: 'img/juan-recorte.png'},
 	{nombre: 'DANIELA SILVA', tema: 'Tu negocio digital', foto: 'img/daniela-recorte.png'},
 ];
-// 32 patrocinadores en ladrillo 9-7-9-7. Fila 2 (la más mirada): Club Parapata al centro con los medios.
+// 32 patrocinadores en ladrillo 6-7-6-7-6 (alterna perfecto). Fila 2: Club Parapata al centro con los medios.
+// Cada marca va en tarjeta BLANCA con tamaño óptico parejo (public/patroTile, generado sin recortar fondos:
+// la marca sobre blanco queda directa; la que tiene placa de color la conserva entera con esquinas redondeadas).
 const FILAS = [
-	['ferreconi', 'perfumes', 'gran-hotel-apure', 'navas', 'reyes-rivero', 'galaxia', 'tecnoama', 'jesus-nazareth', 'cefoage'],
+	['ferreconi', 'perfumes', 'gran-hotel-apure', 'navas', 'reyes-rivero', 'galaxia'],
 	['condimentos', 'mas-network', 'amavision', 'parapata', 'shamanika', 'multiempresariales', 'esquina-caliente'],
-	['marco', 'betty-guillen', 'puerto-venado', 'orthosmile', 'wahari', 'delicias', 'moto-daniel', 'tania', 'shabono'],
-	['milsi', 'broaster', 'divino-nino', 'kubia', 'farma', 'jac', 'casita'],
+	['tecnoama', 'jesus-nazareth', 'cefoage', 'marco', 'betty-guillen', 'puerto-venado'],
+	['orthosmile', 'wahari', 'delicias', 'moto-daniel', 'tania', 'shabono', 'milsi'],
+	['broaster', 'divino-nino', 'kubia', 'farma', 'jac', 'casita'],
 ];
-const TW = 168; // 8,4 cm por tarjeta: la fila de 9 queda dentro de la zona segura de 4 cm
+const TW = 216; // 10,8 cm por tarjeta
 const Tarjeta: React.FC<{l: string}> = ({l}) => (
-	<div style={{width: TW, height: TW * 2 / 3, borderRadius: 14, overflow: 'hidden', border: '5px solid #FFFFFF', boxSizing: 'border-box', boxShadow: `0 8px 18px ${C.marino}40, 0 0 0 2px ${C.marino}1F`}}>
-		<Img src={staticFile(`patroHD/${l}.webp`)} style={{width: '100%', height: '100%', display: 'block', objectFit: 'cover'}} />
+	<div style={{width: TW, height: TW * 2 / 3, borderRadius: 14, overflow: 'hidden', background: '#FFFFFF', boxShadow: `0 6px 16px ${C.marino}2E, 0 0 0 2px ${C.marino}14`}}>
+		<Img src={staticFile(`patroTile/${l}.png`)} style={{width: '100%', height: '100%', display: 'block'}} />
 	</div>
 );
 const Linea: React.FC<{children: React.ReactNode; color?: string}> = ({children, color = `${C.marino}33`}) => (
@@ -80,31 +83,33 @@ export const PendonOOH: React.FC = () => {
 			</div>
 			{col(1440, <div style={{fontFamily: F.texto, fontWeight: 800, fontSize: 32, color: C.marino, border: `3px solid ${C.azul}`, padding: '8px 32px', borderRadius: 40}}>+ Panel central con experto tributario y asesor laboral</div>)}
 			{col(1514, <div style={{fontFamily: F.texto, fontWeight: 600, fontSize: 32, color: C.gris}}>Para dueños de comercio, líderes de equipo y emprendedores con negocio en marcha</div>)}
-			{/* 5. QUIÉN RESPALDA */}
-			<div style={{position: 'absolute', left: 40, right: 40, top: 1590, height: 696, borderRadius: 30, background: C.fondo, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 16}}>
+			{/* 5. QUIÉN RESPALDA: el bloque más grande del pendón */}
+			<div style={{position: 'absolute', left: 40, right: 40, top: 1584, height: 930, borderRadius: 30, background: C.fondo, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 14}}>
 				<Linea>
 					<div style={{textAlign: 'center'}}>
-						<div style={{fontFamily: F.texto, fontWeight: 900, fontSize: 38, letterSpacing: 8, color: C.marino, lineHeight: 1.1}}>PATROCINADORES OFICIALES</div>
-						<div style={{fontFamily: F.texto, fontWeight: 700, fontSize: 25, color: C.azul, marginTop: 4}}>Gracias a las marcas que hacen posible esta cumbre</div>
+						<div style={{fontFamily: F.texto, fontWeight: 900, fontSize: 40, letterSpacing: 8, color: C.marino, lineHeight: 1.1}}>PATROCINADORES OFICIALES</div>
+						<div style={{fontFamily: F.texto, fontWeight: 700, fontSize: 26, color: C.azul, marginTop: 4}}>Gracias a las marcas que hacen posible esta cumbre</div>
 					</div>
 				</Linea>
 				{FILAS.map((fila, i) => <div key={i} style={{display: 'flex', gap: 14}}>{fila.map((l) => <Tarjeta key={l} l={l} />)}</div>)}
 			</div>
-			{/* 6. CÓMO COMPRAR: un solo bloque, QR de 15 cm */}
-			<div style={{position: 'absolute', left: 80, right: 80, top: 2320, height: 560, borderRadius: 34, background: C.marino, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 56px', boxSizing: 'border-box'}}>
-				<div style={{display: 'flex', flexDirection: 'column', gap: 12, fontFamily: F.texto, color: '#FFFFFF'}}>
-					<div style={{fontWeight: 800, fontSize: 32, letterSpacing: 6, color: C.celeste}}>ENTRADAS A LA VENTA</div>
-					<div style={{fontFamily: F.titulo, fontSize: 150, lineHeight: 1, color: '#FFFFFF'}}>50$ <span style={{fontSize: 70, color: C.celeste}}>a BCV</span></div>
-					<div style={{fontWeight: 900, fontSize: 46, lineHeight: 1.1}}>Viernes 4 de diciembre · 2:00 PM</div>
-					<div style={{fontWeight: 700, fontSize: 38}}>Club Parapata · Puerto Ayacucho</div>
-					<div style={{marginTop: 8, fontWeight: 800, fontStyle: 'italic', fontSize: 34, color: C.oro}}>El 2027 de tu negocio se construye el 4 de diciembre.</div>
+			{/* 6. CÓMO COMPRAR: franja compacta, sin repetir fecha ni lugar (ya están arriba) */}
+			<div style={{position: 'absolute', left: 80, right: 80, top: 2536, height: 364, borderRadius: 34, background: C.marino, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 30px 0 52px', boxSizing: 'border-box'}}>
+				<div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 8, fontFamily: F.texto, color: '#FFFFFF'}}>
+					<div style={{fontWeight: 900, fontSize: 28, letterSpacing: 5, color: C.marino, background: C.oro, padding: '6px 20px', borderRadius: 30}}>AFORO LIMITADO</div>
+					<div style={{fontWeight: 800, fontSize: 30, letterSpacing: 5, color: C.celeste, marginTop: 6}}>ENTRADAS A LA VENTA</div>
+					<div style={{fontFamily: F.titulo, fontSize: 120, lineHeight: 1}}>50$ <span style={{fontSize: 60, color: C.celeste}}>a BCV</span></div>
+					<div style={{fontWeight: 800, fontStyle: 'italic', fontSize: 30, color: C.oro}}>El 2027 de tu negocio se construye el 4 de diciembre.</div>
 				</div>
-				<div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 14}}>
-					<div style={{fontFamily: F.texto, fontWeight: 900, fontSize: 52, color: C.oro, lineHeight: 1}}>ESCANEA</div>
-					<div style={{background: '#FFFFFF', padding: 22, borderRadius: 22, width: 344, height: 344, boxSizing: 'border-box'}}>
+				<div style={{display: 'flex', alignItems: 'center', gap: 24}}>
+					<div style={{textAlign: 'right', fontFamily: F.texto}}>
+						<div style={{fontWeight: 900, fontSize: 50, color: C.oro, lineHeight: 1}}>ESCANEA</div>
+						<div style={{fontWeight: 900, fontSize: 30, color: '#FFFFFF', lineHeight: 1.2, marginTop: 6}}>Y ASEGURA<br />TU LUGAR</div>
+						<div style={{fontWeight: 900, fontSize: 32, color: C.celeste, marginTop: 14}}>0426-761-7944</div>
+					</div>
+					<div style={{background: '#FFFFFF', padding: 18, borderRadius: 20, width: 310, height: 310, boxSizing: 'border-box'}}>
 						<Img src={staticFile('img/qr.svg')} style={{width: '100%', height: '100%', display: 'block'}} />
 					</div>
-					<div style={{fontFamily: F.texto, fontWeight: 900, fontSize: 38, color: '#FFFFFF'}}>0426-761-7944</div>
 				</div>
 			</div>
 		</AbsoluteFill>
