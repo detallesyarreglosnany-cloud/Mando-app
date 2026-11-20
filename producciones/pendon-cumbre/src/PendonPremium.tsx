@@ -39,12 +39,16 @@ const FILAS = [
 	['orthosmile', 'wahari', 'delicias', 'moto-daniel', 'tania', 'shabono', 'milsi'],
 	['broaster', 'divino-nino', 'kubia', 'farma', 'jac', 'casita'],
 ];
-const CW = 232, CH = 140;
+const CW = 232, CH = 148;
+// Escala óptica por PESO VISUAL: cada marca recibe el área que iguala su "tinta" visible (lo que no es blanco).
+// Así los trazos finos (Orthosmile, Tania, CEFOAGE) crecen y las placas llenas (Galaxia, Casita) bajan.
+// Topes: 10 cm de ancho y 6,8 cm de alto, para que ninguna se vuelva franja ni domine.
+const PESO = 0.3 * CW * CH * 0.92; // tinta objetivo ≈ la de una placa llena al 30% de la celda
 const Logo: React.FC<{l: string}> = ({l}) => {
-	const {tipo, r} = (LOGOS as Record<string, {tipo: string; r: number}>)[l];
-	const A = (tipo === 'placa' ? 0.42 : 0.52) * CW * CH;
+	const {r, tinta} = (LOGOS as Record<string, {tipo: string; r: number; tinta: number}>)[l];
+	const A = PESO / Math.max(0.12, tinta);
 	let w = Math.sqrt(A * r), h = Math.sqrt(A / r);
-	const k = Math.min(1, (0.86 * CW) / w, (0.8 * CH) / h);
+	const k = Math.min(1, 200 / w, 136 / h);
 	w *= k; h *= k;
 	return (
 		<div style={{width: CW, height: CH, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
@@ -107,7 +111,7 @@ export const PendonPremium: React.FC = () => {
 					<div style={{flex: 1, height: 2, background: `${C.marino}26`}} />
 				</div>
 				<T s={26} p={600} c={C.azul} style={{marginTop: 8}}>Gracias a las marcas que hacen posible esta cumbre.</T>
-				<div style={{marginTop: 26, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6}}>
+				<div style={{marginTop: 22, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0}}>
 					{FILAS.map((fila, i) => <div key={i} style={{display: 'flex'}}>{fila.map((l) => <Logo key={l} l={l} />)}</div>)}
 				</div>
 			</>)}

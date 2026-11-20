@@ -1,130 +1,162 @@
 {
  "amavision": {
   "tipo": "placa",
-  "r": 2.139
+  "r": 2.139,
+  "tinta": 0.874
  },
  "betty-guillen": {
   "tipo": "blanco",
-  "r": 1.0
+  "r": 1.0,
+  "tinta": 0.582
  },
  "broaster": {
   "tipo": "placa",
-  "r": 0.987
+  "r": 0.987,
+  "tinta": 0.653
  },
  "casita": {
   "tipo": "placa",
-  "r": 1.501
+  "r": 1.501,
+  "tinta": 0.987
  },
  "cefoage": {
   "tipo": "blanco",
-  "r": 0.898
+  "r": 0.898,
+  "tinta": 0.348
  },
  "condimentos": {
   "tipo": "blanco",
-  "r": 0.967
+  "r": 0.967,
+  "tinta": 0.53
  },
  "delicias": {
   "tipo": "blanco",
-  "r": 1.009
+  "r": 1.009,
+  "tinta": 0.702
  },
  "divino-nino": {
   "tipo": "placa",
-  "r": 1.3
+  "r": 1.3,
+  "tinta": 0.905
  },
  "esquina-caliente": {
   "tipo": "blanco",
-  "r": 1.004
+  "r": 1.004,
+  "tinta": 0.727
  },
  "farma": {
   "tipo": "placa",
-  "r": 1.252
+  "r": 1.252,
+  "tinta": 0.942
  },
  "ferreconi": {
   "tipo": "blanco",
-  "r": 2.969
+  "r": 2.969,
+  "tinta": 0.763
  },
  "galaxia": {
   "tipo": "placa",
-  "r": 2.097
+  "r": 2.097,
+  "tinta": 0.988
  },
  "gran-hotel-apure": {
   "tipo": "placa",
-  "r": 0.995
+  "r": 0.995,
+  "tinta": 0.955
  },
  "jac": {
   "tipo": "blanco",
-  "r": 3.187
+  "r": 3.187,
+  "tinta": 0.363
  },
  "jesus-nazareth": {
   "tipo": "placa",
-  "r": 1.063
+  "r": 1.063,
+  "tinta": 0.935
  },
  "kubia": {
   "tipo": "placa",
-  "r": 2.829
+  "r": 2.829,
+  "tinta": 0.732
  },
  "marco": {
   "tipo": "placa",
-  "r": 1.501
+  "r": 1.501,
+  "tinta": 0.951
  },
  "mas-network": {
   "tipo": "placa",
-  "r": 1.49
+  "r": 1.49,
+  "tinta": 0.979
  },
  "milsi": {
   "tipo": "placa",
-  "r": 1.889
+  "r": 1.889,
+  "tinta": 0.977
  },
  "moto-daniel": {
   "tipo": "placa",
-  "r": 3.433
+  "r": 3.433,
+  "tinta": 0.922
  },
  "multiempresariales": {
   "tipo": "blanco",
-  "r": 5.62
+  "r": 5.62,
+  "tinta": 0.258
  },
  "navas": {
   "tipo": "blanco",
-  "r": 4.158
+  "r": 4.158,
+  "tinta": 0.292
  },
  "orthosmile": {
   "tipo": "blanco",
-  "r": 0.861
+  "r": 0.861,
+  "tinta": 0.12
  },
  "parapata": {
   "tipo": "blanco",
-  "r": 0.976
+  "r": 0.976,
+  "tinta": 0.813
  },
  "perfumes": {
   "tipo": "placa",
-  "r": 1.552
+  "r": 1.552,
+  "tinta": 0.892
  },
  "puerto-venado": {
   "tipo": "placa",
-  "r": 1.32
+  "r": 1.32,
+  "tinta": 0.878
  },
  "reyes-rivero": {
   "tipo": "blanco",
-  "r": 1.069
+  "r": 1.069,
+  "tinta": 0.634
  },
  "shabono": {
   "tipo": "placa",
-  "r": 1.679
+  "r": 1.679,
+  "tinta": 0.966
  },
  "shamanika": {
   "tipo": "placa",
-  "r": 1.501
+  "r": 1.501,
+  "tinta": 0.903
  },
  "tania": {
   "tipo": "blanco",
-  "r": 1.015
+  "r": 1.015,
+  "tinta": 0.208
  },
  "tecnoama": {
   "tipo": "blanco",
-  "r": 2.766
+  "r": 2.766,
+  "tinta": 0.342
  },
  "wahari": {
   "tipo": "placa",
-  "r": 1.011
+  "r": 1.011,
+  "tinta": 0.91
  }
 }
