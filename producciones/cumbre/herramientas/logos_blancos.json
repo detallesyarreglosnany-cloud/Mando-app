@@ -1,0 +1,374 @@
+{
+ "_nota": "metodo y parametros elegidos por inspeccion visual de cada original",
+ "amavision": {
+  "archivo": "amavision.jpg",
+  "metodo": "plantilla",
+  "t": [
+   8,
+   20
+  ],
+  "huecos": [
+   [
+    205,
+    35,
+    40
+   ]
+  ],
+  "th": [
+   14,
+   28
+  ]
+ },
+ "betty-guillen": {
+  "archivo": "betty-guillen.jpg",
+  "metodo": "plantilla",
+  "t": [
+   5,
+   12
+  ],
+  "huecos": [
+   [
+    45,
+    25,
+    12
+   ]
+  ],
+  "th": [
+   12,
+   26
+  ]
+ },
+ "broaster": {
+  "archivo": "broaster.jpg",
+  "metodo": "plantilla",
+  "fondo": [
+   206,
+   32,
+   39
+  ],
+  "huecos": [
+   [
+    206,
+    32,
+    39
+   ]
+  ],
+  "t": [
+   10,
+   22
+  ],
+  "componentes": 0.2
+ },
+ "casita": {
+  "archivo": "casita.jpg",
+  "metodo": "plantilla",
+  "huecos": [],
+  "oscuro": 22,
+  "t": [
+   10,
+   22
+  ]
+ },
+ "cefoage": {
+  "archivo": "cefoage.jpg",
+  "metodo": "fondo",
+  "t": [
+   4,
+   14
+  ]
+ },
+ "condimentos": {
+  "archivo": "condimentos.jpg",
+  "metodo": "plantilla",
+  "fondo": [
+   254,
+   254,
+   252
+  ],
+  "huecos": [],
+  "oscuro": 25,
+  "t": [
+   6,
+   16
+  ]
+ },
+ "delicias": {
+  "archivo": "delicias.jpg",
+  "metodo": "plantilla",
+  "fondo": [
+   255,
+   255,
+   255
+  ],
+  "huecos": [],
+  "oscuro": 22,
+  "t": [
+   5,
+   14
+  ]
+ },
+ "divino-nino": {
+  "archivo": "divino-nino.jpg",
+  "metodo": "plantilla",
+  "huecos": [],
+  "oscuro": 30,
+  "t": [
+   10,
+   22
+  ]
+ },
+ "esquina-caliente": {
+  "archivo": "esquina-caliente.png",
+  "metodo": "plantilla",
+  "huecos": [],
+  "oscuro": 25,
+  "t": [
+   5,
+   14
+  ]
+ },
+ "farma": {
+  "archivo": "farma.jpg",
+  "metodo": "plantilla",
+  "recorte": [
+   0.0,
+   0.012,
+   1.0,
+   1.0
+  ],
+  "huecos": [
+   [
+    215,
+    30,
+    30
+   ]
+  ],
+  "th": [
+   14,
+   30
+  ],
+  "t": [
+   7,
+   15
+  ]
+ },
+ "ferreconi": {
+  "archivo": "ferreconi.jpg",
+  "metodo": "fondo",
+  "t": [
+   6,
+   16
+  ]
+ },
+ "galaxia": {
+  "archivo": "galaxia.jpg",
+  "metodo": "claro",
+  "t": [
+   8,
+   45
+  ]
+ },
+ "gran-hotel-apure": {
+  "archivo": "gran-hotel-apure.png",
+  "metodo": "claro",
+  "t": [
+   10,
+   50
+  ]
+ },
+ "jac": {
+  "archivo": "jac.jpg",
+  "metodo": "fondo",
+  "t": [
+   6,
+   18
+  ]
+ },
+ "jesus-nazareth": {
+  "archivo": "jesus-nazareth.jpg",
+  "metodo": "plantilla",
+  "huecos": [
+   [
+    105,
+    28,
+    40
+   ]
+  ],
+  "th": [
+   12,
+   26
+  ],
+  "t": [
+   4,
+   10
+  ]
+ },
+ "kubia": {
+  "archivo": "kubia.png",
+  "metodo": "claro",
+  "t": [
+   8,
+   35
+  ]
+ },
+ "marco": {
+  "archivo": "marco.jpg",
+  "metodo": "fondo",
+  "t": [
+   16,
+   30
+  ],
+  "componentes": 0.03
+ },
+ "mas-network": {
+  "archivo": "mas-network.jpg",
+  "metodo": "claro",
+  "t": [
+   12,
+   55
+  ]
+ },
+ "milsi": {
+  "archivo": "milsi.jpg",
+  "metodo": "claro",
+  "t": [
+   6,
+   30
+  ]
+ },
+ "moto-daniel": {
+  "archivo": "moto-daniel.jpg",
+  "metodo": "fondo",
+  "t": [
+   10,
+   24
+  ],
+  "recorte": [
+   0.015,
+   0.015,
+   0.985,
+   0.985
+  ],
+  "componentes": 0.01
+ },
+ "multiempresariales": {
+  "archivo": "multiempresariales.jpg",
+  "metodo": "fondo",
+  "t": [
+   6,
+   18
+  ]
+ },
+ "navas": {
+  "archivo": "navas.jpg",
+  "metodo": "fondo",
+  "t": [
+   6,
+   16
+  ]
+ },
+ "orthosmile": {
+  "archivo": "orthosmile.jpg",
+  "metodo": "fondo",
+  "t": [
+   6,
+   18
+  ]
+ },
+ "parapata": {
+  "archivo": "parapata.jpg",
+  "metodo": "plantilla",
+  "fondo": [
+   254,
+   254,
+   254
+  ],
+  "huecos": [],
+  "oscuro": 22,
+  "t": [
+   5,
+   14
+  ]
+ },
+ "perfumes": {
+  "archivo": "perfumes.jpg",
+  "metodo": "fondo",
+  "t": [
+   14,
+   30
+  ]
+ },
+ "puerto-venado": {
+  "archivo": "puerto-venado.png",
+  "metodo": "fondo",
+  "t": [
+   10,
+   24
+  ]
+ },
+ "reyes-rivero": {
+  "archivo": "reyes-rivero.png",
+  "metodo": "plantilla",
+  "huecos": [],
+  "oscuro": 35,
+  "t": [
+   5,
+   14
+  ]
+ },
+ "shabono": {
+  "archivo": "shabono.jpg",
+  "metodo": "plantilla",
+  "huecos": [],
+  "oscuro": 30,
+  "t": [
+   8,
+   18
+  ]
+ },
+ "shamanika": {
+  "archivo": "shamanika.jpg",
+  "metodo": "claro",
+  "fondo": [
+   20,
+   20,
+   20
+  ],
+  "t": [
+   45,
+   70
+  ],
+  "recorte": [
+   0.04,
+   0.36,
+   0.96,
+   0.66
+  ]
+ },
+ "tania": {
+  "archivo": "tania.png",
+  "metodo": "fondo",
+  "t": [
+   5,
+   15
+  ]
+ },
+ "tecnoama": {
+  "archivo": "tecnoama.jpg",
+  "metodo": "fondo",
+  "t": [
+   5,
+   15
+  ]
+ },
+ "wahari": {
+  "archivo": "wahari.jpg",
+  "metodo": "plantilla",
+  "huecos": [],
+  "oscuro": 20,
+  "t": [
+   8,
+   20
+  ]
+ }
+}

@@ -1,0 +1,130 @@
+{
+ "amavision": {
+  "r": 2.153,
+  "tinta": 0.459
+ },
+ "betty-guillen": {
+  "r": 1.001,
+  "tinta": 0.542
+ },
+ "broaster": {
+  "r": 1.003,
+  "tinta": 0.677
+ },
+ "casita": {
+  "r": 1.004,
+  "tinta": 0.446
+ },
+ "cefoage": {
+  "r": 0.897,
+  "tinta": 0.339
+ },
+ "condimentos": {
+  "r": 0.969,
+  "tinta": 0.389
+ },
+ "delicias": {
+  "r": 1.008,
+  "tinta": 0.314
+ },
+ "divino-nino": {
+  "r": 1.301,
+  "tinta": 0.408
+ },
+ "esquina-caliente": {
+  "r": 1.001,
+  "tinta": 0.395
+ },
+ "farma": {
+  "r": 0.931,
+  "tinta": 0.541
+ },
+ "ferreconi": {
+  "r": 2.976,
+  "tinta": 0.768
+ },
+ "galaxia": {
+  "r": 2.073,
+  "tinta": 0.185
+ },
+ "gran-hotel-apure": {
+  "r": 0.963,
+  "tinta": 0.33
+ },
+ "jac": {
+  "r": 3.207,
+  "tinta": 0.364
+ },
+ "jesus-nazareth": {
+  "r": 1.064,
+  "tinta": 0.279
+ },
+ "kubia": {
+  "r": 2.836,
+  "tinta": 0.409
+ },
+ "marco": {
+  "r": 0.924,
+  "tinta": 0.481
+ },
+ "mas-network": {
+  "r": 1.499,
+  "tinta": 0.287
+ },
+ "milsi": {
+  "r": 1.891,
+  "tinta": 0.202
+ },
+ "moto-daniel": {
+  "r": 3.5,
+  "tinta": 0.461
+ },
+ "multiempresariales": {
+  "r": 5.688,
+  "tinta": 0.256
+ },
+ "navas": {
+  "r": 4.173,
+  "tinta": 0.288
+ },
+ "orthosmile": {
+  "r": 0.862,
+  "tinta": 0.119
+ },
+ "parapata": {
+  "r": 0.963,
+  "tinta": 0.385
+ },
+ "perfumes": {
+  "r": 2.51,
+  "tinta": 0.195
+ },
+ "puerto-venado": {
+  "r": 1.32,
+  "tinta": 0.155
+ },
+ "reyes-rivero": {
+  "r": 1.069,
+  "tinta": 0.332
+ },
+ "shabono": {
+  "r": 1.683,
+  "tinta": 0.743
+ },
+ "shamanika": {
+  "r": 3.033,
+  "tinta": 0.234
+ },
+ "tania": {
+  "r": 1.01,
+  "tinta": 0.207
+ },
+ "tecnoama": {
+  "r": 2.773,
+  "tinta": 0.346
+ },
+ "wahari": {
+  "r": 1.136,
+  "tinta": 0.579
+ }
+}
