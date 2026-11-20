@@ -24,21 +24,21 @@ const T: React.FC<{s: number; f?: string; p?: number; c?: string; ls?: number; s
 // es la respuesta a un dolor concreto. La pieza se lee como conversación, no como cartelera.
 const centro = (top: number, children: React.ReactNode) => <div style={{position: 'absolute', left: 0, right: 0, top, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>{children}</div>;
 const NOCHE = '#050F2E';
-const RESPUESTAS = [
-	{dolor: '¿Te preguntan, pero no te compran?', resp: 'Cierre de venta estratégico', nombre: 'JOSÉ RODRÍGUEZ', foto: 'img/jose-recorte.png'},
-	{dolor: '¿Te comparan solo por el precio?', resp: 'Neuromarketing y marca', nombre: 'TANIA ALZURU', foto: 'img/tania-recorte.png'},
-	{dolor: '¿Te inquietan los nuevos tributos?', resp: 'Finanzas y tributos al día', nombre: 'JUAN E. SIERRA', foto: 'img/juan-recorte.png'},
-	{dolor: '¿Tu negocio solo vende si tú estás?', resp: 'Tu tienda vendiendo 24/7', nombre: 'DANIELA SILVA', foto: 'img/daniela-recorte.png'},
+const PONENTES = [
+	{nombre: 'JOSÉ RODRÍGUEZ', tema: 'Ventas y liderazgo', foto: 'img/jose-recorte.png'},
+	{nombre: 'TANIA ALZURU', tema: 'Neuromarketing y marca', foto: 'img/tania-recorte.png'},
+	{nombre: 'JUAN E. SIERRA', tema: 'Finanzas y tributos', foto: 'img/juan-recorte.png'},
+	{nombre: 'DANIELA SILVA', tema: 'Tu negocio digital', foto: 'img/daniela-recorte.png'},
 ];
-const Tarjeta: React.FC<{r: typeof RESPUESTAS[number]}> = ({r}) => (
-	<div style={{width: 800, height: 400, display: 'flex', alignItems: 'flex-end', gap: 26, borderBottom: `4px solid ${C.oro}`}}>
-		<div style={{width: 300, height: 380, flexShrink: 0, overflow: 'hidden', borderRadius: '150px 150px 0 0', background: `linear-gradient(180deg, #2A55C9, #0B2470)`, display: 'flex', justifyContent: 'center', alignItems: 'flex-start'}}>
-			<Img src={staticFile(r.foto)} style={{width: 300, height: 'auto', display: 'block', marginTop: 14}} />
+// Recorte directo sobre el azul, sin arco ni caja; la base de la foto se apoya en un filete dorado.
+const Tarjeta: React.FC<{r: typeof PONENTES[number]}> = ({r}) => (
+	<div style={{width: 800, height: 400, display: 'flex', alignItems: 'flex-end', gap: 24, borderBottom: `4px solid ${C.oro}`}}>
+		<div style={{width: 330, height: 396, flexShrink: 0, overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'flex-start'}}>
+			<Img src={staticFile(r.foto)} style={{width: 330, height: 'auto', display: 'block', marginTop: 10}} />
 		</div>
-		<div style={{paddingBottom: 30, display: 'flex', flexDirection: 'column', gap: 14}}>
-			<div style={{fontFamily: F.texto, fontWeight: 800, fontSize: 40, lineHeight: 1.15, color: '#FFFFFF'}}>{r.dolor}</div>
-			<div style={{fontFamily: F.texto, fontWeight: 900, fontSize: 30, color: C.oro, letterSpacing: 1}}>→ {r.resp.toUpperCase()}</div>
-			<div style={{fontFamily: F.titulo, fontSize: 52, color: C.celeste, lineHeight: 1}}>{r.nombre}</div>
+		<div style={{paddingBottom: 46, display: 'flex', flexDirection: 'column', gap: 10}}>
+			<div style={{fontFamily: F.titulo, fontSize: 70, color: '#FFFFFF', lineHeight: 1}}>{r.nombre}</div>
+			<div style={{fontFamily: F.texto, fontWeight: 800, fontSize: 31, color: C.celeste, whiteSpace: 'nowrap'}}>{r.tema}</div>
 		</div>
 	</div>
 );
@@ -60,23 +60,29 @@ const Logo: React.FC<{l: string}> = ({l}) => {
 export const PendonPregunta: React.FC = () => {
 	useFuentes();
 	return (
-		<AbsoluteFill style={{background: `radial-gradient(ellipse 120% 55% at 50% 18%, #13348C 0%, ${C.marino} 45%, ${NOCHE} 100%)`}}>
-			{centro(110, <T s={34} p={900} c={C.celeste} ls={9}>CUMBRE DE TRANSFORMACIÓN EMPRESARIAL · AMAZONAS 2026</T>)}
-			{/* EL GANCHO */}
-			{centro(200, <>
-				<T s={190} f={F.titulo} p={400} c="#FFFFFF" style={{lineHeight: 0.98}}>¿TU NEGOCIO ESTÁ</T>
-				<T s={190} f={F.titulo} p={400} c="#FFFFFF" style={{lineHeight: 0.98}}>LISTO PARA EL <span style={{color: C.oro}}>2027</span>?</T>
+		<AbsoluteFill style={{background: C.marino}}>
+			{centro(104, <>
+				<T s={50} p={900} c={C.celeste} ls={4}>CUMBRE DE TRANSFORMACIÓN EMPRESARIAL</T>
+				<T s={50} p={900} c={C.celeste} ls={14} style={{marginTop: 10}}>AMAZONAS 2026</T>
 			</>)}
-			{centro(605, <T s={44} p={700} c="#C9D6F2">4 expertos. 1 tarde. Las respuestas que tu negocio necesita.</T>)}
-			{centro(700, <div style={{display: 'flex', gap: 18, alignItems: 'center', background: C.oro, borderRadius: 60, padding: '16px 44px'}}>
-				<T s={44} p={900} c={NOCHE}>VIERNES 4 DE DICIEMBRE · 2:00 PM</T>
+			{centro(270, <div style={{display: 'flex', alignItems: 'center', gap: 34}}>
+				{['LIDERA', 'VENDE', 'CRECE'].map((w, i) => (
+					<React.Fragment key={w}>
+						{i > 0 && <div style={{width: 24, height: 24, borderRadius: 24, background: C.oro}} />}
+						<div style={{fontFamily: F.titulo, fontSize: 200, lineHeight: 1, color: '#FFFFFF'}}>{w}</div>
+					</React.Fragment>
+				))}
 			</div>)}
-			{centro(800, <T s={36} p={800} c="#FFFFFF" ls={6}>CLUB PARAPATA · PUERTO AYACUCHO</T>)}
+			{centro(560, <T s={40} p={700} c="#C9D6F2">4 expertos. 1 tarde. Herramientas reales para tu negocio.</T>)}
+			{centro(650, <div style={{display: 'flex', gap: 18, alignItems: 'center', background: C.oro, borderRadius: 60, padding: '16px 44px'}}>
+				<T s={50} p={900} c={NOCHE}>VIERNES 4 DE DICIEMBRE · 2:00 PM</T>
+			</div>)}
+			{centro(760, <T s={38} p={800} c="#FFFFFF" ls={6}>CLUB PARAPATA · PUERTO AYACUCHO</T>)}
 			{/* LAS RESPUESTAS */}
-			<div style={{position: 'absolute', left: 80, right: 80, top: 890, display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', rowGap: 34}}>
-				{RESPUESTAS.map((r) => <Tarjeta key={r.nombre} r={r} />)}
+			<div style={{position: 'absolute', left: 80, right: 80, top: 860, display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', rowGap: 34}}>
+				{PONENTES.map((r) => <Tarjeta key={r.nombre} r={r} />)}
 			</div>
-			{centro(1752, <T s={30} p={700} c="#C9D6F2">+ Panel central con experto tributario y asesor laboral · <span style={{color: C.oro}}>LIDERA · VENDE · CRECE</span></T>)}
+			{centro(1752, <T s={30} p={700} c="#C9D6F2">+ Panel central con experto tributario y asesor laboral </T>)}
 			{/* RESPALDO */}
 			{centro(1830, <>
 				<div style={{display: 'flex', alignItems: 'center', gap: 24, width: 1640}}>
@@ -87,28 +93,28 @@ export const PendonPregunta: React.FC = () => {
 				<div style={{marginTop: 14}}>{FILAS.map((f, i) => <div key={i} style={{display: 'flex', justifyContent: 'center'}}>{f.map((l) => <Logo key={l} l={l} />)}</div>)}</div>
 			</>)}
 			{/* EL CIERRE: franja dorada a sangre */}
-			<div style={{position: 'absolute', left: 0, right: 0, top: 2400, bottom: 0, background: C.oro}} />
+			<div style={{position: 'absolute', left: 0, right: 0, top: 2400, bottom: 0, background: C.azul}} />
 			<div style={{position: 'absolute', left: 100, right: 100, top: 2440, height: 380, display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
 				<div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}>
-					<T s={30} p={900} c={NOCHE} ls={10}>AFORO LIMITADO</T>
-					<T s={46} p={900} c={NOCHE} style={{marginTop: 10}}>ENTRADAS A LA VENTA</T>
+					<T s={30} p={900} c={C.oro} ls={10}>AFORO LIMITADO</T>
+					<T s={46} p={900} c="#FFFFFF" style={{marginTop: 10}}>ENTRADAS A LA VENTA</T>
 					<div style={{display: 'flex', alignItems: 'baseline', gap: 16}}>
-						<div style={{fontFamily: F.titulo, fontSize: 200, lineHeight: 1, color: NOCHE}}>50$</div>
-						<div style={{fontFamily: F.titulo, fontSize: 80, color: NOCHE}}>A BCV</div>
+						<div style={{fontFamily: F.titulo, fontSize: 200, lineHeight: 1, color: C.oro}}>50$</div>
+						<div style={{fontFamily: F.titulo, fontSize: 80, color: '#FFFFFF'}}>A BCV</div>
 					</div>
 				</div>
 				<div style={{display: 'flex', alignItems: 'center', gap: 28}}>
 					<div style={{textAlign: 'right'}}>
-						<T s={64} p={900} c={NOCHE} style={{textAlign: 'right'}}>ESCANEA</T>
-						<T s={36} p={900} c={NOCHE} style={{textAlign: 'right', marginTop: 6}}>ASEGURA TU LUGAR</T>
-						<T s={38} p={800} c={NOCHE} style={{textAlign: 'right', marginTop: 22}}>0426-761-7944</T>
+						<T s={64} p={900} c={C.oro} style={{textAlign: 'right'}}>ESCANEA</T>
+						<T s={36} p={900} c="#FFFFFF" style={{textAlign: 'right', marginTop: 6}}>ASEGURA TU LUGAR</T>
+						<T s={38} p={800} c="#FFFFFF" style={{textAlign: 'right', marginTop: 22}}>0426-761-7944</T>
 					</div>
 					<div style={{background: '#FFFFFF', padding: 24, width: 330, height: 330, boxSizing: 'border-box', borderRadius: 10}}>
 						<Img src={staticFile('img/qr.svg')} style={{width: '100%', height: '100%', display: 'block'}} />
 					</div>
 				</div>
 			</div>
-			{centro(2846, <T s={44} p={800} c={NOCHE} style={{fontStyle: 'italic'}}>El 2027 de tu negocio se construye el 4 de diciembre.</T>)}
+			{centro(2846, <T s={44} p={800} c="#FFFFFF" style={{fontStyle: 'italic'}}>El 2027 de tu negocio se construye el 4 de diciembre.</T>)}
 		</AbsoluteFill>
 	);
 };
