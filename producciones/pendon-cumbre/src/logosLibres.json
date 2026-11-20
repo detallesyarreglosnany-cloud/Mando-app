@@ -46,8 +46,8 @@
  },
  "farma": {
   "tipo": "placa",
-  "r": 1.252,
-  "tinta": 0.942
+  "r": 1.065,
+  "tinta": 0.926
  },
  "ferreconi": {
   "tipo": "blanco",
@@ -76,8 +76,8 @@
  },
  "kubia": {
   "tipo": "placa",
-  "r": 2.829,
-  "tinta": 0.732
+  "r": 2.26,
+  "tinta": 0.84
  },
  "marco": {
   "tipo": "placa",
@@ -147,7 +147,8 @@
  "tania": {
   "tipo": "blanco",
   "r": 1.015,
-  "tinta": 0.208
+  "tinta": 0.208,
+  "ajuste": 0.62
  },
  "tecnoama": {
   "tipo": "blanco",

@@ -45,8 +45,8 @@ const CW = 232, CH = 148;
 // Topes: 10 cm de ancho y 6,8 cm de alto, para que ninguna se vuelva franja ni domine.
 const PESO = 0.3 * CW * CH * 0.92; // tinta objetivo ≈ la de una placa llena al 30% de la celda
 const Logo: React.FC<{l: string}> = ({l}) => {
-	const {r, tinta} = (LOGOS as Record<string, {tipo: string; r: number; tinta: number}>)[l];
-	const A = PESO / Math.max(0.12, tinta);
+	const {r, tinta, ajuste = 1} = (LOGOS as Record<string, {tipo: string; r: number; tinta: number; ajuste?: number}>)[l];
+	const A = (PESO / Math.max(0.12, tinta)) * ajuste;
 	let w = Math.sqrt(A * r), h = Math.sqrt(A / r);
 	const k = Math.min(1, 200 / w, 136 / h);
 	w *= k; h *= k;
@@ -130,8 +130,7 @@ export const PendonPremium: React.FC = () => {
 					<div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-end'}}>
 						<T s={64} p={900} c={C.oro} style={{textAlign: 'right', lineHeight: 1}}>ESCANEA</T>
 						<T s={40} p={900} c="#FFFFFF" style={{textAlign: 'right', marginTop: 8}}>ASEGURA TU LUGAR</T>
-						<div style={{marginTop: 10, fontFamily: F.texto, fontWeight: 900, fontSize: 60, color: C.oro, lineHeight: 1}}>→</div>
-						<T s={36} p={800} c="#FFFFFF" style={{marginTop: 18}}>0426-761-7944</T>
+						<T s={36} p={800} c="#FFFFFF" style={{marginTop: 30}}>0426-761-7944</T>
 					</div>
 					<div style={{background: '#FFFFFF', padding: 26, width: 330, height: 330, boxSizing: 'border-box', borderRadius: 8}}>
 						<Img src={staticFile('img/qr.svg')} style={{width: '100%', height: '100%', display: 'block'}} />
