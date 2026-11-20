@@ -34,23 +34,23 @@ const PONENTES = [
 // las placas de color pesan más a la vista, así que reciben menos área que las marcas sobre blanco.
 const FILAS = [
 	['ferreconi', 'perfumes', 'gran-hotel-apure', 'navas', 'reyes-rivero', 'galaxia'],
-	['condimentos', 'mas-network', 'amavision', 'parapata', 'shamanika', 'multiempresariales', 'esquina-caliente'],
-	['tecnoama', 'jesus-nazareth', 'cefoage', 'marco', 'betty-guillen', 'puerto-venado'],
-	['orthosmile', 'wahari', 'delicias', 'moto-daniel', 'tania', 'shabono', 'milsi'],
-	['broaster', 'divino-nino', 'kubia', 'farma', 'jac', 'casita'],
+	['condimentos', 'mas-network', 'amavision', 'parapata', 'cefoage', 'betty-guillen', 'esquina-caliente'],
+	['tecnoama', 'jesus-nazareth', 'multiempresariales', 'marco', 'shamanika', 'puerto-venado'],
+	['orthosmile', 'wahari', 'delicias', 'farma', 'tania', 'shabono', 'milsi'],
+	['broaster', 'divino-nino', 'kubia', 'moto-daniel', 'jac', 'casita'],
 ];
-const CW = 232, CH = 140;
+const CW = 226, CH = 148;
 // Logos BLANCOS (#FFFFFF + alfa) extraídos de los originales (video-cumbre/herramientas/logos_blancos.py).
 // Tamaño por peso visual: misma cantidad de "blanco" por marca; topes 10 cm de ancho y 6,4 cm de alto.
-const PESO = 0.42 * CW * CH; // área base; se corrige por densidad con exponente 0,55 (compromiso entre área y tinta)
+const PESO = 0.56 * CW * CH; // área base; se corrige por densidad con exponente 0,55 (compromiso entre área y tinta)
 const Logo: React.FC<{l: string}> = ({l}) => {
 	const {r, tinta} = (LOGOS as Record<string, {r: number; tinta: number}>)[l];
 	const A = PESO * Math.pow(0.35 / Math.max(0.12, tinta), 0.55);
 	let w = Math.sqrt(A * r), h = Math.sqrt(A / r);
-	const k = Math.min(1, 200 / w, 128 / h);
+	const k = Math.min(1, (r > 3 ? 300 : 214) / w, 140 / h); // las marcas muy apaisadas pueden ocupar más ancho
 	w *= k; h *= k;
 	return (
-		<div style={{width: CW, height: CH, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+		<div style={{width: Math.max(CW, w + 18), height: CH, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
 			<Img src={staticFile(`patroBlanco/${l}.png`)} style={{width: w, height: h, display: 'block', objectFit: 'contain'}} />
 		</div>
 	);
@@ -104,20 +104,20 @@ export const PendonMarino: React.FC = () => {
 			</>)}
 			{/* ZONA 4 · patrocinadores: pared de marcas en blanco sobre azul marino, unida a la franja de venta */}
 			<div style={{position: 'absolute', left: 0, right: 0, top: 1580, bottom: 0, background: C.marino}} />
-			{centro(1630, <>
+			{centro(1612, <>
 				<div style={{display: 'flex', alignItems: 'center', gap: 26, width: 1640}}>
 					<div style={{flex: 1, height: 2, background: 'rgba(255,255,255,0.22)'}} />
 					<T s={38} p={900} c="#FFFFFF" ls={10}>PATROCINADORES OFICIALES</T>
 					<div style={{flex: 1, height: 2, background: 'rgba(255,255,255,0.22)'}} />
 				</div>
 				<T s={26} p={600} c={C.celeste} style={{marginTop: 8}}>Gracias a las marcas que hacen posible esta cumbre.</T>
-				<div style={{marginTop: 30, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4}}>
+				<div style={{marginTop: 16, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0}}>
 					{FILAS.map((fila, i) => <div key={i} style={{display: 'flex'}}>{fila.map((l) => <Logo key={l} l={l} />)}</div>)}
 				</div>
 			</>)}
 			{/* separación: la venta se distingue por un filete dorado y su propio ritmo tipográfico */}
-			<div style={{position: 'absolute', left: 100, right: 100, top: 2452, height: 3, background: `linear-gradient(90deg, transparent, ${C.oro}, transparent)`}} />
-			<div style={{position: 'absolute', left: 100, right: 100, top: 2486, height: 330, display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
+			<div style={{position: 'absolute', left: 100, right: 100, top: 2466, height: 3, background: `linear-gradient(90deg, transparent, ${C.oro}, transparent)`}} />
+			<div style={{position: 'absolute', left: 100, right: 100, top: 2492, height: 330, display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
 				<div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}>
 					<T s={30} p={900} c={C.oro} ls={10}>AFORO LIMITADO</T>
 					<T s={44} p={900} c="#FFFFFF" ls={2} style={{marginTop: 14}}>ENTRADAS A LA VENTA</T>
@@ -137,7 +137,7 @@ export const PendonMarino: React.FC = () => {
 					</div>
 				</div>
 			</div>
-			{centro(2834, <T s={48} p={800} c="#FFFFFF" style={{fontStyle: 'italic'}}>El 2027 de tu negocio se construye el <span style={{color: C.oro}}>4 de diciembre</span>.</T>)}
+			{centro(2840, <T s={48} p={800} c="#FFFFFF" style={{fontStyle: 'italic'}}>El 2027 de tu negocio se construye el <span style={{color: C.oro}}>4 de diciembre</span>.</T>)}
 		</AbsoluteFill>
 	);
 };
