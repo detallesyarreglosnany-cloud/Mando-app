@@ -122,8 +122,8 @@ export const PendonMarino: React.FC = () => {
 					<T s={30} p={900} c={C.oro} ls={10}>AFORO LIMITADO</T>
 					<T s={44} p={900} c="#FFFFFF" ls={2} style={{marginTop: 14}}>ENTRADAS A LA VENTA</T>
 					<div style={{display: 'flex', alignItems: 'baseline', gap: 18, marginTop: 4}}>
-						<div style={{fontFamily: F.titulo, fontSize: 168, lineHeight: 1, color: C.oro}}>50$</div>
-						<div style={{fontFamily: F.titulo, fontSize: 76, lineHeight: 1, color: '#FFFFFF'}}>A BCV</div>
+						<div style={{fontFamily: F.titulo, fontSize: 168, lineHeight: 1, color: C.oro}}>USD 50</div>
+						<div style={{fontFamily: F.titulo, fontSize: 60, lineHeight: 1, color: '#FFFFFF'}}>BCV</div>
 					</div>
 				</div>
 				<div style={{display: 'flex', alignItems: 'center', gap: 30}}>

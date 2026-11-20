@@ -25,21 +25,21 @@ const T: React.FC<{s: number; f?: string; p?: number; c?: string; ls?: number; s
 const centro = (top: number, children: React.ReactNode) => <div style={{position: 'absolute', left: 0, right: 0, top, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>{children}</div>;
 const NOCHE = '#050F2E';
 const PONENTES = [
-	{nombre: 'JOSÉ RODRÍGUEZ', tema: 'Ventas y liderazgo', foto: 'img/jose-recorte.png'},
-	{nombre: 'TANIA ALZURU', tema: 'Neuromarketing y marca', foto: 'img/tania-recorte.png'},
-	{nombre: 'JUAN E. SIERRA', tema: 'Finanzas y tributos', foto: 'img/juan-recorte.png'},
-	{nombre: 'DANIELA SILVA', tema: 'Tu negocio digital', foto: 'img/daniela-recorte.png'},
+	{nombre: 'JOSÉ RODRÍGUEZ', tema: 'Ventas y liderazgo', foto: 'img/jose-oscuro.png', w: 400},
+	{nombre: 'TANIA ALZURU', tema: 'Neuromarketing y marca', foto: 'img/tania-oscuro.png', w: 340},
+	{nombre: 'JUAN E. SIERRA', tema: 'Finanzas y tributos', foto: 'img/juan-oscuro.png', w: 372},
+	{nombre: 'DANIELA SILVA', tema: 'Tu negocio digital', foto: 'img/daniela-oscuro.png', w: 390},
 ];
-// Recorte directo sobre el azul, sin arco ni caja; la base de la foto se apoya en un filete dorado.
-const Tarjeta: React.FC<{r: typeof PONENTES[number]}> = ({r}) => (
-	<div style={{width: 800, height: 400, display: 'flex', alignItems: 'flex-end', gap: 24, borderBottom: `4px solid ${C.oro}`}}>
-		<div style={{width: 330, height: 396, flexShrink: 0, overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'flex-start'}}>
-			<Img src={staticFile(r.foto)} style={{width: 330, height: 'auto', display: 'block', marginTop: 10}} />
+// Recortes sin halo (public/img/*-oscuro.png) y la base de la foto se funde con el azul, sin corte seco.
+const Ponente: React.FC<{p: typeof PONENTES[number]}> = ({p}) => (
+	<div style={{width: 410, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+		<div style={{width: 410, height: 420, overflow: 'hidden', display: 'flex', justifyContent: 'center', alignItems: 'flex-start',
+			WebkitMaskImage: 'linear-gradient(180deg, #000 72%, transparent 100%)', maskImage: 'linear-gradient(180deg, #000 72%, transparent 100%)'}}>
+			<Img src={staticFile(p.foto)} style={{width: p.w, height: 'auto', display: 'block', flexShrink: 0}} />
 		</div>
-		<div style={{paddingBottom: 46, display: 'flex', flexDirection: 'column', gap: 10}}>
-			<div style={{fontFamily: F.titulo, fontSize: 70, color: '#FFFFFF', lineHeight: 1}}>{r.nombre}</div>
-			<div style={{fontFamily: F.texto, fontWeight: 800, fontSize: 31, color: C.celeste, whiteSpace: 'nowrap'}}>{r.tema}</div>
-		</div>
+		<div style={{width: 120, height: 4, background: C.oro, borderRadius: 2, marginTop: 6}} />
+		<T s={60} f={F.titulo} p={400} c="#FFFFFF" style={{marginTop: 16, whiteSpace: 'nowrap'}}>{p.nombre}</T>
+		<T s={31} p={800} c={C.celeste} style={{marginTop: 8, whiteSpace: 'nowrap'}}>{p.tema}</T>
 	</div>
 );
 const FILAS = [
@@ -48,12 +48,12 @@ const FILAS = [
 	['marco', 'shamanika', 'puerto-venado', 'orthosmile', 'wahari', 'delicias', 'farma', 'tania'],
 	['shabono', 'milsi', 'broaster', 'divino-nino', 'kubia', 'moto-daniel', 'jac', 'casita'],
 ];
-const CW = 196, CH = 118, PESO = 0.6 * CW * CH;
+const CW = 188, CH = 186, PESO = 0.6 * 196 * 150;
 const Logo: React.FC<{l: string}> = ({l}) => {
 	const {r, tinta} = (LOGOS as Record<string, {r: number; tinta: number}>)[l];
 	const A = PESO * Math.pow(0.35 / Math.max(0.12, tinta), 0.55);
 	let w = Math.sqrt(A * r), h = Math.sqrt(A / r);
-	const k = Math.min(1, (r > 3 ? 250 : 184) / w, 108 / h); w *= k; h *= k;
+	const k = Math.min(1, (r > 3 ? 240 : 180) / w, 160 / h); w *= k; h *= k;
 	return <div style={{width: Math.max(CW, w + 14), height: CH, display: 'flex', alignItems: 'center', justifyContent: 'center'}}><Img src={staticFile(`patroBlanco/${l}.png`)} style={{width: w, height: h, display: 'block'}} /></div>;
 };
 
@@ -61,11 +61,13 @@ export const PendonPregunta: React.FC = () => {
 	useFuentes();
 	return (
 		<AbsoluteFill style={{background: C.marino}}>
-			{centro(104, <>
-				<T s={50} p={900} c={C.celeste} ls={4}>CUMBRE DE TRANSFORMACIÓN EMPRESARIAL</T>
-				<T s={50} p={900} c={C.celeste} ls={14} style={{marginTop: 10}}>AMAZONAS 2026</T>
+			{centro(96, <>
+				<div style={{background: C.oro, borderRadius: 40, padding: '14px 46px'}}>
+					<T s={50} p={900} c={NOCHE}>CUMBRE DE TRANSFORMACIÓN EMPRESARIAL</T>
+					<T s={50} p={900} c={NOCHE} ls={8} style={{marginTop: 4}}>AMAZONAS 2026</T>
+				</div>
 			</>)}
-			{centro(270, <div style={{display: 'flex', alignItems: 'center', gap: 34}}>
+			{centro(300, <div style={{display: 'flex', alignItems: 'center', gap: 34}}>
 				{['LIDERA', 'VENDE', 'CRECE'].map((w, i) => (
 					<React.Fragment key={w}>
 						{i > 0 && <div style={{width: 24, height: 24, borderRadius: 24, background: C.oro}} />}
@@ -73,18 +75,18 @@ export const PendonPregunta: React.FC = () => {
 					</React.Fragment>
 				))}
 			</div>)}
-			{centro(560, <T s={40} p={700} c="#C9D6F2">4 expertos. 1 tarde. Herramientas reales para tu negocio.</T>)}
-			{centro(650, <div style={{display: 'flex', gap: 18, alignItems: 'center', background: C.oro, borderRadius: 60, padding: '16px 44px'}}>
+			{centro(530, <T s={40} p={700} c="#C9D6F2">4 expertos. 1 tarde. Herramientas reales para tu negocio.</T>)}
+			{centro(610, <div style={{display: 'flex', gap: 18, alignItems: 'center', background: C.oro, borderRadius: 60, padding: '16px 44px'}}>
 				<T s={50} p={900} c={NOCHE}>VIERNES 4 DE DICIEMBRE · 2:00 PM</T>
 			</div>)}
-			{centro(760, <T s={38} p={800} c="#FFFFFF" ls={6}>CLUB PARAPATA · PUERTO AYACUCHO</T>)}
+			{centro(715, <T s={38} p={800} c="#FFFFFF" ls={6}>CLUB PARAPATA · PUERTO AYACUCHO</T>)}
 			{/* LAS RESPUESTAS */}
-			<div style={{position: 'absolute', left: 80, right: 80, top: 860, display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', rowGap: 34}}>
-				{PONENTES.map((r) => <Tarjeta key={r.nombre} r={r} />)}
+			<div style={{position: 'absolute', left: 70, right: 70, top: 860, display: 'flex', justifyContent: 'space-between'}}>
+				{PONENTES.map((p) => <Ponente key={p.nombre} p={p} />)}
 			</div>
-			{centro(1752, <T s={30} p={700} c="#C9D6F2">+ Panel central con experto tributario y asesor laboral </T>)}
+			{centro(1462, <T s={32} p={700} c="#C9D6F2">+ Panel central con experto tributario y asesor laboral </T>)}
 			{/* RESPALDO */}
-			{centro(1830, <>
+			{centro(1548, <>
 				<div style={{display: 'flex', alignItems: 'center', gap: 24, width: 1640}}>
 					<div style={{flex: 1, height: 2, background: 'rgba(255,255,255,0.22)'}} />
 					<T s={34} p={900} c="#FFFFFF" ls={9}>RESPALDADO POR 32 MARCAS DE AMAZONAS</T>
@@ -99,8 +101,8 @@ export const PendonPregunta: React.FC = () => {
 					<T s={30} p={900} c={C.oro} ls={10}>AFORO LIMITADO</T>
 					<T s={46} p={900} c="#FFFFFF" style={{marginTop: 10}}>ENTRADAS A LA VENTA</T>
 					<div style={{display: 'flex', alignItems: 'baseline', gap: 16}}>
-						<div style={{fontFamily: F.titulo, fontSize: 200, lineHeight: 1, color: C.oro}}>50$</div>
-						<div style={{fontFamily: F.titulo, fontSize: 80, color: '#FFFFFF'}}>A BCV</div>
+						<div style={{fontFamily: F.titulo, fontSize: 200, lineHeight: 1, color: C.oro}}>USD 50</div>
+						<div style={{fontFamily: F.titulo, fontSize: 64, color: '#FFFFFF'}}>BCV</div>
 					</div>
 				</div>
 				<div style={{display: 'flex', alignItems: 'center', gap: 28}}>
