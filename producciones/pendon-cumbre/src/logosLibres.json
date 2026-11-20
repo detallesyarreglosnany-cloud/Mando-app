@@ -1,0 +1,130 @@
+{
+ "amavision": {
+  "tipo": "placa",
+  "r": 2.139
+ },
+ "betty-guillen": {
+  "tipo": "blanco",
+  "r": 1.0
+ },
+ "broaster": {
+  "tipo": "placa",
+  "r": 0.987
+ },
+ "casita": {
+  "tipo": "placa",
+  "r": 1.501
+ },
+ "cefoage": {
+  "tipo": "blanco",
+  "r": 0.898
+ },
+ "condimentos": {
+  "tipo": "blanco",
+  "r": 0.967
+ },
+ "delicias": {
+  "tipo": "blanco",
+  "r": 1.009
+ },
+ "divino-nino": {
+  "tipo": "placa",
+  "r": 1.3
+ },
+ "esquina-caliente": {
+  "tipo": "blanco",
+  "r": 1.004
+ },
+ "farma": {
+  "tipo": "placa",
+  "r": 1.252
+ },
+ "ferreconi": {
+  "tipo": "blanco",
+  "r": 2.969
+ },
+ "galaxia": {
+  "tipo": "placa",
+  "r": 2.097
+ },
+ "gran-hotel-apure": {
+  "tipo": "placa",
+  "r": 0.995
+ },
+ "jac": {
+  "tipo": "blanco",
+  "r": 3.187
+ },
+ "jesus-nazareth": {
+  "tipo": "placa",
+  "r": 1.063
+ },
+ "kubia": {
+  "tipo": "placa",
+  "r": 2.829
+ },
+ "marco": {
+  "tipo": "placa",
+  "r": 1.501
+ },
+ "mas-network": {
+  "tipo": "placa",
+  "r": 1.49
+ },
+ "milsi": {
+  "tipo": "placa",
+  "r": 1.889
+ },
+ "moto-daniel": {
+  "tipo": "placa",
+  "r": 3.433
+ },
+ "multiempresariales": {
+  "tipo": "blanco",
+  "r": 5.62
+ },
+ "navas": {
+  "tipo": "blanco",
+  "r": 4.158
+ },
+ "orthosmile": {
+  "tipo": "blanco",
+  "r": 0.861
+ },
+ "parapata": {
+  "tipo": "blanco",
+  "r": 0.976
+ },
+ "perfumes": {
+  "tipo": "placa",
+  "r": 1.552
+ },
+ "puerto-venado": {
+  "tipo": "placa",
+  "r": 1.32
+ },
+ "reyes-rivero": {
+  "tipo": "blanco",
+  "r": 1.069
+ },
+ "shabono": {
+  "tipo": "placa",
+  "r": 1.679
+ },
+ "shamanika": {
+  "tipo": "placa",
+  "r": 1.501
+ },
+ "tania": {
+  "tipo": "blanco",
+  "r": 1.015
+ },
+ "tecnoama": {
+  "tipo": "blanco",
+  "r": 2.766
+ },
+ "wahari": {
+  "tipo": "placa",
+  "r": 1.011
+ }
+}
